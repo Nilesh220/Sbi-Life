@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Register your team for IdeationX 2026. Check eligibility, form your team, select a challenge theme."/>
+  <title>Register — IdeationX 2026 | SBI Life</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+  <link rel="stylesheet" href="css/supplement.css"/>
+  <style>
+    .register-layout { display: grid; grid-template-columns: 1fr 400px; gap: var(--space-2xl); align-items: start; padding: var(--space-3xl) 0; }
+    .register-form-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-2xl); position: relative; overflow: hidden; }
+    .register-form-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--saffron),var(--teal)); }
+    .form-step { display: none; }
+    .form-step--active { display: block; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+    .register-sidebar { display: flex; flex-direction: column; gap: var(--space-lg); }
+    .sidebar-info { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-xl); }
+    .theme-select-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-sm); margin-top: var(--space-md); }
+    .theme-radio { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md) var(--space-lg); background: var(--bg-elevated); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s; }
+    .theme-radio:hover { border-color: var(--saffron); }
+    .theme-radio input { display: none; }
+    .theme-radio.selected { background: var(--saffron-dim); border-color: var(--saffron); }
+    .team-member-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding: var(--space-md); background: var(--bg-elevated); border-radius: var(--radius-md); border: 1px solid var(--glass-border); margin-bottom: var(--space-sm); }
+    .eligibility-checker { background: var(--bg-elevated); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: var(--space-lg); margin-bottom: var(--space-xl); }
+    .college-result { padding: var(--space-md); border-radius: var(--radius-sm); margin-top: var(--space-sm); font-size: 0.88rem; font-weight: 600; }
+    .college-result--valid { background: rgba(0,212,184,0.1); color: var(--teal); border: 1px solid rgba(0,212,184,0.3); }
+    .college-result--invalid { background: rgba(255,107,26,0.1); color: var(--saffron); border: 1px solid rgba(255,107,26,0.3); }
+    @media (max-width: 1024px) { .register-layout { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+  <div id="scroll-progress"></div>
+  <nav class="nav" id="main-nav">
+    <div class="container"><div class="nav__inner">
+      <div class="nav__logo"><img src="Assets/SBI life logo.webp" alt="SBI Life" height="36"/><div class="nav__logo-divider"></div><img src="Assets/Ideation x logo.webp" alt="IdeationX 2026" height="32" style="opacity:0.95"/></div>
+              <div class="nav__links">
+          <a href="index.html"     class="nav__link">Home</a>
+          <a href="ideationx.html" class="nav__link">Competition</a>
+          <a href="themes.html"    class="nav__link">Themes</a>
+          <div class="nav__dropdown">
+            <div class="nav__dropdown-toggle">More <span style="font-size:0.7rem;margin-left:2px">▼</span></div>
+            <div class="nav__dropdown-menu">
+              <a href="idea-hub.html"        class="nav__dropdown-item">💡 Idea Hub</a>
+              <a href="learning-hub.html"    class="nav__dropdown-item">📚 Learning Hub</a>
+              <a href="weekly-challenge.html"class="nav__dropdown-item">⚡ Weekly Challenge</a>
+              <a href="community.html"       class="nav__dropdown-item">👥 Community Feed</a>
+              <a href="campus-calendar.html" class="nav__dropdown-item">🗓️ Campus Calendar</a>
+              <a href="mentor-connect.html"  class="nav__dropdown-item">🎙️ Mentor Connect</a>
+              <a href="innovation-score.html"class="nav__dropdown-item">🏅 Innovation Score</a>
+            </div>
+          </div>
+        </div>
+      <div class="nav__actions"><a href="leaderboard.html" class="btn btn-ghost btn-sm">Leaderboard</a><a href="register.html" class="btn btn-primary btn-sm nav__link--active">Register Now</a><button class="nav__hamburger" id="nav-hamburger"><span></span><span></span><span></span></button></div>
+    </div></div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu"><button class="mobile-menu__close" id="mobile-menu-close">✕</button><div class="mobile-menu__links"><a href="index.html" class="mobile-menu__link">🏠 Home</a><a href="themes.html" class="mobile-menu__link">🎯 Themes</a><a href="ideationx.html" class="mobile-menu__link">🏆 Competition</a></div><div style="margin-top:auto"><a href="register.html" class="btn btn-primary" style="width:100%;justify-content:center">Register Now →</a></div></div>
+
+  <section style="padding:140px 0 40px;position:relative">
+    <div class="orb orb--teal" style="width:400px;height:400px;top:-100px;right:-100px;opacity:0.2"></div>
+    <div class="container">
+      <div class="anim-fade-up" style="max-width:600px">
+        <div class="tag tag--teal" style="margin-bottom:var(--space-lg)">Registration Open</div>
+        <h1>Register Your<br/><span class="text-gradient-teal">Team</span></h1>
+        <p style="margin-top:var(--space-md);font-size:1.05rem">3 steps. 5 minutes. Your shot at ₹10 Lakh + CNBC coverage + PPI offers from SBI Life.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="register-layout">
+
+      <!-- Form -->
+      <div>
+        <!-- Step indicator -->
+        <div class="step-indicator anim-fade-up" id="step-indicator">
+          <div class="step-dot step-dot--active" id="step-dot-1">1</div>
+          <div class="step-line" id="step-line-1"></div>
+          <div class="step-dot" id="step-dot-2">2</div>
+          <div class="step-line" id="step-line-2"></div>
+          <div class="step-dot" id="step-dot-3">3</div>
+          <div class="step-line" id="step-line-3"></div>
+          <div class="step-dot" id="step-dot-4">✓</div>
+        </div>
+        <div style="display:flex;gap:0;margin-bottom:var(--space-2xl)" class="anim-fade-up delay-100">
+          <span style="flex:1;font-size:0.72rem;color:var(--text-muted);text-align:center">Your Details</span>
+          <span style="flex:1;font-size:0.72rem;color:var(--text-muted);text-align:center">Your Team</span>
+          <span style="flex:1;font-size:0.72rem;color:var(--text-muted);text-align:center">Your Theme</span>
+          <span style="flex:1;font-size:0.72rem;color:var(--text-muted);text-align:center">Confirm</span>
+        </div>
+
+        <div class="register-form-card anim-fade-up delay-200">
+
+          <!-- Step 1: Personal -->
+          <div class="form-step form-step--active" id="step-1">
+            <h3 style="margin-bottom:var(--space-xs)">Your Details</h3>
+            <p style="font-size:0.88rem;margin-bottom:var(--space-xl)">You'll be registered as the team lead.</p>
+
+            <!-- Eligibility Checker -->
+            <div class="eligibility-checker">
+              <label class="form-label" for="college-search">🔍 Check Your College Eligibility</label>
+              <input class="form-input" id="college-search" type="text" placeholder="Start typing your college name..." oninput="checkCollege(this.value)" style="margin-top:var(--space-sm)"/>
+              <div id="college-result" style="display:none"></div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="first-name">First Name *</label>
+                <input class="form-input" id="first-name" type="text" placeholder="Aryan"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="last-name">Last Name *</label>
+                <input class="form-input" id="last-name" type="text" placeholder="Mehta"/>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:var(--space-md)">
+              <label class="form-label" for="college-name">College Name *</label>
+              <input class="form-input" id="college-name" type="text" placeholder="IIM Ahmedabad"/>
+            </div>
+            <div class="form-grid" style="margin-top:var(--space-md)">
+              <div class="form-group">
+                <label class="form-label" for="course">Course / Programme *</label>
+                <select class="form-input form-select" id="course">
+                  <option value="">Select Course</option>
+                  <option>MBA / PGDM</option>
+                  <option>BBA / BMS</option>
+                  <option>B.Tech / B.E.</option>
+                  <option>B.Com</option>
+                  <option>LLB / LLM</option>
+                  <option>BA / BSc</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="year">Year of Study *</label>
+                <select class="form-input form-select" id="year">
+                  <option value="">Select Year</option>
+                  <option>Year 1</option>
+                  <option>Year 2</option>
+                  <option>Year 3</option>
+                  <option>Year 4</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-grid" style="margin-top:var(--space-md)">
+              <div class="form-group">
+                <label class="form-label" for="email">College Email *</label>
+                <input class="form-input" id="email" type="email" placeholder="aryan@iima.ac.in"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number *</label>
+                <input class="form-input" id="phone" type="tel" placeholder="+91 98765 43210"/>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:var(--space-xl)" onclick="goStep(2)">Continue — Add Team Members →</button>
+          </div>
+
+          <!-- Step 2: Team -->
+          <div class="form-step" id="step-2">
+            <h3 style="margin-bottom:var(--space-xs)">Your Team</h3>
+            <p style="font-size:0.88rem;margin-bottom:var(--space-xl)">IdeationX requires teams of exactly 3 members. Add your 2 teammates below.</p>
+
+            <div style="margin-bottom:var(--space-md)">
+              <label class="form-label">Team Name *</label>
+              <input class="form-input" id="team-name" type="text" placeholder="e.g., The Bharat Builders" style="margin-top:var(--space-sm)"/>
+            </div>
+
+            <div class="form-label" style="margin-bottom:var(--space-md)">Team Member 2</div>
+            <div class="team-member-row">
+              <div class="form-group"><label class="form-label">Name *</label><input class="form-input" id="member-2-name" type="text" placeholder="Priya Nair"/></div>
+              <div class="form-group"><label class="form-label">Email *</label><input class="form-input" id="member-2-email" type="email" placeholder="priya@college.ac.in"/></div>
+              <div class="form-group"><label class="form-label">Course</label><input class="form-input" id="member-2-course" type="text" placeholder="MBA Year 2"/></div>
+              <div class="form-group"><label class="form-label">Phone</label><input class="form-input" id="member-2-phone" type="tel" placeholder="+91 ..."/></div>
+            </div>
+
+            <div class="form-label" style="margin-bottom:var(--space-md)">Team Member 3</div>
+            <div class="team-member-row">
+              <div class="form-group"><label class="form-label">Name *</label><input class="form-input" id="member-3-name" type="text" placeholder="Rohit Verma"/></div>
+              <div class="form-group"><label class="form-label">Email *</label><input class="form-input" id="member-3-email" type="email" placeholder="rohit@college.ac.in"/></div>
+              <div class="form-group"><label class="form-label">Course</label><input class="form-input" id="member-3-course" type="text" placeholder="B.Tech Year 3"/></div>
+              <div class="form-group"><label class="form-label">Phone</label><input class="form-input" id="member-3-phone" type="tel" placeholder="+91 ..."/></div>
+            </div>
+
+            <div style="display:flex;gap:var(--space-md);margin-top:var(--space-xl)">
+              <button class="btn btn-ghost btn-lg" style="flex:1;justify-content:center" onclick="goStep(1)">← Back</button>
+              <button class="btn btn-primary btn-lg" style="flex:2;justify-content:center" onclick="goStep(3)">Continue — Choose Theme →</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Theme -->
+          <div class="form-step" id="step-3">
+            <h3 style="margin-bottom:var(--space-xs)">Choose Your Theme</h3>
+            <p style="font-size:0.88rem;margin-bottom:var(--space-xl)">Select exactly one of the 5 challenge themes. You can only change your selection before the submission deadline.</p>
+
+            <div class="theme-select-grid" id="theme-radio-group">
+              <!-- Rendered by JS -->
+            </div>
+
+            <div style="display:flex;gap:var(--space-md);margin-top:var(--space-xl)">
+              <button class="btn btn-ghost btn-lg" style="flex:1;justify-content:center" onclick="goStep(2)">← Back</button>
+              <button class="btn btn-primary btn-lg" style="flex:2;justify-content:center" onclick="goStep(4)">Review & Submit →</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Confirm -->
+          <div class="form-step" id="step-4">
+            <div style="text-align:center;padding:var(--space-xl) 0">
+              <div style="font-size:4rem;margin-bottom:var(--space-lg)">🎉</div>
+              <h3 style="margin-bottom:var(--space-md)">Almost There!</h3>
+              <p style="margin-bottom:var(--space-xl)">Review your registration details, then submit. You'll get a confirmation email immediately with your team ID and submission portal access.</p>
+              <div style="background:var(--bg-elevated);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:var(--space-xl);text-align:left;margin-bottom:var(--space-xl)">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md)">
+                  <div><div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Team Lead</div><div style="font-weight:600">Aryan Mehta</div></div>
+                  <div><div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">College</div><div style="font-weight:600">IIM Ahmedabad</div></div>
+                  <div><div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Team Size</div><div style="font-weight:600">3 Members</div></div>
+                  <div><div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Theme</div><div style="font-weight:600;color:var(--saffron)">Kirana to Coverage 🏪</div></div>
+                </div>
+              </div>
+              <div style="display:flex;gap:var(--space-md);justify-content:center">
+                <button class="btn btn-ghost btn-lg" onclick="goStep(3)">← Edit</button>
+                <button class="btn btn-primary btn-lg" onclick="submitRegistration()">🚀 Submit Registration</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="register-sidebar">
+        <div class="sidebar-info reveal">
+          <h5 style="margin-bottom:var(--space-md)">⏰ Time Left to Register</h5>
+          <div id="register-countdown" class="countdown" style="flex-direction:column;gap:var(--space-sm)"></div>
+        </div>
+
+        <div class="sidebar-info reveal reveal--delay-1">
+          <h5 style="margin-bottom:var(--space-md)">✅ Eligibility Checklist</h5>
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm)">
+            <div style="display:flex;align-items:center;gap:var(--space-sm);font-size:0.88rem"><span style="color:var(--teal)">✓</span> Student at a partner college</div>
+            <div style="display:flex;align-items:center;gap:var(--space-sm);font-size:0.88rem"><span style="color:var(--teal)">✓</span> Team of exactly 3 students</div>
+            <div style="display:flex;align-items:center;gap:var(--space-sm);font-size:0.88rem"><span style="color:var(--teal)">✓</span> All members same college</div>
+            <div style="display:flex;align-items:center;gap:var(--space-sm);font-size:0.88rem"><span style="color:var(--teal)">✓</span> No team member in 2 teams</div>
+            <div style="display:flex;align-items:center;gap:var(--space-sm);font-size:0.88rem"><span style="color:var(--teal)">✓</span> College has slots remaining</div>
+          </div>
+        </div>
+
+        <div class="sidebar-info reveal reveal--delay-2">
+          <h5 style="margin-bottom:var(--space-md)">📋 What Happens Next</h5>
+          <div style="display:flex;flex-direction:column;gap:var(--space-md)">
+            <div style="display:flex;gap:var(--space-md);align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:50%;background:var(--saffron-dim);border:1px solid var(--saffron);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;color:var(--saffron);flex-shrink:0">1</div>
+              <div><div style="font-weight:600;font-size:0.9rem">Confirmation Email</div><div style="font-size:0.8rem;color:var(--text-muted)">With your Team ID and submission portal link</div></div>
+            </div>
+            <div style="display:flex;gap:var(--space-md);align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:50%;background:var(--teal-dim);border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;color:var(--teal);flex-shrink:0">2</div>
+              <div><div style="font-weight:600;font-size:0.9rem">Upload Your Entry</div><div style="font-size:0.8rem;color:var(--text-muted)">Video pitch + 8-10 slide deck by Sep 30</div></div>
+            </div>
+            <div style="display:flex;gap:var(--space-md);align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:50%;background:var(--gold-dim);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;color:var(--gold);flex-shrink:0">3</div>
+              <div><div style="font-weight:600;font-size:0.9rem">College Evaluation</div><div style="font-size:0.8rem;color:var(--text-muted)">Top 3 from your college advance</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-info reveal reveal--delay-3" style="background:linear-gradient(135deg,rgba(255,107,26,0.08),rgba(0,212,184,0.04));border-color:rgba(255,107,26,0.2)">
+          <h5 style="margin-bottom:var(--space-sm)">🏆 Prizes at Stake</h5>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:var(--space-md)">
+            <div style="display:flex;justify-content:space-between;font-size:0.88rem"><span>Cash Prize</span><span style="font-weight:700;color:var(--gold)">₹10,00,000</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.88rem"><span>PPI Offers</span><span style="font-weight:700;color:var(--teal)">SBI Life</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.88rem"><span>CNBC Feature</span><span style="font-weight:700;color:var(--saffron)">National TV</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- padding bottom -->
+  <div style="height:var(--space-3xl)"></div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand"><div style="display:flex;align-items:center;gap:12px;margin-bottom:var(--space-md)"><img src="Assets/SBI life logo.webp" alt="SBI Life" height="28"/><div style="width:1px;height:24px;background:var(--glass-border)"></div><img src="Assets/Ideation x logo.webp" alt="IdeationX" height="24" style="opacity:0.8"/></div><p>Bharat Begins With An Idea. © 2026 SBI Life Insurance Co. Ltd.</p></div>
+        <div class="footer__col"><h6>Competition</h6><div class="footer__links"><a href="ideationx.html">Overview</a><a href="themes.html">Themes</a><a href="register.html">Register</a></div></div>
+        <div class="footer__col"><h6>Learn</h6><div class="footer__links"><a href="learning-hub.html">Learning Hub</a><a href="resources.html">Templates</a></div></div>
+        <div class="footer__col"><h6>Support</h6><div class="footer__links"><a href="#">Contact</a><a href="#">FAQs</a></div></div>
+      </div>
+      <div class="footer__bottom"><p>© 2026 SBI Life Insurance Co. Ltd. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let currentStep = 1;
+    let selectedThemeId = null;
+
+    function goStep(n) {
+      document.getElementById('step-' + currentStep).classList.remove('form-step--active');
+      document.getElementById('step-' + n).classList.add('form-step--active');
+      // Update dots
+      for (let i = 1; i <= 4; i++) {
+        const dot = document.getElementById('step-dot-' + i);
+        if (!dot) continue;
+        dot.classList.remove('step-dot--active','step-dot--done');
+        if (i < n) dot.classList.add('step-dot--done');
+        else if (i === n) dot.classList.add('step-dot--active');
+      }
+      for (let i = 1; i <= 3; i++) {
+        const line = document.getElementById('step-line-' + i);
+        if (!line) continue;
+        line.classList.toggle('step-line--done', i < n);
+      }
+      currentStep = n;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function checkCollege(val) {
+      const res = document.getElementById('college-result');
+      if (!val || val.length < 3) { res.style.display = 'none'; return; }
+      const colleges = IdeationXData?.campusCalendar?.map(c => c.college) || [];
+      const match = colleges.find(c => c.toLowerCase().includes(val.toLowerCase()));
+      res.style.display = 'block';
+      if (match) {
+        res.className = 'college-result college-result--valid';
+        res.textContent = '✅ ' + match + ' is a partner college. You can register!';
+      } else {
+        res.className = 'college-result college-result--invalid';
+        res.textContent = '⚠️ We couldn\'t find your college in our partner list. Contact support.';
+      }
+    }
+
+    async function submitRegistration() {
+      // Gather Form Data
+      const registrationData = {
+        team_name: document.getElementById('team-name')?.value || "Unnamed Team",
+        lead_first_name: document.getElementById('first-name')?.value || "",
+        lead_last_name: document.getElementById('last-name')?.value || "",
+        college: document.getElementById('college-name')?.value || "",
+        course: document.getElementById('course')?.value || "",
+        year: document.getElementById('year')?.value || "",
+        email: document.getElementById('email')?.value || "",
+        phone: document.getElementById('phone')?.value || "",
+        member_2_name: document.getElementById('member-2-name')?.value || "",
+        member_2_email: document.getElementById('member-2-email')?.value || "",
+        member_2_course: document.getElementById('member-2-course')?.value || "",
+        member_2_phone: document.getElementById('member-2-phone')?.value || "",
+        member_3_name: document.getElementById('member-3-name')?.value || "",
+        member_3_email: document.getElementById('member-3-email')?.value || "",
+        member_3_course: document.getElementById('member-3-course')?.value || "",
+        member_3_phone: document.getElementById('member-3-phone')?.value || "",
+        theme_id: selectedThemeId,
+        created_at: new Date().toISOString()
+      };
+
+      let success = false;
+
+      // Submit to Supabase if client is initialized
+      if (window.supabaseClient) {
+        try {
+          const { error } = await window.supabaseClient
+            .from('registrations')
+            .insert([registrationData]);
+
+          if (error) throw error;
+          success = true;
+        } catch (err) {
+          console.error("Supabase insert error:", err);
+          IdeationX.showToast('⚠️ Database error: ' + err.message, 'error', 4000);
+          return;
+        }
+      } else {
+        // LocalStorage Fallback registry mock
+        try {
+          const list = JSON.parse(localStorage.getItem('registrations') || '[]');
+          list.push(registrationData);
+          localStorage.setItem('registrations', JSON.stringify(list));
+          success = true;
+        } catch (err) {
+          console.error("Local storage error:", err);
+        }
+      }
+
+      if (success) {
+        IdeationX.showToast('🎉 Registration submitted successfully! Check your college email.', 'success', 5000);
+        setTimeout(() => { window.location.href = 'index.html'; }, 5500);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Render theme radios
+      const container = document.getElementById('theme-radio-group');
+      if (container && IdeationXData) {
+        container.innerHTML = IdeationXData.themes.map(t => `
+          <label class="theme-radio" onclick="selectTheme(this, ${t.id})" style="--tc:${t.color}">
+            <input type="radio" name="theme" value="${t.id}"/>
+            <span style="font-size:1.5rem">${t.icon}</span>
+            <div style="flex:1">
+              <div style="font-weight:700;font-size:0.95rem">${t.name}</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">${t.entries.toLocaleString()} entries across editions</div>
+            </div>
+            <div class="theme-radio__check" style="width:20px;height:20px;border-radius:50%;border:2px solid var(--glass-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.7rem;transition:all 0.2s"></div>
+          </label>
+        `).join('');
+      }
+      IdeationX.initCountdown('2026-09-30T23:59:59', 'register-countdown');
+    });
+
+    function selectTheme(el, id) {
+      document.querySelectorAll('.theme-radio').forEach(r => r.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedThemeId = id;
+    }
+  </script>
+</body>
+</html>

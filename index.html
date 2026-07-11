@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="SBI Life IdeationX 2026 — Bharat Begins With An Idea. India's most ambitious student innovation competition. 100 colleges, 31,000+ students, 5 challenges to redefine life insurance for Bharat."/>
+  <meta name="theme-color" content="#020408"/>
+  <meta property="og:title" content="IdeationX 2026 — Bharat Begins With An Idea"/>
+  <meta property="og:description" content="India's largest student innovation platform. Join 31,000+ students solving real Bharat challenges in life insurance."/>
+  <title>IdeationX 2026 — Bharat Begins With An Idea | SBI Life</title>
+
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+  <link rel="stylesheet" href="css/supplement.css"/>
+  <style>
+    /* ── Home-specific styles ─────────────────────── */
+
+    /* Hero */
+    .hero-home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 100px;
+      background: var(--bg-void);
+    }
+    .hero-home__bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,107,26,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,26,0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 100%);
+    }
+    .hero-home__content { position: relative; z-index: 2; }
+    .hero-home__split {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-home__visual {
+      position: relative;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-home__ring-outer {
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,107,26,0.15);
+      display: flex; align-items: center; justify-content: center;
+      animation: spin-slow 30s linear infinite;
+    }
+    .hero-home__ring-inner {
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,212,184,0.12);
+      display: flex; align-items: center; justify-content: center;
+      animation: spin-slow-reverse 20s linear infinite;
+    }
+    .hero-home__logo-center {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,26,0.15), rgba(0,212,184,0.05), transparent);
+      border: 2px solid rgba(255,107,26,0.3);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 60px rgba(255,107,26,0.2), inset 0 0 40px rgba(255,107,26,0.05);
+      flex-direction: column; gap: 8px;
+      position: absolute;
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+    .hero-home__logo-center img { width: 140px; height: auto; }
+
+    /* Floating orbital dots */
+    .orbit-dot {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .orbit-dot--1 { background: var(--saffron); box-shadow: 0 0 12px var(--saffron); top: 10px; left: 50%; }
+    .orbit-dot--2 { background: var(--teal);    box-shadow: 0 0 12px var(--teal);    bottom: 10px; right: 25%; }
+    .orbit-dot--3 { background: var(--gold);    box-shadow: 0 0 12px var(--gold);    left: 10px; top: 40%; }
+
+    /* Hero title */
+    .hero__title-line1 { display: block; color: var(--text-primary); }
+    .hero__title-line2 {
+      display: block;
+      background: linear-gradient(135deg, var(--saffron) 0%, #FF3E00 40%, var(--gold) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero__title-line3 { display: block; color: var(--teal); }
+
+    /* Edition badge */
+    .edition-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,107,26,0.08);
+      border: 1px solid rgba(255,107,26,0.2);
+      margin-bottom: var(--space-xl);
+    }
+    .edition-badge__year {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 800;
+      color: var(--saffron); letter-spacing: 0.05em;
+    }
+    .edition-badge__sep { color: var(--glass-border); }
+    .edition-badge__tag {
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;
+      color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .edition-badge .ping-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--saffron); flex-shrink: 0; }
+
+    /* Stats row */
+    .hero-stats {
+      display: flex; gap: var(--space-xl); margin-top: var(--space-2xl); flex-wrap: wrap;
+    }
+    .hero-stat {
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .hero-stat__num {
+      font-family: var(--font-display); font-weight: 900; font-size: 2.2rem; line-height: 1;
+    }
+    .hero-stat__label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.04em; }
+
+    /* ── Stats Strip ─────────────────────────────── */
+    .home-stats { padding: 32px 0; background: var(--bg-deep); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+    .home-stats__inner { display: flex; gap: 0; }
+    .home-stat-item {
+      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: var(--space-lg); text-align: center; position: relative;
+    }
+    .home-stat-item::after { content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: var(--glass-border); }
+    .home-stat-item:last-child::after { display: none; }
+    .home-stat-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 900; line-height: 1; }
+    .home-stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+
+    /* ── Marquee Strip ──────────────────────────── */
+    .marquee-strip { padding: 16px 0; border-bottom: 1px solid var(--glass-border); overflow: hidden; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 12px; padding: 0 32px; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+    .marquee-item span { color: var(--saffron); }
+    .marquee-dot { width: 4px; height: 4px; background: var(--saffron); border-radius: 50%; }
+
+    /* ── Phase Tracker Section ───────────────────── */
+    .phase-section { padding: var(--space-3xl) 0; }
+    .phase-tracker-home {
+      background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl);
+      padding: var(--space-2xl); position: relative; overflow: hidden;
+    }
+    .phase-tracker-home::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--saffron), var(--gold), var(--teal));
+    }
+    .phase-steps { display: flex; align-items: flex-start; gap: 0; margin-top: var(--space-xl); }
+    .phase-step-item {
+      flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;
+    }
+    .phase-step-item::before {
+      content: ''; position: absolute; top: 21px; left: calc(50% + 21px); right: calc(-50% + 21px);
+      height: 2px; background: var(--glass-border); z-index: 0;
+    }
+    .phase-step-item:last-child::before { display: none; }
+    .phase-step-item--done::before { background: var(--teal); }
+    .phase-step-item--active::before { background: linear-gradient(90deg, var(--saffron), var(--glass-border)); }
+    .phase-dot-circle {
+      width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700;
+      position: relative; z-index: 1; transition: all 0.3s;
+    }
+    .phase-step-item--done .phase-dot-circle   { background: var(--teal-dim); border: 2px solid var(--teal); color: var(--teal); }
+    .phase-step-item--active .phase-dot-circle { background: var(--grad-saffron); border: 2px solid var(--saffron); color: #fff; box-shadow: 0 0 24px var(--saffron-glow); animation: glow-pulse 2s infinite; }
+    .phase-step-item--locked .phase-dot-circle { background: var(--bg-elevated); border: 2px solid var(--glass-border); color: var(--text-muted); opacity: 0.5; }
+    .phase-step-item--upcoming .phase-dot-circle { background: var(--bg-elevated); border: 2px solid var(--glass-border); color: var(--text-muted); }
+    .phase-dot-label { margin-top: 10px; font-size: 0.72rem; font-weight: 600; max-width: 90px; }
+    .phase-step-item--active .phase-dot-label { color: var(--saffron); }
+    .phase-step-item--done .phase-dot-label   { color: var(--teal); }
+    .phase-step-item--locked .phase-dot-label, .phase-step-item--upcoming .phase-dot-label { color: var(--text-muted); }
+    .phase-dot-date { font-size: 0.65rem; color: var(--text-muted); margin-top: 3px; }
+
+    /* ── Themes Section ─────────────────────────── */
+    .themes-section { padding: var(--space-3xl) 0; background: var(--bg-deep); border-top: 1px solid var(--glass-border); }
+    .themes-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-md); margin-top: var(--space-2xl); }
+
+    /* ── Winners Section ───────────────────────── */
+    .winners-section { padding: var(--space-3xl) 0; }
+    .quotes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-2xl); }
+
+    /* ── Weekly Challenge Teaser ─────────────────── */
+    .challenge-teaser { padding: var(--space-3xl) 0; background: var(--bg-deep); border-top: 1px solid var(--glass-border); }
+    .challenge-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center;
+    }
+
+    /* ── Idea Hub Preview ─────────────────────────── */
+    .idea-preview { padding: var(--space-3xl) 0; }
+    .idea-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl); }
+
+    /* ── Hub Cards (Learning, Mentor, Etc.) ─────── */
+    .hubs-section { padding: var(--space-3xl) 0; background: var(--bg-deep); border-top: 1px solid var(--glass-border); }
+    .hubs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl); }
+    .hub-card {
+      padding: var(--space-xl); border-radius: var(--radius-xl);
+      border: 1px solid var(--glass-border); background: var(--bg-card);
+      transition: all 0.3s; cursor: pointer; text-decoration: none; display: block;
+    }
+    .hub-card:hover { border-color: var(--saffron); transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .hub-card__icon { font-size: 2.5rem; margin-bottom: var(--space-md); }
+    .hub-card__title { font-size: 1.2rem; font-weight: 800; margin-bottom: var(--space-sm); }
+    .hub-card__desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+    .hub-card__link { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--space-md); color: var(--saffron); font-weight: 600; font-size: 0.88rem; }
+
+    /* ── CTA Banner ───────────────────────────────── */
+    .cta-banner {
+      padding: var(--space-3xl) 0;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(255,107,26,0.07) 0%, transparent 70%);
+    }
+    .cta-banner__inner {
+      text-align: center; position: relative; z-index: 1;
+      max-width: 700px; margin: 0 auto;
+    }
+    .cta-banner__title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; margin-bottom: var(--space-md); }
+    .cta-banner__sub { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: var(--space-xl); }
+    .cta-banner__actions { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .themes-grid { grid-template-columns: repeat(3, 1fr); }
+      .hubs-grid { grid-template-columns: 1fr 1fr; }
+      .idea-preview-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero-home__split { grid-template-columns: 1fr; }
+      .hero-home__visual { display: none; }
+      .themes-grid { grid-template-columns: 1fr 1fr; }
+      .quotes-grid { grid-template-columns: 1fr; }
+      .challenge-inner { grid-template-columns: 1fr; }
+      .hubs-grid { grid-template-columns: 1fr; }
+      .idea-preview-grid { grid-template-columns: 1fr; }
+      .phase-steps { overflow-x: auto; gap: var(--space-sm); padding-bottom: 8px; }
+      .home-stats__inner { flex-wrap: wrap; }
+      .home-stat-item { min-width: 50%; }
+      .home-stat-item::after { display: none; }
+      .home-stat-item:nth-child(odd) { border-right: 1px solid var(--glass-border); }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+  <div id="scroll-progress"></div>
+
+  <!-- ════ NAV ════ -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <div class="nav__logo">
+          <img src="Assets/SBI life logo.webp" alt="SBI Life" height="36"/>
+          <div class="nav__logo-divider"></div>
+          <img src="Assets/Ideation x logo.webp" alt="IdeationX 2026" height="32" style="opacity:0.95"/>
+        </div>
+
+                <div class="nav__links">
+          <a href="index.html"     class="nav__link">Home</a>
+          <a href="ideationx.html" class="nav__link">Competition</a>
+          <a href="themes.html"    class="nav__link">Themes</a>
+          <div class="nav__dropdown">
+            <div class="nav__dropdown-toggle">More <span style="font-size:0.7rem;margin-left:2px">▼</span></div>
+            <div class="nav__dropdown-menu">
+              <a href="idea-hub.html"        class="nav__dropdown-item">💡 Idea Hub</a>
+              <a href="learning-hub.html"    class="nav__dropdown-item">📚 Learning Hub</a>
+              <a href="weekly-challenge.html"class="nav__dropdown-item">⚡ Weekly Challenge</a>
+              <a href="community.html"       class="nav__dropdown-item">👥 Community Feed</a>
+              <a href="campus-calendar.html" class="nav__dropdown-item">🗓️ Campus Calendar</a>
+              <a href="mentor-connect.html"  class="nav__dropdown-item">🎙️ Mentor Connect</a>
+              <a href="innovation-score.html"class="nav__dropdown-item">🏅 Innovation Score</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav__actions">
+          <a href="leaderboard.html" class="btn btn-ghost btn-sm">Leaderboard</a>
+          <a href="register.html"    class="btn btn-primary btn-sm">Register Now</a>
+          <button class="nav__hamburger" id="nav-hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close" id="mobile-menu-close">✕</button>
+    <div class="mobile-menu__links">
+      <a href="index.html"           class="mobile-menu__link">🏠 Home</a>
+      <a href="ideationx.html"       class="mobile-menu__link">🏆 Competition</a>
+      <a href="themes.html"          class="mobile-menu__link">🎯 Challenge Themes</a>
+      <a href="idea-hub.html"        class="mobile-menu__link">💡 Idea Hub</a>
+      <a href="learning-hub.html"    class="mobile-menu__link">📚 Learning Hub</a>
+      <a href="mentor-connect.html"  class="mobile-menu__link">🎙️ Mentor Connect</a>
+      <a href="weekly-challenge.html"class="mobile-menu__link">⚡ Weekly Challenge</a>
+      <a href="community.html"       class="mobile-menu__link">👥 Community</a>
+      <a href="campus-calendar.html" class="mobile-menu__link">🗓️ Campus Calendar</a>
+      <a href="leaderboard.html"     class="mobile-menu__link">📊 Leaderboard</a>
+      <a href="resources.html"       class="mobile-menu__link">📋 Resources</a>
+    </div>
+    <div style="margin-top:auto;padding-top:var(--space-xl);">
+      <a href="register.html" class="btn btn-primary" style="width:100%;justify-content:center">Register for IdeationX 2026 →</a>
+    </div>
+  </div>
+
+  <!-- ════ HERO ════ -->
+  <section class="hero-home">
+    <!-- Ambient orbs -->
+    <div class="orb orb--saffron" style="width:500px;height:500px;top:-100px;left:-100px;opacity:0.4"></div>
+    <div class="orb orb--teal"    style="width:400px;height:400px;bottom:-100px;right:-80px;opacity:0.35"></div>
+    <div class="orb orb--cerulean"style="width:300px;height:300px;top:40%;right:30%;opacity:0.15"></div>
+    <canvas id="hero-particles" style="position:absolute;inset:0;z-index:1;pointer-events:none"></canvas>
+    <div class="hero-home__bg-grid"></div>
+
+    <div class="container">
+      <div class="hero-home__split">
+
+        <!-- Left: Text -->
+        <div class="hero-home__content">
+          <div class="edition-badge anim-fade-up">
+            <div class="ping-dot"></div>
+            <span class="edition-badge__year">IDEATIONX 3.0 — 2026</span>
+            <span class="edition-badge__sep">|</span>
+            <span class="edition-badge__tag">Registration Open</span>
+          </div>
+
+          <h1 class="hero__title anim-fade-up delay-100">
+            <span class="hero__title-line1">Bharat</span>
+            <span class="hero__title-line2">Begins With</span>
+            <span class="hero__title-line3">An Idea.</span>
+          </h1>
+
+          <p class="hero__subtitle anim-fade-up delay-200">
+            India's most ambitious student innovation platform — bringing together 31,000+ students from 100 colleges to solve the most important challenges facing Bharat's future.
+          </p>
+
+          <div class="hero__ctas anim-fade-up delay-300">
+            <a href="register.html" class="btn btn-primary btn-lg">
+              Register Your Team
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="themes.html" class="btn btn-secondary btn-lg">Explore Challenges</a>
+          </div>
+
+          <!-- Hero stats -->
+          <div class="hero-stats anim-fade-up delay-400">
+            <div class="hero-stat">
+              <span class="hero-stat__num text-gradient-saffron" data-counter="100" data-suffix="+">0+</span>
+              <span class="hero-stat__label">Elite Colleges</span>
+            </div>
+            <div class="hero-stat__divider" style="width:1px;height:44px;background:var(--glass-border);align-self:center"></div>
+            <div class="hero-stat">
+              <span class="hero-stat__num text-gradient-teal" data-counter="31420">0</span>
+              <span class="hero-stat__label">Students Reached</span>
+            </div>
+            <div class="hero-stat__divider" style="width:1px;height:44px;background:var(--glass-border);align-self:center"></div>
+            <div class="hero-stat">
+              <span class="hero-stat__num text-gradient-gold" data-counter="4872">0</span>
+              <span class="hero-stat__label">Ideas Submitted</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual Ring -->
+        <div class="hero-home__visual anim-scale-in delay-300">
+          <div class="hero-home__ring-outer">
+            <div class="orbit-dot orbit-dot--1"></div>
+            <div class="hero-home__ring-inner">
+              <div class="orbit-dot orbit-dot--2"></div>
+              <div class="orbit-dot orbit-dot--3"></div>
+              <div class="hero-home__logo-center">
+                <img src="Assets/Ideation x logo.webp" alt="IdeationX" style="width:130px;opacity:0.9"/>
+                <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--saffron);letter-spacing:0.1em;text-transform:uppercase">2026</div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating badges around ring -->
+          <div style="position:absolute;top:30px;right:20px" class="anim-float">
+            <div class="glass-card" style="padding:10px 14px;font-size:0.78rem;font-weight:700">
+              <span style="color:var(--gold)">🏆</span> ₹10 Lakh Prize Pool
+            </div>
+          </div>
+          <div style="position:absolute;bottom:60px;left:10px" class="anim-float delay-300">
+            <div class="glass-card" style="padding:10px 14px;font-size:0.78rem;font-weight:700">
+              <span style="color:var(--teal)">🎓</span> PPI Offers
+            </div>
+          </div>
+          <div style="position:absolute;top:45%;right:-10px" class="anim-float delay-500">
+            <div class="glass-card" style="padding:10px 14px;font-size:0.78rem;font-weight:700">
+              <span style="color:var(--saffron)">📺</span> CNBC Feature
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ MARQUEE STRIP ════ -->
+  <div class="marquee-strip">
+    <div class="marquee-wrapper">
+      <div class="marquee-inner" id="marquee-inner">
+        <span class="marquee-item"><span>IIM Ahmedabad</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>SPJIMR Mumbai</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>XLRI Jamshedpur</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>FMS Delhi</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>IIM Bangalore</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>TISS Mumbai</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>MDI Gurgaon</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>Great Lakes Chennai</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>MICA Ahmedabad</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>NMIMS Mumbai</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>IIFT Delhi</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>SIBM Pune</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>IMT Ghaziabad</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>IIM Kozhikode</span> <span class="marquee-dot"></span></span>
+        <span class="marquee-item"><span>XIME Bangalore</span> <span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ LIVE STATS ════ -->
+  <div class="home-stats reveal">
+    <div class="container">
+      <div class="home-stats__inner">
+        <div class="home-stat-item">
+          <div class="live-badge" style="margin-bottom:8px">
+            <div class="ping-dot"></div>
+            Live
+          </div>
+          <div class="home-stat-num text-gradient-saffron" data-counter="100" data-suffix="+">0+</div>
+          <div class="home-stat-label">Colleges Onboarded</div>
+        </div>
+        <div class="home-stat-item">
+          <div style="height:32px;margin-bottom:8px"></div>
+          <div class="home-stat-num text-gradient-teal" data-counter="31420">0</div>
+          <div class="home-stat-label">Students Reached</div>
+        </div>
+        <div class="home-stat-item">
+          <div style="height:32px;margin-bottom:8px"></div>
+          <div class="home-stat-num text-gradient-gold" data-counter="4872">0</div>
+          <div class="home-stat-label">Ideas Submitted</div>
+        </div>
+        <div class="home-stat-item">
+          <div style="height:32px;margin-bottom:8px"></div>
+          <div class="home-stat-num" style="background:linear-gradient(135deg,#C855FF,#00B5EF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" data-counter="300">0</div>
+          <div class="home-stat-label">National Qualifiers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ PHASE TRACKER ════ -->
+  <section class="phase-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow">Competition Progress</div>
+        <h2>Where Are We Now?</h2>
+        <p>IdeationX 2026 is live and in progress. Track each phase of the competition from Campus Induction to the Grand Finale.</p>
+      </div>
+
+      <div class="phase-tracker-home reveal reveal--delay-1">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+          <div>
+            <h4 style="margin-bottom:4px">Phase 3 — College Evaluation</h4>
+            <p style="font-size:0.88rem;margin:0">Faculty panels at each college are evaluating submissions. Top 3 per college advance to National Qualifiers.</p>
+          </div>
+          <span class="tag tag--saffron" style="flex-shrink:0">
+            <span class="ping-dot" style="display:inline-block;width:6px;height:6px;background:var(--saffron);border-radius:50%"></span>
+            Active Now
+          </span>
+        </div>
+
+        <div class="phase-steps" id="phase-steps" style="margin-top:var(--space-xl)">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div style="display:flex;gap:var(--space-md);align-items:center;justify-content:flex-end;margin-top:var(--space-xl);flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--teal)">
+            <span style="width:10px;height:10px;border-radius:50%;background:var(--teal);display:inline-block"></span>Completed
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--saffron)">
+            <span style="width:10px;height:10px;border-radius:50%;background:var(--saffron);display:inline-block"></span>Active
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted)">
+            <span style="width:10px;height:10px;border-radius:50%;background:var(--bg-elevated);border:1px solid var(--glass-border);display:inline-block"></span>Upcoming
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CHALLENGE THEMES ════ -->
+  <section class="themes-section">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="eyebrow" style="justify-content:center">The 5 Challenge Themes</div>
+        <h2>Pick Your Bharat Problem.<br/>Build Your Solution.</h2>
+        <p>Each theme is anchored to a real, unsolved challenge at the intersection of life insurance and Bharat's social fabric.</p>
+      </div>
+
+      <div class="themes-grid reveal reveal--delay-1">
+        <!-- Theme 1 -->
+        <a href="themes.html#theme-1" class="theme-card tilt-card" style="--theme-gradient:linear-gradient(135deg,rgba(255,107,26,0.2),rgba(255,62,0,0.08));--theme-color:#FF6B1A;--theme-glow:rgba(255,107,26,0.3)">
+          <div class="theme-card__number">01</div>
+          <div class="theme-card__icon">🏪</div>
+          <div class="theme-card__tag"><span class="tag tag--saffron">Distribution</span></div>
+          <h4 class="theme-card__title">Kirana to Coverage</h4>
+          <p class="theme-card__hook">"What if your neighbourhood Kirana became India's most trusted Insurance Mitra?"</p>
+          <div class="theme-card__arrow">→</div>
+        </a>
+        <!-- Theme 2 -->
+        <a href="themes.html#theme-2" class="theme-card tilt-card" style="--theme-gradient:linear-gradient(135deg,rgba(200,85,255,0.18),rgba(120,0,200,0.06));--theme-color:#C855FF;--theme-glow:rgba(200,85,255,0.3)">
+          <div class="theme-card__number">02</div>
+          <div class="theme-card__icon">👩‍💼</div>
+          <div class="theme-card__tag"><span class="tag" style="background:rgba(200,85,255,0.12);color:#D480FF;border:1px solid rgba(200,85,255,0.3)">Women</span></div>
+          <h4 class="theme-card__title">Women as Wealth Architects</h4>
+          <p class="theme-card__hook">"Every ASHA worker deserves a financial future as strong as the communities she builds."</p>
+          <div class="theme-card__arrow">→</div>
+        </a>
+        <!-- Theme 3 -->
+        <a href="themes.html#theme-3" class="theme-card tilt-card" style="--theme-gradient:linear-gradient(135deg,rgba(0,212,184,0.18),rgba(0,168,232,0.06));--theme-color:#00D4B8;--theme-glow:rgba(0,212,184,0.3)">
+          <div class="theme-card__number">03</div>
+          <div class="theme-card__icon">📱</div>
+          <div class="theme-card__tag"><span class="tag tag--teal">GenZ</span></div>
+          <h4 class="theme-card__title">GenZ & the Protection Gap</h4>
+          <p class="theme-card__hook">"Gen Z buys sneakers with EMI. Why not life insurance with a swipe?"</p>
+          <div class="theme-card__arrow">→</div>
+        </a>
+        <!-- Theme 4 -->
+        <a href="themes.html#theme-4" class="theme-card tilt-card" style="--theme-gradient:linear-gradient(135deg,rgba(245,200,66,0.18),rgba(255,138,0,0.06));--theme-color:#F5C842;--theme-glow:rgba(245,200,66,0.3)">
+          <div class="theme-card__number">04</div>
+          <div class="theme-card__icon">🌾</div>
+          <div class="theme-card__tag"><span class="tag tag--gold">Agriculture</span></div>
+          <h4 class="theme-card__title">Climate & the Uninsured Farmer</h4>
+          <p class="theme-card__hook">"When climate destroys a harvest, it also destroys a family's future."</p>
+          <div class="theme-card__arrow">→</div>
+        </a>
+        <!-- Theme 5 -->
+        <a href="themes.html#theme-5" class="theme-card tilt-card" style="--theme-gradient:linear-gradient(135deg,rgba(0,181,239,0.18),rgba(41,32,117,0.08));--theme-color:#00B5EF;--theme-glow:rgba(0,181,239,0.3)">
+          <div class="theme-card__number">05</div>
+          <div class="theme-card__icon">🚗</div>
+          <div class="theme-card__tag"><span class="tag" style="background:rgba(0,181,239,0.12);color:#4DCDFF;border:1px solid rgba(0,181,239,0.3)">Gig Economy</span></div>
+          <h4 class="theme-card__title">The Invisible Workforce</h4>
+          <p class="theme-card__hook">"Zomato delivers your dinner. Ola drops you home. Who insures their tomorrow?"</p>
+          <div class="theme-card__arrow">→</div>
+        </a>
+      </div>
+
+      <div style="text-align:center;margin-top:var(--space-xl)" class="reveal reveal--delay-2">
+        <a href="themes.html" class="btn btn-secondary btn-lg">Deep Dive Into All 5 Themes →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ WINNERS QUOTES ════ -->
+  <section class="winners-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow">From the Champions</div>
+        <h2>What Winners Say</h2>
+        <p>Hear from the teams who've walked the IdeationX journey before you.</p>
+      </div>
+
+      <div class="quotes-grid">
+        <div class="quote-card reveal reveal--delay-1">
+          <p class="quote-card__text">"IdeationX didn't just give us a platform — it gave us the confidence that a 22-year-old from Bangalore could actually solve a 700-year-old distribution problem in Indian insurance. That confidence never leaves you."</p>
+          <div class="quote-card__author">
+            <div class="quote-card__avatar" style="background:var(--grad-saffron)">AK</div>
+            <div class="quote-card__meta">
+              <span class="quote-card__name">Aryan Kumar</span>
+              <span class="quote-card__college">XIME Bangalore — Team Lead</span>
+            </div>
+            <div class="quote-card__edition">Ed. 1 Winner 🏆</div>
+          </div>
+        </div>
+
+        <div class="quote-card reveal reveal--delay-2">
+          <p class="quote-card__text">"The moment our idea was called up at the CNBC finale, we realised — this isn't a college competition. This is where you start your career. Every mentor session, every challenge round prepared us for that moment."</p>
+          <div class="quote-card__author">
+            <div class="quote-card__avatar" style="background:var(--grad-teal)">SP</div>
+            <div class="quote-card__meta">
+              <span class="quote-card__name">Shreya Pillai</span>
+              <span class="quote-card__college">SPJIMR Mumbai — Team Lead</span>
+            </div>
+            <div class="quote-card__edition">Ed. 2 Winner 🏆</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ WEEKLY CHALLENGE TEASER ════ -->
+  <section class="challenge-teaser">
+    <div class="container">
+      <div class="challenge-inner">
+        <div class="reveal">
+          <div class="section-header">
+            <div class="eyebrow">This Week</div>
+            <h2>Weekly Bharat Challenge</h2>
+            <p>A new challenge every week to keep your thinking sharp. Earn XP. Get featured. Build your Innovation Score.</p>
+          </div>
+          <div style="margin-top:var(--space-xl)">
+            <a href="weekly-challenge.html" class="btn btn-primary btn-lg">
+              Take This Week's Challenge →
+            </a>
+          </div>
+        </div>
+
+        <div class="challenge-card reveal reveal--delay-1">
+          <div class="challenge-card__week">⚡ Week 8 Challenge</div>
+          <h3 class="challenge-card__title">The 60-Second Pitch</h3>
+          <p class="challenge-card__prompt">"Record a 60-second pitch of your IdeationX idea to a sceptical jury. No slides. No props. Just you, your conviction, and your idea. What's the one thing they need to hear?"</p>
+          <div class="challenge-card__meta">
+            <span class="challenge-card__deadline">⏰ Closes Oct 20, 2026</span>
+            <span class="tag tag--teal">234 submissions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ IDEA HUB PREVIEW ════ -->
+  <section class="idea-preview">
+    <div class="container">
+      <div class="section-header reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <div>
+          <div class="eyebrow">Idea Hub</div>
+          <h2>Ideas That Changed <br/>the Game</h2>
+        </div>
+        <a href="idea-hub.html" class="btn btn-secondary">View All Ideas →</a>
+      </div>
+
+      <div class="idea-preview-grid">
+        <!-- Winner 1 -->
+        <div class="entry-card reveal reveal--delay-1">
+          <div class="entry-card__thumb" style="background:linear-gradient(135deg,rgba(255,107,26,0.15),rgba(255,62,0,0.05))">🌉</div>
+          <div class="entry-card__body">
+            <div class="entry-card__edition">🏆 Edition 1 Winner · 2024</div>
+            <h4 class="entry-card__title">InsurBridge</h4>
+            <p class="entry-card__desc">Hyperlocal distribution via trained 'Bima Sakhi' micro-entrepreneurs, reducing CAC by 68% in tier-3 pilot markets.</p>
+            <div class="entry-card__footer">
+              <span class="entry-card__college">📍 XIME Bangalore</span>
+              <span class="entry-card__winner">🥇 National Champion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Winner 2 -->
+        <div class="entry-card reveal reveal--delay-2">
+          <div class="entry-card__thumb" style="background:linear-gradient(135deg,rgba(0,212,184,0.15),rgba(0,168,232,0.05))">📦</div>
+          <div class="entry-card__body">
+            <div class="entry-card__edition">🏆 Edition 2 Winner · 2025</div>
+            <h4 class="entry-card__title">LifeStack</h4>
+            <p class="entry-card__desc">Modular micro-insurance for the gig economy — workers build cover from ₹10/day units with auto-adjust via UPI history.</p>
+            <div class="entry-card__footer">
+              <span class="entry-card__college">📍 SPJIMR Mumbai</span>
+              <span class="entry-card__winner">🥇 National Champion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finalist -->
+        <div class="entry-card reveal reveal--delay-3">
+          <div class="entry-card__thumb" style="background:linear-gradient(135deg,rgba(245,200,66,0.15),rgba(255,138,0,0.05))">🌾</div>
+          <div class="entry-card__body">
+            <div class="entry-card__edition">Edition 2 · 2025</div>
+            <h4 class="entry-card__title">KrishiCover</h4>
+            <p class="entry-card__desc">Parametric life insurance for farming families — coverage triggers automatically when drought indices cross a threshold.</p>
+            <div class="entry-card__footer">
+              <span class="entry-card__college">📍 IIM Ahmedabad</span>
+              <span class="entry-card__winner" style="color:var(--text-muted)">Finalist</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ HUBS ════ -->
+  <section class="hubs-section">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="eyebrow" style="justify-content:center">Built For You</div>
+        <h2>Everything You Need <br/>To Win</h2>
+        <p>From learning resources to mentor access to a community of fellow innovators — IdeationX gives you more than a competition.</p>
+      </div>
+
+      <div class="hubs-grid">
+        <a href="learning-hub.html" class="hub-card reveal reveal--delay-1">
+          <div class="hub-card__icon">📚</div>
+          <h3 class="hub-card__title">Learning Hub</h3>
+          <p class="hub-card__desc">8 expert-designed modules — DIVE Framework, Design Thinking, Financial Literacy, Pitch Masterclass — with badges and XP.</p>
+          <span class="hub-card__link">Start Learning →</span>
+        </a>
+        <a href="mentor-connect.html" class="hub-card reveal reveal--delay-2">
+          <div class="hub-card__icon">🎙️</div>
+          <h3 class="hub-card__title">Mentor Connect</h3>
+          <p class="hub-card__desc">Monthly live sessions and AMAs with industry leaders from SBI Life, McKinsey, InsurTech startups, and more.</p>
+          <span class="hub-card__link">Book a Session →</span>
+        </a>
+        <a href="resources.html" class="hub-card reveal reveal--delay-3">
+          <div class="hub-card__icon">📋</div>
+          <h3 class="hub-card__title">Resource Library</h3>
+          <p class="hub-card__desc">Pitch Deck templates, Business Model Canvas, Problem Statement Canvas, Research Templates — everything pre-built for you.</p>
+          <span class="hub-card__link">Download Resources →</span>
+        </a>
+        <a href="community.html" class="hub-card reveal reveal--delay-1">
+          <div class="hub-card__icon">👥</div>
+          <h3 class="hub-card__title">Community</h3>
+          <p class="hub-card__desc">Connect with 31,000+ students, form teams, exchange ideas, and get real-time peer feedback on your innovation.</p>
+          <span class="hub-card__link">Join the Community →</span>
+        </a>
+        <a href="innovation-score.html" class="hub-card reveal reveal--delay-2">
+          <div class="hub-card__icon">⭐</div>
+          <h3 class="hub-card__title">Innovation Score</h3>
+          <p class="hub-card__desc">Earn XP for every action. Unlock mentor access, early submission slots, and certificates through your Innovation Score.</p>
+          <span class="hub-card__link">Check Your Score →</span>
+        </a>
+        <a href="campus-calendar.html" class="hub-card reveal reveal--delay-3">
+          <div class="hub-card__icon">🗓️</div>
+          <h3 class="hub-card__title">Campus Drive Calendar</h3>
+          <p class="hub-card__desc">100 college induction sessions across India — find your college, your date, and RSVP for the on-ground event.</p>
+          <span class="hub-card__link">Find Your Campus →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CTA BANNER ════ -->
+  <section class="cta-banner">
+    <div class="orb orb--saffron" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.3"></div>
+    <div class="container">
+      <div class="cta-banner__inner reveal">
+        <div class="tag tag--saffron" style="margin:0 auto var(--space-lg);display:inline-flex">
+          <span class="ping-dot" style="display:inline-block;width:6px;height:6px;background:var(--saffron);border-radius:50%"></span>
+          Registrations Open — Deadline: Sept 30, 2026
+        </div>
+        <h2 class="cta-banner__title">
+          Your Idea Could <span class="text-gradient-saffron">Shape Bharat's</span> Future.
+        </h2>
+        <p class="cta-banner__sub">
+          100 colleges. 5 themes. 1 Grand Finale. ₹10 Lakh prize pool + PPI offers + CNBC coverage.<br/>This is the competition that launches careers.
+        </p>
+        <div class="cta-banner__actions">
+          <a href="register.html"  class="btn btn-primary btn-lg">Register Your Team Now →</a>
+          <a href="ideationx.html" class="btn btn-secondary btn-lg">Competition Details</a>
+        </div>
+        <!-- Countdown -->
+        <div style="margin-top:var(--space-xl);display:flex;flex-direction:column;align-items:center;gap:var(--space-md)">
+          <span style="font-size:0.8rem;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:0.1em;text-transform:uppercase">Registration closes in</span>
+          <div class="countdown" id="home-countdown" style="justify-content:center"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:var(--space-md)">
+            <img src="Assets/SBI life logo.webp" alt="SBI Life" height="28"/>
+            <div style="width:1px;height:24px;background:var(--glass-border)"></div>
+            <img src="Assets/Ideation x logo.webp" alt="IdeationX" height="24" style="opacity:0.8"/>
+          </div>
+          <p>Bharat Begins With An Idea. SBI Life IdeationX 2026 — India's most ambitious student innovation platform.</p>
+          <div style="display:flex;gap:var(--space-sm);margin-top:var(--space-md)">
+            <a href="#" class="btn btn-ghost btn-sm btn-icon" aria-label="Instagram">📸</a>
+            <a href="#" class="btn btn-ghost btn-sm btn-icon" aria-label="LinkedIn">💼</a>
+            <a href="#" class="btn btn-ghost btn-sm btn-icon" aria-label="Twitter">🐦</a>
+            <a href="#" class="btn btn-ghost btn-sm btn-icon" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h6>Competition</h6>
+          <div class="footer__links">
+            <a href="ideationx.html">Overview & Timeline</a>
+            <a href="themes.html">Challenge Themes</a>
+            <a href="register.html">Register Now</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="ideationx.html#eligibility">Eligibility & Rules</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h6>Learn & Grow</h6>
+          <div class="footer__links">
+            <a href="learning-hub.html">Learning Hub</a>
+            <a href="mentor-connect.html">Mentor Connect</a>
+            <a href="weekly-challenge.html">Weekly Challenge</a>
+            <a href="idea-hub.html">Idea Hub</a>
+            <a href="resources.html">Resource Library</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h6>Community</h6>
+          <div class="footer__links">
+            <a href="community.html">Discussion Board</a>
+            <a href="innovation-score.html">Innovation Score</a>
+            <a href="campus-calendar.html">Campus Calendar</a>
+            <a href="#">Contact Support</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 SBI Life Insurance Co. Ltd. All rights reserved. IdeationX is a registered initiative.</p>
+        <div style="display:flex;align-items:center;gap:var(--space-md)">
+          <span style="font-size:0.78rem;color:var(--text-muted)">Powered by</span>
+          <img src="Assets/SBI life logo.webp" alt="SBI Life" height="20" style="opacity:0.5"/>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Init particles & dynamic counters
+    window.addEventListener('load', async () => {
+      IdeationX.initParticles('hero-particles');
+      IdeationX.initCountdown('2026-09-30T23:59:59', 'home-countdown');
+
+      // Fetch live stats from Supabase
+      if (window.supabaseClient) {
+        try {
+          const { count: registrationsCount } = await window.supabaseClient
+            .from('registrations')
+            .select('*', { count: 'exact', head: true });
+
+          const { count: submissionsCount } = await window.supabaseClient
+            .from('challenge_submissions')
+            .select('*', { count: 'exact', head: true });
+
+          const studentsCounter = document.querySelector('[data-counter="31420"]');
+          if (studentsCounter && registrationsCount) {
+            const totalStudents = 31420 + (registrationsCount * 3);
+            studentsCounter.setAttribute('data-counter', totalStudents);
+            studentsCounter.textContent = totalStudents.toLocaleString('en-IN');
+          }
+
+          const ideasCounter = document.querySelector('[data-counter="4872"]');
+          if (ideasCounter && submissionsCount) {
+            const totalIdeas = 4872 + submissionsCount;
+            ideasCounter.setAttribute('data-counter', totalIdeas);
+            ideasCounter.textContent = totalIdeas.toLocaleString('en-IN');
+          }
+        } catch (err) {
+          console.error("Error loading homepage stats from Supabase:", err);
+        }
+      }
+    });
+
+    // Render phase tracker
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('phase-steps');
+      if (!container) return;
+      const { phases, currentPhase } = IdeationXData.config;
+      container.innerHTML = phases.map(phase => {
+        let cls = 'phase-step-item--upcoming';
+        if (phase.locked)            cls = 'phase-step-item--locked';
+        else if (phase.id < currentPhase) cls = 'phase-step-item--done';
+        else if (phase.id === currentPhase) cls = 'phase-step-item--active';
+
+        const dotContent = phase.id < currentPhase ? '✓' : phase.locked ? '🔒' : phase.id;
+        return `
+          <div class="phase-step-item ${cls}">
+            <div class="phase-dot-circle">${dotContent}</div>
+            <div class="phase-dot-label">${phase.name}</div>
+            <div class="phase-dot-date">${phase.date}</div>
+          </div>
+        `;
+      }).join('');
+    });
+  </script>
+</body>
+</html>
