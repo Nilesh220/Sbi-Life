@@ -16,10 +16,12 @@ export default function AdminDashboard() {
   const [submissions, setSubmissions] = useState([]);
   const [leaderboard, setLeaderboard] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [studentStats, setStudentStats] = useState([]);
 
   // Search & Filter States
   const [regSearch, setRegSearch] = useState('');
   const [themeFilter, setThemeFilter] = useState('all');
+  const [studentSearch, setStudentSearch] = useState('');
 
   // Editing/Adding Leaderboard State
   const [showLeadModal, setShowLeadModal] = useState(false);
@@ -33,6 +35,42 @@ export default function AdminDashboard() {
     city: '',
     score: ''
   });
+
+  // Editing Registrations State
+  const [showRegModal, setShowRegModal] = useState(false);
+  const [regEditItem, setRegEditItem] = useState(null);
+  const [regForm, setRegForm] = useState({
+    team_name: '',
+    lead_first_name: '',
+    lead_last_name: '',
+    college: '',
+    course: '',
+    year: '',
+    email: '',
+    phone: '',
+    member_2_name: '',
+    member_2_email: '',
+    member_2_course: '',
+    member_2_phone: '',
+    member_3_name: '',
+    member_3_email: '',
+    member_3_course: '',
+    member_3_phone: '',
+    theme_id: '1'
+  });
+
+  // Editing/Adding Student Stats State
+  const [showStatsModal, setShowStatsModal] = useState(false);
+  const [statsEditItem, setStatsEditItem] = useState(null);
+  const [statsForm, setStatsForm] = useState({
+    email: '',
+    xp: '',
+    level: '',
+    streak: ''
+  });
+
+  // Custom Submission Grading State
+  const [gradingScores, setGradingScores] = useState({});
 
   // Load state
   const [loading, setLoading] = useState(false);
@@ -65,7 +103,6 @@ export default function AdminDashboard() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      // 1. Fetch Registrations
       if (supabase) {
         const { data: regData } = await supabase.from('registrations').select('*').order('created_at', { ascending: false });
         setRegistrations(regData || []);
@@ -78,6 +115,9 @@ export default function AdminDashboard() {
 
         const { data: postData } = await supabase.from('posts').select('*').order('created_at', { ascending: false });
         setPosts(postData || []);
+
+        const { data: statsData } = await supabase.from('student_stats').select('*').order('xp', { ascending: false });
+        setStudentStats(statsData || []);
       } else {
         // Fallback to local storage mock values
         const localReg = JSON.parse(localStorage.getItem('registrations') || '[]');
@@ -95,12 +135,66 @@ export default function AdminDashboard() {
         setPosts([
           { id: '1', author_name: 'Aryan Mehta', author_college: 'IIM A', category: 'General', content: 'What are the main parameters for social impact under the DIVE Framework?', likes: 12, replies: 2, created_at: new Date().toISOString() }
         ]);
+
+        const localStats = JSON.parse(localStorage.getItem('student_stats') || '[]');
+        if (localStats.length === 0) {
+          const defaults = [{ id: '1', email: 'student@college.edu', xp: 450, level: 4, streak: 7, created_at: new Date().toISOString() }];
+          localStorage.setItem('student_stats', JSON.stringify(defaults));
+          setStudentStats(defaults);
+        } else {
+          setStudentStats(localStats);
+        }
       }
     } catch (err) {
       console.error('Error fetching admin data:', err);
     } finally {
       setLoading(false);
     }
+  };
+
+  // CSV Exporter Utility
+  const downloadCSV = (headers, rows, filename) => {
+    const csvContent = "data:text/csv;charset=utf-8," 
+      + [headers.join(','), ...rows.map(r => r.map(val => `"${String(val ?? '').replace(/"/g, '""')}"`).join(','))].join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const exportRegistrations = () => {
+    const headers = ['Team Name', 'Lead Name', 'Lead Email', 'Lead Phone', 'College', 'Course', 'Year', 'Member 2', 'Member 2 Email', 'Member 3', 'Member 3 Email', 'Theme ID', 'Created At'];
+    const rows = registrations.map(r => [
+      r.team_name,
+      `${r.lead_first_name} ${r.lead_last_name}`,
+      r.email,
+      r.phone,
+      r.college,
+      r.course,
+      r.year,
+      r.member_2_name,
+      r.member_2_email,
+      r.member_3_name,
+      r.member_3_email,
+      r.theme_id,
+      r.created_at
+    ]);
+    downloadCSV(headers, rows, 'IdeationX_Registrations_Export.csv');
+  };
+
+  const exportLeaderboard = () => {
+    const headers = ['Rank', 'College', 'Entry Project', 'Theme', 'Phase', 'City', 'Score (XP)'];
+    const rows = leaderboard.map(l => [l.rank, l.college, l.entry, l.theme, l.phase, l.city, l.score]);
+    downloadCSV(headers, rows, 'IdeationX_Leaderboard_Export.csv');
+  };
+
+  const exportStudentStats = () => {
+    const headers = ['Email', 'XP', 'Level', 'Streak', 'Created At'];
+    const rows = studentStats.map(s => [s.email, s.xp, s.level, s.streak, s.created_at]);
+    downloadCSV(headers, rows, 'IdeationX_StudentStats_Export.csv');
   };
 
   // Delete handlers
@@ -133,6 +227,55 @@ export default function AdminDashboard() {
     }
   };
 
+  // Registration CRUD actions
+  const handleSaveRegistration = async (e) => {
+    e.preventDefault();
+    const data = {
+      team_name: regForm.team_name,
+      lead_first_name: regForm.lead_first_name,
+      lead_last_name: regForm.lead_last_name,
+      college: regForm.college,
+      course: regForm.course,
+      year: regForm.year,
+      email: regForm.email,
+      phone: regForm.phone,
+      member_2_name: regForm.member_2_name,
+      member_2_email: regForm.member_2_email,
+      member_2_course: regForm.member_2_course,
+      member_2_phone: regForm.member_2_phone,
+      member_3_name: regForm.member_3_name,
+      member_3_email: regForm.member_3_email,
+      member_3_course: regForm.member_3_course,
+      member_3_phone: regForm.member_3_phone,
+      theme_id: parseInt(regForm.theme_id)
+    };
+
+    try {
+      if (supabase) {
+        if (regEditItem) {
+          await supabase.from('registrations').update(data).eq('id', regEditItem.id);
+        } else {
+          await supabase.from('registrations').insert([data]);
+        }
+      } else {
+        const list = JSON.parse(localStorage.getItem('registrations') || '[]');
+        if (regEditItem) {
+          const updated = list.map(item => item.id === regEditItem.id ? { ...item, ...data } : item);
+          localStorage.setItem('registrations', JSON.stringify(updated));
+        } else {
+          const newEntry = { id: Math.random().toString(36).substring(2), created_at: new Date().toISOString(), ...data };
+          list.push(newEntry);
+          localStorage.setItem('registrations', JSON.stringify(list));
+        }
+      }
+      fetchData();
+      setShowRegModal(false);
+      setRegEditItem(null);
+    } catch (err) {
+      alert('Failed to save registration: ' + err.message);
+    }
+  };
+
   // Leaderboard CRUD actions
   const handleSaveLeaderboard = async (e) => {
     e.preventDefault();
@@ -154,7 +297,7 @@ export default function AdminDashboard() {
           await supabase.from('leaderboard').insert([data]);
         }
       } else {
-        alert('Supabase client offline. Change applied locally only.');
+        alert('Supabase client offline. Changes applied on reload local mock state only.');
       }
       fetchData();
       setShowLeadModal(false);
@@ -176,8 +319,60 @@ export default function AdminDashboard() {
     }
   };
 
+  // Student Stats CRUD actions
+  const handleSaveStats = async (e) => {
+    e.preventDefault();
+    const data = {
+      email: statsForm.email,
+      xp: parseInt(statsForm.xp),
+      level: parseInt(statsForm.level),
+      streak: parseInt(statsForm.streak)
+    };
+
+    try {
+      if (supabase) {
+        if (statsEditItem) {
+          await supabase.from('student_stats').update(data).eq('id', statsEditItem.id);
+        } else {
+          await supabase.from('student_stats').insert([data]);
+        }
+      } else {
+        const list = JSON.parse(localStorage.getItem('student_stats') || '[]');
+        if (statsEditItem) {
+          const updated = list.map(item => item.id === statsEditItem.id ? { ...item, ...data } : item);
+          localStorage.setItem('student_stats', JSON.stringify(updated));
+        } else {
+          const newEntry = { id: Math.random().toString(36).substring(2), created_at: new Date().toISOString(), ...data };
+          list.push(newEntry);
+          localStorage.setItem('student_stats', JSON.stringify(list));
+        }
+      }
+      fetchData();
+      setShowStatsModal(false);
+      setStatsEditItem(null);
+    } catch (err) {
+      alert('Failed to save stats: ' + err.message);
+    }
+  };
+
+  const handleDeleteStats = async (id) => {
+    if (!confirm('Are you sure you want to delete this student stats entry?')) return;
+    try {
+      if (supabase) {
+        await supabase.from('student_stats').delete().eq('id', id);
+      } else {
+        const local = studentStats.filter(s => s.id !== id);
+        localStorage.setItem('student_stats', JSON.stringify(local));
+      }
+      setStudentStats(prev => prev.filter(s => s.id !== id));
+    } catch (err) {
+      alert('Delete failed: ' + err.message);
+    }
+  };
+
   // Submission Status Review
-  const handleUpdateSubmissionStatus = async (id, status, scoreReward = 0) => {
+  const handleUpdateSubmissionStatus = async (id, status, defaultScore) => {
+    const scoreReward = gradingScores[id] !== undefined ? parseInt(gradingScores[id]) : defaultScore;
     try {
       if (supabase) {
         await supabase.from('challenge_submissions').update({ status, score: scoreReward }).eq('id', id);
@@ -207,6 +402,11 @@ export default function AdminDashboard() {
 
     return matchesSearch && matchesTheme;
   });
+
+  // Filtered student stats
+  const filteredStats = studentStats.filter(s =>
+    s.email?.toLowerCase().includes(studentSearch.toLowerCase())
+  );
 
   if (!isAuthenticated) {
     return (
@@ -267,10 +467,11 @@ export default function AdminDashboard() {
           <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '12px', borderBottom: '1px solid var(--glass-border)', marginBottom: 'var(--space-xl)' }}>
             {[
               { id: 'overview', label: '📊 Dashboard Overview' },
-              { id: 'registrations', label: `📝 Team Registrations (${registrations.length})` },
-              { id: 'leaderboard', label: `🏆 Leaderboard Standing (${leaderboard.length})` },
-              { id: 'submissions', label: `📂 Weekly Challenges (${submissions.length})` },
-              { id: 'community', label: `💬 Community Moderation (${posts.length})` }
+              { id: 'registrations', label: `📝 Registrations (${registrations.length})` },
+              { id: 'leaderboard', label: `🏆 Leaderboard (${leaderboard.length})` },
+              { id: 'students', label: `🎓 Student XP (${studentStats.length})` },
+              { id: 'submissions', label: `📂 Submissions (${submissions.length})` },
+              { id: 'community', label: `💬 Discussions (${posts.length})` }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -293,6 +494,16 @@ export default function AdminDashboard() {
               </button>
             ))}
           </div>
+
+          {/* Offline Database Indicator Banner */}
+          {!supabase && (
+            <div style={{ background: 'rgba(255,107,26,0.15)', border: '1px solid rgba(255,107,26,0.3)', borderRadius: 'var(--radius-md)', padding: '12px var(--space-lg)', marginBottom: 'var(--space-lg)', fontSize: '0.85rem', color: 'var(--saffron)', display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <span style={{ fontSize: '1.2rem' }}>⚠️</span>
+              <div>
+                <strong>Sandbox Offline Storage Mode Active:</strong> Supabase environment variables are missing. Data is being fetched and stored locally inside your browser cache.
+              </div>
+            </div>
+          )}
 
           {/* ════ TAB 1: OVERVIEW ════ */}
           {activeTab === 'overview' && (
@@ -367,6 +578,23 @@ export default function AdminDashboard() {
           {activeTab === 'registrations' && (
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)' }}>
               
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-md)', marginBottom: 'var(--space-lg)' }}>
+                <h4 style={{ margin: 0 }}>📝 Registered Teams</h4>
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <button className="btn btn-secondary btn-sm" onClick={exportRegistrations}>📥 Export CSV</button>
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={() => {
+                      setRegEditItem(null);
+                      setRegForm({ team_name: '', lead_first_name: '', lead_last_name: '', college: '', course: '', year: '1st Year', email: '', phone: '', member_2_name: '', member_2_email: '', member_2_course: '', member_2_phone: '', member_3_name: '', member_3_email: '', member_3_course: '', member_3_phone: '', theme_id: '1' });
+                      setShowRegModal(true);
+                    }}
+                  >
+                    ➕ Add Registration
+                  </button>
+                </div>
+              </div>
+
               {/* Search strip */}
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: 'var(--space-lg)', alignItems: 'center' }}>
                 <input
@@ -429,10 +657,39 @@ export default function AdminDashboard() {
                                   {theme.icon} {theme.name}
                                 </span>
                               ) : (
-                                <span style={{ color: 'var(--text-muted)' }}>None</span>
+                                <span style={{ color: 'var(--text-muted)' }}>None ({reg.theme_id})</span>
                               )}
                             </td>
-                            <td style={{ padding: '12px 8px', textAlign: 'right' }}>
+                            <td style={{ padding: '12px 8px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                              <button
+                                className="btn btn-ghost btn-sm"
+                                style={{ marginRight: '8px', padding: '4px 8px' }}
+                                onClick={() => {
+                                  setRegEditItem(reg);
+                                  setRegForm({
+                                    team_name: reg.team_name || '',
+                                    lead_first_name: reg.lead_first_name || '',
+                                    lead_last_name: reg.lead_last_name || '',
+                                    college: reg.college || '',
+                                    course: reg.course || '',
+                                    year: reg.year || '1st Year',
+                                    email: reg.email || '',
+                                    phone: reg.phone || '',
+                                    member_2_name: reg.member_2_name || '',
+                                    member_2_email: reg.member_2_email || '',
+                                    member_2_course: reg.member_2_course || '',
+                                    member_2_phone: reg.member_2_phone || '',
+                                    member_3_name: reg.member_3_name || '',
+                                    member_3_email: reg.member_3_email || '',
+                                    member_3_course: reg.member_3_course || '',
+                                    member_3_phone: reg.member_3_phone || '',
+                                    theme_id: reg.theme_id?.toString() || '1'
+                                  });
+                                  setShowRegModal(true);
+                                }}
+                              >
+                                Edit
+                              </button>
                               <button
                                 className="btn btn-ghost btn-sm"
                                 style={{ color: 'var(--saffron)', borderColor: 'transparent', padding: '4px 8px' }}
@@ -455,18 +712,21 @@ export default function AdminDashboard() {
           {activeTab === 'leaderboard' && (
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)' }}>
               
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-lg)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-md)', marginBottom: 'var(--space-lg)' }}>
                 <h4 style={{ margin: 0 }}>🏆 Standing Table Manager</h4>
-                <button
-                  className="btn btn-primary btn-sm"
-                  onClick={() => {
-                    setLeadEditItem(null);
-                    setLeadForm({ rank: '', college: '', entry: '', theme: 'Kirana to Coverage 🏪', phase: 'National Qualifier', city: '', score: '' });
-                    setShowLeadModal(true);
-                  }}
-                >
-                  ➕ Add Standings Entry
-                </button>
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <button className="btn btn-secondary btn-sm" onClick={exportLeaderboard}>📥 Export CSV</button>
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={() => {
+                      setLeadEditItem(null);
+                      setLeadForm({ rank: '', college: '', entry: '', theme: 'Kirana to Coverage 🏪', phase: 'National Qualifier', city: '', score: '' });
+                      setShowLeadModal(true);
+                    }}
+                  >
+                    ➕ Add Standings Entry
+                  </button>
+                </div>
               </div>
 
               {/* Leaderboard Table */}
@@ -526,13 +786,106 @@ export default function AdminDashboard() {
             </div>
           )}
 
-          {/* ════ TAB 4: SUBMISSIONS ════ */}
+          {/* ════ TAB 4: STUDENT XP ════ */}
+          {activeTab === 'students' && (
+            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)' }}>
+              
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-md)', marginBottom: 'var(--space-lg)' }}>
+                <h4 style={{ margin: 0 }}>🎓 Student XP Standings</h4>
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <button className="btn btn-secondary btn-sm" onClick={exportStudentStats}>📥 Export CSV</button>
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={() => {
+                      setStatsEditItem(null);
+                      setStatsForm({ email: '', xp: '', level: '1', streak: '1' });
+                      setShowStatsModal(true);
+                    }}
+                  >
+                    ➕ Add Student Record
+                  </button>
+                </div>
+              </div>
+
+              {/* Search strip */}
+              <div style={{ marginBottom: 'var(--space-lg)' }}>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="🔍 Search student email address..."
+                  value={studentSearch}
+                  onChange={(e) => setStudentSearch(e.target.value)}
+                  style={{ width: '100%' }}
+                />
+              </div>
+
+              {/* Table wrapper */}
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid var(--glass-border)', color: 'var(--text-muted)', textTransform: 'uppercase', fontSize: '0.72rem' }}>
+                      <th style={{ padding: '12px 8px' }}>Student Email</th>
+                      <th style={{ padding: '12px 8px' }}>XP Score</th>
+                      <th style={{ padding: '12px 8px' }}>Level</th>
+                      <th style={{ padding: '12px 8px' }}>Daily Streak</th>
+                      <th style={{ padding: '12px 8px', textAlign: 'right' }}>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredStats.length === 0 ? (
+                      <tr>
+                        <td colSpan="5" style={{ padding: '32px 8px', textAlign: 'center', color: 'var(--text-muted)' }}>
+                          No student accounts found matching query.
+                        </td>
+                      </tr>
+                    ) : (
+                      filteredStats.map(stat => (
+                        <tr key={stat.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: 'var(--text-secondary)' }}>
+                          <td style={{ padding: '12px 8px' }}><strong>{stat.email}</strong></td>
+                          <td style={{ padding: '12px 8px', color: 'var(--teal)', fontWeight: 'bold' }}>{stat.xp} XP</td>
+                          <td style={{ padding: '12px 8px' }}>Lvl {stat.level}</td>
+                          <td style={{ padding: '12px 8px' }}>🔥 {stat.streak} Days</td>
+                          <td style={{ padding: '12px 8px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                            <button
+                              className="btn btn-ghost btn-sm"
+                              style={{ marginRight: '8px', padding: '4px 8px' }}
+                              onClick={() => {
+                                setStatsEditItem(stat);
+                                setStatsForm({
+                                  email: stat.email || '',
+                                  xp: stat.xp?.toString() || '0',
+                                  level: stat.level?.toString() || '1',
+                                  streak: stat.streak?.toString() || '1'
+                                });
+                                setShowStatsModal(true);
+                              }}
+                            >
+                              Edit
+                            </button>
+                            <button
+                              className="btn btn-ghost btn-sm"
+                              style={{ color: 'var(--saffron)', borderColor: 'transparent', padding: '4px 8px' }}
+                              onClick={() => handleDeleteStats(stat.id)}
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* ════ TAB 5: SUBMISSIONS ════ */}
           {activeTab === 'submissions' && (
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)' }}>
               
               <h4 style={{ marginBottom: 'var(--space-lg)' }}>📂 Weekly Submissions Evaluator</h4>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--space-md)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
                 {submissions.length === 0 ? (
                   <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
                     No challenge submissions received yet.
@@ -549,24 +902,35 @@ export default function AdminDashboard() {
                         <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Submitted: {new Date(sub.created_at).toLocaleString('en-IN')}</div>
                       </div>
 
-                      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                      <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
                         {sub.status === 'Pending' ? (
-                          <>
+                          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                              <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Reward Score (XP)</label>
+                              <input
+                                type="number"
+                                className="form-input"
+                                placeholder="150"
+                                value={gradingScores[sub.id] || ''}
+                                onChange={(e) => setGradingScores(prev => ({ ...prev, [sub.id]: e.target.value }))}
+                                style={{ width: '90px', padding: '6px 8px', fontSize: '0.82rem' }}
+                              />
+                            </div>
                             <button
                               className="btn btn-secondary btn-sm"
-                              style={{ borderColor: 'var(--teal)', color: 'var(--teal)', background: 'rgba(0,212,184,0.05)' }}
+                              style={{ borderColor: 'var(--teal)', color: 'var(--teal)', background: 'rgba(0,212,184,0.05)', alignSelf: 'flex-end', height: '36px' }}
                               onClick={() => handleUpdateSubmissionStatus(sub.id, 'Approved', 150)}
                             >
-                              ✅ Approve (+150 XP)
+                              ✅ Approve
                             </button>
                             <button
                               className="btn btn-ghost btn-sm"
-                              style={{ color: 'var(--saffron)', borderColor: 'rgba(255,107,26,0.2)' }}
+                              style={{ color: 'var(--saffron)', borderColor: 'rgba(255,107,26,0.2)', alignSelf: 'flex-end', height: '36px' }}
                               onClick={() => handleUpdateSubmissionStatus(sub.id, 'Rejected', 0)}
                             >
                               ❌ Reject
                             </button>
-                          </>
+                          </div>
                         ) : (
                           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <span style={{
@@ -595,7 +959,7 @@ export default function AdminDashboard() {
             </div>
           )}
 
-          {/* ════ TAB 5: COMMUNITY ════ */}
+          {/* ════ TAB 6: DISCUSSIONS ════ */}
           {activeTab === 'community' && (
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)' }}>
               
@@ -639,6 +1003,181 @@ export default function AdminDashboard() {
 
         </div>
       </section>
+
+      {/* ════ MODAL: REGISTER ADD/EDIT ════ */}
+      {showRegModal && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(2,4,8,0.85)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: 'var(--space-md)' }}>
+          <div className="card" style={{ width: '100%', maxWidth: '580px', background: 'var(--bg-card)', border: '1px solid var(--glass-border)', padding: 'var(--space-xl)', borderRadius: 'var(--radius-xl)', maxHeight: '90vh', overflowY: 'auto' }}>
+            <h3 style={{ marginBottom: 'var(--space-md)' }}>{regEditItem ? '📝 Edit Registration' : '➕ Add Team Registration'}</h3>
+            
+            <form onSubmit={handleSaveRegistration} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>Team Name *</label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    value={regForm.team_name}
+                    onChange={(e) => setRegForm(prev => ({ ...prev, team_name: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>Theme *</label>
+                  <select
+                    className="form-input"
+                    value={regForm.theme_id}
+                    onChange={(e) => setRegForm(prev => ({ ...prev, theme_id: e.target.value }))}
+                    required
+                  >
+                    {IdeationXData.themes.map(t => (
+                      <option key={t.id} value={t.id.toString()}>{t.icon} {t.name}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <h5 style={{ margin: '8px 0 2px', color: 'var(--teal)' }}>Lead Student Details</h5>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>First Name *</label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    value={regForm.lead_first_name}
+                    onChange={(e) => setRegForm(prev => ({ ...prev, lead_first_name: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>Last Name *</label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    value={regForm.lead_last_name}
+                    onChange={(e) => setRegForm(prev => ({ ...prev, lead_last_name: e.target.value }))}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>Email *</label>
+                  <input
+                    type="email"
+                    className="form-input"
+                    value={regForm.email}
+                    onChange={(e) => setRegForm(prev => ({ ...prev, email: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>Phone *</label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    value={regForm.phone}
+                    onChange={(e) => setRegForm(prev => ({ ...prev, phone: e.target.value }))}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                <div className="form-group" style={{ gridColumn: 'span 2' }}>
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>College / B-School *</label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    value={regForm.college}
+                    onChange={(e) => setRegForm(prev => ({ ...prev, college: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>Year *</label>
+                  <select
+                    className="form-input"
+                    value={regForm.year}
+                    onChange={(e) => setRegForm(prev => ({ ...prev, year: e.target.value }))}
+                    required
+                  >
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label className="form-label" style={{ fontSize: '0.75rem' }}>Course / Programme *</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  value={regForm.course}
+                  onChange={(e) => setRegForm(prev => ({ ...prev, course: e.target.value }))}
+                  required
+                />
+              </div>
+
+              <h5 style={{ margin: '8px 0 2px', color: 'var(--saffron)' }}>Member 2 Details</h5>
+              <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1.5fr 1fr', gap: '12px' }}>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Full Name"
+                  value={regForm.member_2_name}
+                  onChange={(e) => setRegForm(prev => ({ ...prev, member_2_name: e.target.value }))}
+                />
+                <input
+                  type="email"
+                  className="form-input"
+                  placeholder="Email Address"
+                  value={regForm.member_2_email}
+                  onChange={(e) => setRegForm(prev => ({ ...prev, member_2_email: e.target.value }))}
+                />
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Phone"
+                  value={regForm.member_2_phone}
+                  onChange={(e) => setRegForm(prev => ({ ...prev, member_2_phone: e.target.value }))}
+                />
+              </div>
+
+              <h5 style={{ margin: '8px 0 2px', color: 'var(--saffron)' }}>Member 3 Details</h5>
+              <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1.5fr 1fr', gap: '12px' }}>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Full Name"
+                  value={regForm.member_3_name}
+                  onChange={(e) => setRegForm(prev => ({ ...prev, member_3_name: e.target.value }))}
+                />
+                <input
+                  type="email"
+                  className="form-input"
+                  placeholder="Email Address"
+                  value={regForm.member_3_email}
+                  onChange={(e) => setRegForm(prev => ({ ...prev, member_3_email: e.target.value }))}
+                />
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Phone"
+                  value={regForm.member_3_phone}
+                  onChange={(e) => setRegForm(prev => ({ ...prev, member_3_phone: e.target.value }))}
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '12px' }}>
+                <button type="button" className="btn btn-ghost" onClick={() => setShowRegModal(false)}>Cancel</button>
+                <button type="submit" className="btn btn-primary">Save Registration</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* ════ MODAL: LEADERBOARD ADD/EDIT ════ */}
       {showLeadModal && (
@@ -737,6 +1276,67 @@ export default function AdminDashboard() {
               <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '12px' }}>
                 <button type="button" className="btn btn-ghost" onClick={() => setShowLeadModal(false)}>Cancel</button>
                 <button type="submit" className="btn btn-primary">Save Standings</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ════ MODAL: STUDENT STATS ADD/EDIT ════ */}
+      {showStatsModal && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(2,4,8,0.85)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: 'var(--space-md)' }}>
+          <div className="card" style={{ width: '100%', maxWidth: '440px', background: 'var(--bg-card)', border: '1px solid var(--glass-border)', padding: 'var(--space-2xl)', borderRadius: 'var(--radius-xl)' }}>
+            <h3 style={{ marginBottom: 'var(--space-md)' }}>{statsEditItem ? '📝 Edit Student Stats' : '🎓 Add Student stats'}</h3>
+            
+            <form onSubmit={handleSaveStats} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div className="form-group">
+                <label className="form-label" style={{ fontSize: '0.75rem' }}>Student Email *</label>
+                <input
+                  type="email"
+                  className="form-input"
+                  value={statsForm.email}
+                  onChange={(e) => setStatsForm(prev => ({ ...prev, email: e.target.value }))}
+                  required
+                  disabled={!!statsEditItem}
+                />
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>XP Score *</label>
+                  <input
+                    type="number"
+                    className="form-input"
+                    value={statsForm.xp}
+                    onChange={(e) => setStatsForm(prev => ({ ...prev, xp: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>Level *</label>
+                  <input
+                    type="number"
+                    className="form-input"
+                    value={statsForm.level}
+                    onChange={(e) => setStatsForm(prev => ({ ...prev, level: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" style={{ fontSize: '0.75rem' }}>Streak (Days) *</label>
+                  <input
+                    type="number"
+                    className="form-input"
+                    value={statsForm.streak}
+                    onChange={(e) => setStatsForm(prev => ({ ...prev, streak: e.target.value }))}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '12px' }}>
+                <button type="button" className="btn btn-ghost" onClick={() => setShowStatsModal(false)}>Cancel</button>
+                <button type="submit" className="btn btn-primary">Save Stats</button>
               </div>
             </form>
           </div>
