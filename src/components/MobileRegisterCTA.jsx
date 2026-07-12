@@ -11,8 +11,8 @@ export default function MobileRegisterCTA() {
     <div className="mobile-cta-bar">
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Registration Open</div>
-        <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-          ₹10L Prize • CNBC Coverage • PPI
+        <div style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          ₹10L Pool • PPI • CNBC
         </div>
       </div>
       <Link href="/register" className="btn btn-primary btn-sm" style={{ flexShrink: 0, whiteSpace: 'nowrap' }}>

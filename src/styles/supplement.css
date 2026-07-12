@@ -3,6 +3,11 @@
    (Appended to components.css via separate include)
    ═══════════════════════════════════════════════════════════ */
 
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+
 /* ── Global NAV ─────────────────────────────────────────── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-nav);
@@ -113,10 +118,10 @@
 }
 
 .nav__actions { display: flex; align-items: center; gap: var(--space-sm); }
-.nav__hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
-.nav__hamburger span { width: 22px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: all 0.3s; display: block; }
-.mobile-menu { position: fixed; inset: 0; z-index: var(--z-modal); background: rgba(2,4,8,0.98); backdrop-filter: blur(24px); display: flex; flex-direction: column; padding: var(--space-2xl); transform: translateX(100%); transition: transform var(--t-med) var(--ease-spring); }
-.mobile-menu--open { transform: translateX(0); }
+.nav__hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: var(--z-nav); justify-content: center; }
+.nav__hamburger span { width: 22px; height: 2px; background: #ffffff !important; border-radius: 2px; transition: all 0.3s; display: block; }
+.mobile-menu { position: fixed; inset: 0; width: 100% !important; height: 100% !important; z-index: var(--z-modal); background: rgba(2,4,8,0.98); backdrop-filter: blur(24px); display: flex; flex-direction: column; padding: var(--space-2xl); transform: translateX(100%); transition: transform var(--t-med) var(--ease-spring), visibility var(--t-med); visibility: hidden; pointer-events: none; }
+.mobile-menu--open { transform: translateX(0); visibility: visible !important; pointer-events: auto !important; }
 .mobile-menu__close { position: absolute; top: var(--space-xl); right: var(--space-xl); background: var(--bg-elevated); border: 1px solid var(--glass-border); color: var(--text-primary); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
 .mobile-menu__close:hover { background: var(--saffron-dim); border-color: var(--saffron); color: var(--saffron); }
 .mobile-menu__links { display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-2xl); }
