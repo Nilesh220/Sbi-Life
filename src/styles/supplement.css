@@ -365,3 +365,58 @@
   background: rgba(255,107,26,0.05);
 }
 
+/* Responsive Phase Tracker Timeline on Mobile */
+@media (max-width: 768px) {
+  .phase-steps {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-lg) !important;
+    position: relative;
+    padding-left: 12px;
+  }
+  .phase-step-item {
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    width: 100% !important;
+    position: relative;
+  }
+  .phase-step-item::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 44px !important;
+    left: 21px !important;
+    right: auto !important;
+    bottom: -28px !important;
+    width: 2px !important;
+    height: auto !important;
+    background: var(--glass-border) !important;
+    z-index: 0 !important;
+  }
+  .phase-step-item--done::before {
+    background: var(--teal) !important;
+  }
+  .phase-step-item--active::before {
+    background: linear-gradient(180deg, var(--saffron), var(--glass-border)) !important;
+  }
+  .phase-step-item:last-child::before {
+    display: none !important;
+  }
+  .phase-dot-circle {
+    margin-right: var(--space-md) !important;
+    flex-shrink: 0 !important;
+  }
+  .phase-dot-label {
+    margin-top: 0 !important;
+    max-width: none !important;
+    font-size: 0.85rem !important;
+    text-align: left !important;
+  }
+  .phase-dot-date {
+    margin-top: 2px !important;
+    margin-left: auto !important;
+    font-size: 0.72rem !important;
+    text-align: right !important;
+  }
+}
+

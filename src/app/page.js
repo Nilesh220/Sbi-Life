@@ -28,7 +28,7 @@ function HeroCounter({ target, suffix = '+', label, gradient }) {
 
 function StatCounter({ target, suffix = '', label, gradient, showLive = false }) {
   const ref = useRef(null);
-  useAnimateCounter(ref, target, 2.2, suffix);
+  useAnimateCounter(ref, target, 2.2, suffix, true);
   return (
     <div className="home-stat-item">
       {showLive ? (
@@ -58,6 +58,7 @@ const themeCards = [
   { id: 4, num: '04', icon: '🌾', tag: 'Agriculture', tagCls: 'tag tag--gold', title: 'Climate & the Uninsured Farmer', hook: '"When climate destroys a harvest, it also destroys a family\'s future."', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(245,200,66,0.18),rgba(255,138,0,0.06))', '--theme-color': '#F5C842', '--theme-glow': 'rgba(245,200,66,0.3)' } },
   { id: 5, num: '05', icon: '🚗', tag: 'Gig Economy', tagStyle: { background: 'rgba(0,181,239,0.12)', color: '#4DCDFF', border: '1px solid rgba(0,181,239,0.3)' }, title: 'The Invisible Workforce', hook: '"Zomato delivers your dinner. Ola drops you home. Who insures their tomorrow?"', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(0,181,239,0.18),rgba(41,32,117,0.08))', '--theme-color': '#00B5EF', '--theme-glow': 'rgba(0,181,239,0.3)' } },
 ];
+
 
 export default function HomePage() {
   const marqueeRef = useRef(null);
@@ -162,18 +163,16 @@ export default function HomePage() {
       </div>
 
       {/* ════ LIVE STATS ════ */}
-      <RevealOnScroll>
-        <div className="home-stats">
-          <div className="container">
-            <div className="home-stats__inner">
-              <StatCounter target={200} suffix="+" label="B Schools Onboarded" gradient="text-gradient-saffron" showLive />
-              <StatCounter target={300000} suffix="+" label="Student Reach" gradient="text-gradient-teal" />
-              <StatCounter target={50000} suffix="+" label="Student Entries" gradient="text-gradient-gold" />
-              <StatCounter target={600} label="B School Qualifiers" gradient="" />
-            </div>
+      <div className="home-stats">
+        <div className="container">
+          <div className="home-stats__inner">
+            <StatCounter target={200} suffix="+" label="B Schools Onboarded" gradient="text-gradient-saffron" showLive />
+            <StatCounter target={300000} suffix="+" label="Student Reach" gradient="text-gradient-teal" />
+            <StatCounter target={50000} suffix="+" label="Student Entries" gradient="text-gradient-gold" />
+            <StatCounter target={600} label="B School Qualifiers" gradient="" />
           </div>
         </div>
-      </RevealOnScroll>
+      </div>
 
       {/* ════ PHASE TRACKER ════ */}
       <section className="phase-section">
@@ -186,40 +185,36 @@ export default function HomePage() {
             </div>
           </RevealOnScroll>
 
-          <RevealOnScroll delay={0.1}>
-            <div className="phase-tracker-home">
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-                <div>
-                  <h4 style={{ marginBottom: '4px' }}>Phase 2 — Campus Registration</h4>
-                  <p style={{ fontSize: '0.88rem', margin: 0 }}>Registrations and submissions are managed through the microsite. Choose from one of the five challenge themes.</p>
-                </div>
-                <span className="tag tag--saffron" style={{ flexShrink: 0 }}>
-                  <span className="ping-dot" style={{ display: 'inline-block', width: '6px', height: '6px', background: 'var(--saffron)', borderRadius: '50%' }}></span>
-                  Active Now
-                </span>
+          <div className="phase-tracker-home">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+              <div>
+                <h4 style={{ marginBottom: '4px' }}>Phase 2 — Campus Registration</h4>
+                <p style={{ fontSize: '0.88rem', margin: 0 }}>Registrations and submissions are managed through the microsite. Choose from one of the five challenge themes.</p>
               </div>
-              <div className="phase-steps">
-                <PhaseTracker />
-              </div>
+              <span className="tag tag--saffron" style={{ flexShrink: 0 }}>
+                <span className="ping-dot" style={{ display: 'inline-block', width: '6px', height: '6px', background: 'var(--saffron)', borderRadius: '50%' }}></span>
+                Active Now
+              </span>
             </div>
-          </RevealOnScroll>
+            <div className="phase-steps">
+              <PhaseTracker />
+            </div>
+          </div>
 
-          <RevealOnScroll delay={0.2}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 'var(--space-2xl)' }}>
-              <Countdown targetDate="2026-09-30T23:59:59" id="home-countdown" />
-              <p style={{
-                fontSize: '0.78rem',
-                fontFamily: 'var(--font-mono)',
-                fontWeight: '700',
-                textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                color: 'var(--text-secondary)',
-                marginTop: '12px'
-              }}>
-                Registration Deadline
-              </p>
-            </div>
-          </RevealOnScroll>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 'var(--space-2xl)' }}>
+            <Countdown targetDate="2026-09-30T23:59:59" id="home-countdown" />
+            <p style={{
+              fontSize: '0.78rem',
+              fontFamily: 'var(--font-mono)',
+              fontWeight: '700',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              color: 'var(--text-secondary)',
+              marginTop: '12px'
+            }}>
+              Registration Deadline
+            </p>
+          </div>
         </div>
       </section>
 
