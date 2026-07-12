@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import LockedBanner from '@/components/LockedBanner';
 
 export default function MentorConnectPage() {
   const { mentors } = IdeationXData;
@@ -33,6 +34,14 @@ export default function MentorConnectPage() {
       <section style={{ padding: '140px 0 40px', position: 'relative' }}>
         <div className="orb orb--teal" style={{ width: '400px', height: '400px', top: '-100px', right: '-100px', opacity: 0.2 }}></div>
         <div className="container">
+          <LockedBanner
+            title="Mentor Connect — Exclusive Access for Top 30"
+            message="One-on-one mentor sessions and live office hours are reserved for the Top 30 semi-finalists selected from the National Qualifier round. Put your best idea forward to earn this access."
+            unlockLabel="Top 30 Semi-Finalists Only"
+            unlockColor="var(--teal)"
+            ctaText="See Competition Phases →"
+            ctaHref="/ideationx"
+          />
           <RevealOnScroll>
             <div className="tag tag--teal" style={{ marginBottom: 'var(--space-lg)' }}>Live Sessions · AMA Archive · Office Hours</div>
             <h1>Mentor <span className="text-gradient-teal">Connect</span></h1>

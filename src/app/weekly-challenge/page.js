@@ -6,6 +6,7 @@ import { IdeationXData } from '@/lib/data';
 import { supabase } from '@/lib/supabase';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import Countdown from '@/components/Countdown';
+import LockedBanner from '@/components/LockedBanner';
 
 export default function WeeklyChallengePage() {
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -87,6 +88,14 @@ export default function WeeklyChallengePage() {
       <section className="challenge-hero">
         <div className="orb orb--saffron" style={{ width: '500px', height: '500px', top: '-150px', left: '50%', transform: 'translateX(-50%)', opacity: 0.1 }}></div>
         <div className="container">
+          <LockedBanner
+            title="Weekly Challenge — Launches with Semi-Finals"
+            message="The Bharat Weekly Challenge is a live XP-earning feature for semi-finalists. It activates once the national qualifier round concludes in November 2026. Focus on your submission for now!"
+            unlockLabel="Launches Nov 2026"
+            unlockColor="var(--teal)"
+            ctaText="See the Timeline →"
+            ctaHref="/ideationx"
+          />
           <RevealOnScroll>
             <div className="live-badge" style={{ margin: '0 auto var(--space-lg)', width: 'fit-content' }}>
               <div className="ping-dot"></div>Week 8 — Active Now

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import { supabase } from '@/lib/supabase';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import LockedBanner from '@/components/LockedBanner';
 
 function formatTimeAgo(date) {
   const seconds = Math.floor((new Date() - new Date(date)) / 1000);
@@ -162,6 +163,12 @@ export default function CommunityPage() {
       <section style={{ padding: '140px 0 40px', position: 'relative' }}>
         <div className="orb orb--teal" style={{ width: '300px', height: '300px', top: '-100px', right: 0, opacity: 0.2 }}></div>
         <div className="container">
+          <LockedBanner
+            title="Community — Posting Opens After Registration Closes"
+            message="Browse the community feed and read discussions. Post creation and team formation threads go live on October 1, 2026 so all teams enter the conversation at the same time."
+            unlockLabel="Post Creation: Oct 1, 2026"
+            unlockColor="var(--teal)"
+          />
           <RevealOnScroll>
             <div className="tag tag--teal" style={{ marginBottom: 'var(--space-lg)' }}>300K Student Reach · 200 B Schools</div>
             <h1>The <span className="text-gradient-teal">Community</span></h1>

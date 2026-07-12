@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import XpIcon from '@/components/XpIcon';
+import LockedBanner from '@/components/LockedBanner';
 
 export default function InnovationScorePage() {
   const { badges } = IdeationXData;
@@ -42,6 +43,14 @@ export default function InnovationScorePage() {
       <section style={{ padding: '140px 0 40px', position: 'relative', overflow: 'hidden' }}>
         <div className="orb orb--gold" style={{ width: '400px', height: '400px', top: '-100px', right: '-50px', opacity: 0.15 }}></div>
         <div className="container">
+          <LockedBanner
+            title="Innovation Score — Launching Post Submission"
+            message="Your XP dashboard, badges, and leaderboard ranking activate after the submission deadline. Right now, focus on building the strongest possible entry."
+            unlockLabel="Activates Oct 2026"
+            unlockColor="var(--gold)"
+            ctaText="Register First →"
+            ctaHref="/register"
+          />
           <RevealOnScroll>
             <div className="tag tag--gold" style={{ marginBottom: 'var(--space-lg)' }}>Gamification · XP System</div>
             <h1>Innovation <span className="text-gradient-gold">Score</span></h1>

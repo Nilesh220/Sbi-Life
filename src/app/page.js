@@ -289,6 +289,70 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ════ PLATFORM FEATURES ════ */}
+      <section className="section" style={{ background: 'var(--bg-deep)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)' }}>
+        <div className="container">
+          <RevealOnScroll>
+            <div className="section-header text-center">
+              <div className="eyebrow" style={{ justifyContent: 'center' }}>Built for Every Stage</div>
+              <h2>Everything You Need.<br /><span className="text-gradient-saffron">When You Need It.</span></h2>
+              <p>Core features are live now. Advanced tools unlock as you progress through the competition.</p>
+            </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.1}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 'var(--space-lg)', marginTop: 'var(--space-2xl)' }}>
+
+              {/* Active Features */}
+              {[
+                { href: '/themes', color: 'var(--saffron)', bg: 'rgba(255,107,26,0.08)', border: 'rgba(255,107,26,0.2)', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>, label: 'Active', title: '5 Challenge Themes', desc: 'Pick your Bharat problem. Each theme is anchored to a real, unsolved challenge at the intersection of life insurance and society.', cta: 'Explore Themes →' },
+                { href: '/campus-calendar', color: 'var(--teal)', bg: 'rgba(0,212,184,0.08)', border: 'rgba(0,212,184,0.2)', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>, label: 'Active', title: 'Campus Induction Schedule', desc: 'SBI Life officials visit 200 B Schools. Find your campus induction date, venue, and what to expect at orientation.', cta: 'Find Your Campus →' },
+                { href: '/learning-hub', color: '#A78BFA', bg: 'rgba(167,139,250,0.08)', border: 'rgba(167,139,250,0.2)', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>, label: 'Active', title: 'Learning Hub', desc: '5 modules covering DIVE Framework, problem identification, solution design, and pitch storytelling. Build your foundation.', cta: 'Start Learning →' },
+                { href: '/leaderboard', color: 'var(--gold)', bg: 'rgba(245,200,66,0.08)', border: 'rgba(245,200,66,0.2)', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>, label: 'Active', title: 'Live Leaderboard', desc: 'Track standings from IdeationX Edition 1 & 2. The 2026 live rankings go online after submission deadline closes.', cta: 'View Leaderboard →' },
+              ].map((f, i) => (
+                <a key={i} href={f.href} style={{ textDecoration: 'none' }}>
+                  <div style={{ background: f.bg, border: `1px solid ${f.border}`, borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)', height: '100%', display: 'flex', flexDirection: 'column', gap: 'var(--space-md)', transition: 'transform 0.2s, box-shadow 0.2s', cursor: 'pointer' }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = `0 16px 40px ${f.border}`; }}
+                    onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <div style={{ width: '46px', height: '46px', background: `color-mix(in srgb, ${f.color} 15%, transparent)`, borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: f.color }}>{f.icon}</div>
+                      <span style={{ fontSize: '0.65rem', fontWeight: 700, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', color: f.color, background: `color-mix(in srgb, ${f.color} 12%, transparent)`, border: `1px solid color-mix(in srgb, ${f.color} 30%, transparent)`, borderRadius: '20px', padding: '3px 10px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        <span style={{ width: '5px', height: '5px', background: f.color, borderRadius: '50%', display: 'inline-block' }}></span>{f.label}
+                      </span>
+                    </div>
+                    <div>
+                      <h5 style={{ margin: '0 0 6px', fontFamily: 'var(--font-display)' }}>{f.title}</h5>
+                      <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{f.desc}</p>
+                    </div>
+                    <div style={{ marginTop: 'auto', fontSize: '0.82rem', fontWeight: 600, color: f.color }}>{f.cta}</div>
+                  </div>
+                </a>
+              ))}
+
+              {/* Locked Features */}
+              {[
+                { color: 'var(--text-muted)', title: 'Innovation Score', desc: 'XP dashboard, badges, and gamified progress tracking. Activates after submission deadline.', label: 'Oct 2026' },
+                { color: 'var(--text-muted)', title: 'Mentor Connect', desc: 'Live office hours and 1:1 sessions with SBI Life and industry leaders. Exclusive to Top 30 semi-finalists.', label: 'Top 30 Only' },
+              ].map((f, i) => (
+                <div key={i} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)', height: '100%', display: 'flex', flexDirection: 'column', gap: 'var(--space-md)', opacity: 0.55, cursor: 'default' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <div style={{ width: '46px', height: '46px', background: 'rgba(255,255,255,0.04)', borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <span style={{ fontSize: '0.65rem', fontWeight: 700, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', borderRadius: '20px', padding: '3px 10px' }}>{f.label}</span>
+                  </div>
+                  <div>
+                    <h5 style={{ margin: '0 0 6px', fontFamily: 'var(--font-display)', color: 'var(--text-secondary)' }}>{f.title}</h5>
+                    <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{f.desc}</p>
+                  </div>
+                </div>
+              ))}
+
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* ════ WINNERS QUOTES ════ */}
       <section className="winners-section">
         <div className="container">

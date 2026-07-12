@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import LockedBanner from '@/components/LockedBanner';
 
 export default function IdeaHubPage() {
   const { pastWinners } = IdeationXData;
@@ -40,6 +41,13 @@ export default function IdeaHubPage() {
       <section style={{ padding: '140px 0 40px', position: 'relative', overflow: 'hidden' }}>
         <div className="orb orb--cerulean" style={{ width: '400px', height: '400px', top: '-100px', left: '-100px', opacity: 0.2 }}></div>
         <div className="container">
+          <LockedBanner
+            title="Idea Hub — Unlocks After Submission Deadline"
+            message="The Idea Hub showcases community submissions and past winning ideas. It opens once the September 30, 2026 submission window closes so all ideas go live at the same time."
+            unlockLabel="Opens Oct 2026"
+            ctaText="Submit Your Idea →"
+            ctaHref="/register"
+          />
           <RevealOnScroll>
             <div className="tag tag--teal" style={{ marginBottom: 'var(--space-lg)' }}>Idea Library · 2 Editions</div>
             <h1>Idea <span className="text-gradient-teal">Hub</span></h1>
