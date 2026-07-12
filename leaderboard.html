@@ -84,23 +84,29 @@
   </section>
 
   <div class="container" style="padding-bottom:var(--space-3xl)">
-    <!-- Summary cards -->
-    <div class="lb-summary reveal">
-      <div class="lb-summary-card">
-        <div class="lb-summary-num text-gradient-saffron" data-counter="200" data-suffix="+">200+</div>
-        <div class="lb-summary-label">B Schools Competing</div>
+    <!-- Phase 2 Locked Alert Card -->
+    <div class="card reveal" style="background:var(--bg-elevated);border-color:var(--saffron);box-shadow:0 0 35px rgba(255,107,26,0.08);margin-bottom:var(--space-2xl);padding:var(--space-xl)">
+      <div style="display:flex;gap:var(--space-lg);align-items:center;flex-wrap:wrap">
+        <div style="font-size:3rem;flex-shrink:0">🔒</div>
+        <div style="flex:1">
+          <h4 style="margin-bottom:4px;color:var(--saffron)">IdeationX 2026 Standings Not Yet Active</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin:0">
+            We are currently in **Phase 2: Campus Registration**. Live B School standings and qualifiers will go live starting **October 15, 2026**, after the internal evaluations begin across 200+ partner B Schools.
+          </p>
+        </div>
+        <a href="register.html" class="btn btn-primary" style="flex-shrink:0">Register Your Team Now →</a>
       </div>
-      <div class="lb-summary-card">
-        <div class="lb-summary-num text-gradient-teal" data-counter="600">600</div>
-        <div class="lb-summary-label">B School Qualifiers</div>
+    </div>
+
+    <!-- Toggle to view Previous Edition Hall of Fame -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-xl);flex-wrap:wrap;gap:var(--space-md)" class="reveal">
+      <div>
+        <h3 style="font-family:var(--font-display)">Hall of Fame Archive</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-top:2px">Browse winning ideas and profiles from previous editions to examine winning criteria.</p>
       </div>
-      <div class="lb-summary-card">
-        <div class="lb-summary-num text-gradient-gold">30</div>
-        <div class="lb-summary-label">Semi-Finalists (Nov)</div>
-      </div>
-      <div class="lb-summary-card">
-        <div class="lb-summary-num" style="background:linear-gradient(135deg,#C855FF,#00B5EF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">10</div>
-        <div class="lb-summary-label">Grand Finalists (Jan)</div>
+      <div class="filter-tabs">
+        <button class="filter-tab filter-tab--active" style="cursor:default">🏆 Edition 2.0 & 1.0 (Archive)</button>
+        <button class="filter-tab" style="opacity:0.5;cursor:not-allowed" onclick="IdeationX.showToast('2026 Standings will unlock on Oct 15!','info')">📅 Edition 3.0 (Locked)</button>
       </div>
     </div>
 
@@ -108,9 +114,10 @@
     <div class="filter-bar reveal">
       <input class="form-input lb-search" type="text" id="lb-search" placeholder="🔍 Search B School or entry name..." oninput="filterLeaderboard()"/>
       <div class="filter-tabs" id="phase-filter">
-        <button class="filter-tab filter-tab--active" data-filter="all" onclick="setPhaseFilter('all',this)">All (600)</button>
-        <button class="filter-tab" data-filter="Semi-Finalist" onclick="setPhaseFilter('Semi-Finalist',this)">Semi-Finalists (30)</button>
-        <button class="filter-tab" data-filter="Qualifier" onclick="setThemeFilter('Qualifier',this)">Qualifiers</button>
+        <button class="filter-tab filter-tab--active" data-filter="all" onclick="setPhaseFilter('all',this)">All Archive</button>
+        <button class="filter-tab" data-filter="Winner" onclick="setPhaseFilter('Winner',this)">Podium Winners</button>
+        <button class="filter-tab" data-filter="Finalist" onclick="setPhaseFilter('Finalist',this)">National Finalists</button>
+        <button class="filter-tab" data-filter="Qualifier" onclick="setPhaseFilter('Qualifier',this)">Qualifiers</button>
       </div>
       <div class="filter-tabs" id="theme-filter">
         <button class="filter-tab filter-tab--active" data-theme="all" onclick="setThemeFilter('all',this)">All Themes</button>
@@ -135,7 +142,7 @@
     </div>
 
     <div style="text-align:center;margin-top:var(--space-xl)" class="reveal">
-      <p style="font-size:0.85rem;color:var(--text-muted)">Showing top 20 of 300 National Qualifiers. Internal jury scores are not published. Final Semi-Finalist selection announced November 15, 2026.</p>
+      <p style="font-size:0.85rem;color:var(--text-muted)">Showing authenticated records from IdeationX previous editions. 2026 evaluations open October 15.</p>
     </div>
   </div>
 
@@ -193,7 +200,7 @@
       }
 
       // Local filter logic
-      if (activePhase !== 'all') data = data.filter(e => e.phase === activePhase);
+      if (activePhase !== 'all') data = data.filter(e => e.phase.toLowerCase().includes(activePhase.toLowerCase()));
       if (activeTheme !== 'all') data = data.filter(e => e.theme.includes(activeTheme));
       if (search) data = data.filter(e => e.college.toLowerCase().includes(search) || e.entry.toLowerCase().includes(search));
 
@@ -205,8 +212,11 @@
       body.innerHTML = data.map((e, i) => {
         const rankCls = e.rank <= 3 ? `rank-${e.rank}` : '';
         const rowCls = e.rank <= 10 ? 'lb-entry lb-entry--top' : 'lb-entry';
-        const statusCls = e.phase === 'Semi-Finalist' ? 'lb-status-badge--sf' : 'lb-status-badge--q';
-        const statusDot = e.phase === 'Semi-Finalist' ? 'var(--saffron)' : 'var(--teal)';
+        
+        const isWinner = e.phase.toLowerCase().includes('winner') || e.phase.toLowerCase().includes('runner-up');
+        const isFinalist = e.phase.toLowerCase().includes('finalist');
+        const statusCls = isWinner ? 'lb-status-badge--sf' : isFinalist ? 'lb-status-badge--sf' : 'lb-status-badge--q';
+        const statusDot = isWinner ? 'var(--gold)' : isFinalist ? 'var(--saffron)' : 'var(--teal)';
         const medal = e.rank === 1 ? '🥇' : e.rank === 2 ? '🥈' : e.rank === 3 ? '🥉' : '';
         return `
           <div class="${rowCls}">
