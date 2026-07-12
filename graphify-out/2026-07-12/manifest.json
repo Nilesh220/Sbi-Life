@@ -1,0 +1,242 @@
+{
+  "SUPABASE_SETUP.sql": {
+    "mtime": 1783829973.2974353,
+    "ast_hash": "1f705bb2d165e15b1d8fbb297f8ccc53",
+    "semantic_hash": "1f705bb2d165e15b1d8fbb297f8ccc53"
+  },
+  "sbi-next/jsconfig.json": {
+    "mtime": 1783835125.9416337,
+    "ast_hash": "373b4d3b81ad935084b8292c8233423e",
+    "semantic_hash": ""
+  },
+  "sbi-next/next.config.mjs": {
+    "mtime": 1783835117.6782916,
+    "ast_hash": "9b2513e16440eb1cf02bc3ff4b3d8a34",
+    "semantic_hash": ""
+  },
+  "sbi-next/package.json": {
+    "mtime": 1783835293.178873,
+    "ast_hash": "44c415121fd675104c15f4776af8944c",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/campus-calendar/page.js": {
+    "mtime": 1783839718.1878264,
+    "ast_hash": "90c209f881216c1b85507dac3c37a68b",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/community/page.js": {
+    "mtime": 1783839707.8821099,
+    "ast_hash": "084e9a6d640c121835f6b4ea18403837",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/idea-hub/page.js": {
+    "mtime": 1783839727.3913376,
+    "ast_hash": "d58dfbdc3dde51c1db675a0a059698da",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/ideationx/page.js": {
+    "mtime": 1783839498.1439826,
+    "ast_hash": "baf6adc1cd829a8af4b11641e9d1bd7a",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/innovation-score/page.js": {
+    "mtime": 1783843775.236937,
+    "ast_hash": "e08b2377d91a370d561c4cf138b3f280",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/layout.js": {
+    "mtime": 1783836203.041921,
+    "ast_hash": "21e28877d343bd48bdd53647ef343a50",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/leaderboard/page.js": {
+    "mtime": 1783839503.4297197,
+    "ast_hash": "76a27b0e29c1e26fde67f43d00fc4f39",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/learning-hub/page.js": {
+    "mtime": 1783843821.9785366,
+    "ast_hash": "4455cb2b7a93c176c75b31769b2812f2",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/mentor-connect/page.js": {
+    "mtime": 1783839628.7507157,
+    "ast_hash": "c715015f0bb4b5e6faed2210e0575481",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/page.js": {
+    "mtime": 1783841715.958799,
+    "ast_hash": "6c26844969257886242b49ce07379f50",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/register/page.js": {
+    "mtime": 1783839560.2654805,
+    "ast_hash": "c54878e3a52e211320de723eafb91e81",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/resources/page.js": {
+    "mtime": 1783839568.7335835,
+    "ast_hash": "f7d440d51c590728e0d7cb2ae1f72e27",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/themes/page.js": {
+    "mtime": 1783839549.0112584,
+    "ast_hash": "337ff5e55a56092671d348939172f052",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/app/weekly-challenge/page.js": {
+    "mtime": 1783843813.8955593,
+    "ast_hash": "4861f4ad0dfca85aac1f9da4fb5a7bef",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/Countdown.jsx": {
+    "mtime": 1783841572.0501027,
+    "ast_hash": "0165807b23b07196922697b845c38d98",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/CounterCard.jsx": {
+    "mtime": 1783835422.6620908,
+    "ast_hash": "424d246bef4692850a0d5657f9926890",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/Footer.jsx": {
+    "mtime": 1783835401.7869866,
+    "ast_hash": "d3d8af4c0add6621fdcd6479adc3507d",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/Navbar.jsx": {
+    "mtime": 1783840080.4693398,
+    "ast_hash": "0a95b03fb762eff908f9fb0dce0b8ce6",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/PhaseTracker.jsx": {
+    "mtime": 1783839390.1938486,
+    "ast_hash": "27ed865b607e841066eac217a65bf263",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/RevealOnScroll.jsx": {
+    "mtime": 1783835412.1415052,
+    "ast_hash": "fbb1783c43d31a1f84cadc7739491ad2",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/ScrollProgress.jsx": {
+    "mtime": 1783839462.8595822,
+    "ast_hash": "7dba5296f6042674426b0683ca86e019",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/ThemeCard.jsx": {
+    "mtime": 1783835447.365489,
+    "ast_hash": "1a9a95c88dde0d5efef2b442f489cf44",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/WinnerCard.jsx": {
+    "mtime": 1783835458.3764439,
+    "ast_hash": "439205d6766375b5167d075a77737e2d",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/hooks/useGSAP.js": {
+    "mtime": 1783840299.7814634,
+    "ast_hash": "64d663f41aa8d5965dbda535ce9ea335",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/lib/data.js": {
+    "mtime": 1783843732.2598712,
+    "ast_hash": "5df9251f7113371efc891069ad3d9c2b",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/lib/supabase.js": {
+    "mtime": 1783835336.723916,
+    "ast_hash": "fac48d412f07b9e2e8eed1e4482e7286",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1783833234.9476786,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/claude_design_skills/SKILL.md": {
+    "mtime": 1783833445.842582,
+    "ast_hash": "848b035a41f72305083e111da40fb02e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/claude_seedance_skill/SKILL.md": {
+    "mtime": 1783833470.087273,
+    "ast_hash": "79666b2e216c39f7a20017ee74630bfa",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gsap_skills/SKILL.md": {
+    "mtime": 1783833451.1864276,
+    "ast_hash": "e2fd6a2566c94567498e4c5a01344511",
+    "semantic_hash": ""
+  },
+  ".agents/skills/higgsfield_skill/SKILL.md": {
+    "mtime": 1783833464.9061575,
+    "ast_hash": "78cbcf4892c8769e3d3bf6984a093b71",
+    "semantic_hash": ""
+  },
+  ".agents/skills/motion_dev_skills/SKILL.md": {
+    "mtime": 1783833459.915044,
+    "ast_hash": "88d7b49aad60ef136974218daa25a6f5",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1783833234.9476786,
+    "ast_hash": "637776aa6f7496d069afe7520c845c8a",
+    "semantic_hash": ""
+  },
+  "sbi-next/AGENTS.md": {
+    "mtime": 1783835181.2175393,
+    "ast_hash": "9e09241799026ac05be315a2f0b50055",
+    "semantic_hash": ""
+  },
+  "sbi-next/CLAUDE.md": {
+    "mtime": 1783835181.2180848,
+    "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
+    "semantic_hash": ""
+  },
+  "sbi-next/README.md": {
+    "mtime": 1783835117.6283145,
+    "ast_hash": "c857cd84a634c198d4501b107da02a78",
+    "semantic_hash": ""
+  },
+  "sbi-next/public/assets/Ideation x logo.webp": {
+    "mtime": 1783829973.2908602,
+    "ast_hash": "625143569d8daa9ac047430d7019edfa",
+    "semantic_hash": ""
+  },
+  "sbi-next/public/assets/SBI life logo.webp": {
+    "mtime": 1783829973.294871,
+    "ast_hash": "019b502d96056981f100706dc5df5bc8",
+    "semantic_hash": ""
+  },
+  "sbi-next/public/file.svg": {
+    "mtime": 1783835117.6949275,
+    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
+    "semantic_hash": ""
+  },
+  "sbi-next/public/globe.svg": {
+    "mtime": 1783835117.7144058,
+    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
+    "semantic_hash": ""
+  },
+  "sbi-next/public/next.svg": {
+    "mtime": 1783835117.7325714,
+    "ast_hash": "8e061864f388b47f33a1c3780831193e",
+    "semantic_hash": ""
+  },
+  "sbi-next/public/vercel.svg": {
+    "mtime": 1783835117.7449932,
+    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
+    "semantic_hash": ""
+  },
+  "sbi-next/public/window.svg": {
+    "mtime": 1783835117.7627852,
+    "ast_hash": "a2760511c65806022ad20adf74370ff3",
+    "semantic_hash": ""
+  },
+  "sbi-next/src/components/XpIcon.jsx": {
+    "mtime": 1783844001.4133828,
+    "ast_hash": "f085353f5a5783b20dab8b0e9891d8fe",
+    "semantic_hash": ""
+  }
+}

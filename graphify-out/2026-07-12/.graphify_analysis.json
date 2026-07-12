@@ -1,0 +1,115 @@
+{
+  "communities": {
+    "0": [
+      "js_main",
+      "js_main_animateprogressbars",
+      "js_main_closemobilemenu",
+      "js_main_formatnumber",
+      "js_main_initcountdown",
+      "js_main_initfaq",
+      "js_main_initfiltertabs",
+      "js_main_initmarquees",
+      "js_main_initparticles",
+      "js_main_inittiltcards",
+      "js_main_renderphasetracker",
+      "js_main_renderscorering",
+      "js_main_showtoast"
+    ],
+    "1": [
+      "supabase_setup",
+      "supabase_setup_public_challenge_submissions",
+      "supabase_setup_public_increment_likes",
+      "supabase_setup_public_leaderboard",
+      "supabase_setup_public_posts",
+      "supabase_setup_public_registrations",
+      "supabase_setup_public_student_stats"
+    ],
+    "2": [
+      "js_data",
+      "js_data_ideationxdata"
+    ],
+    "3": [
+      "js_main_animatecounter",
+      "js_main_initcounters"
+    ],
+    "4": [
+      "js_main_hextorgb",
+      "js_main_renderthemetag"
+    ],
+    "5": [
+      "add_supplement"
+    ],
+    "6": [
+      "js_supabase_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.15384615384615385,
+    "1": 0.2857142857142857,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0,
+    "5": 1.0,
+    "6": 1.0
+  },
+  "gods": [
+    {
+      "id": "js_main_animatecounter",
+      "label": "animateCounter()",
+      "degree": 2
+    },
+    {
+      "id": "js_main_initcounters",
+      "label": "initCounters()",
+      "degree": 2
+    },
+    {
+      "id": "js_main_renderthemetag",
+      "label": "renderThemeTag()",
+      "degree": 2
+    },
+    {
+      "id": "js_main_hextorgb",
+      "label": "hexToRgb()",
+      "degree": 2
+    },
+    {
+      "id": "supabase_setup_public_registrations",
+      "label": "public.registrations",
+      "degree": 1
+    },
+    {
+      "id": "supabase_setup_public_posts",
+      "label": "public.posts",
+      "degree": 1
+    },
+    {
+      "id": "supabase_setup_public_challenge_submissions",
+      "label": "public.challenge_submissions",
+      "degree": 1
+    },
+    {
+      "id": "supabase_setup_public_leaderboard",
+      "label": "public.leaderboard",
+      "degree": 1
+    },
+    {
+      "id": "supabase_setup_public_student_stats",
+      "label": "public.student_stats",
+      "degree": 1
+    },
+    {
+      "id": "js_data_ideationxdata",
+      "label": "IdeationXData",
+      "degree": 1
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `public.registrations`, `public.posts`, `public.challenge_submissions` to the rest of the system?",
+      "why": "6 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}

@@ -1,0 +1,2100 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "SUPABASE_SETUP.sql",
+      "file_type": "code",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "supabase_setup",
+      "community": 1,
+      "norm_label": "supabase_setup.sql"
+    },
+    {
+      "label": "public.registrations",
+      "file_type": "code",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "supabase_setup_public_registrations",
+      "community": 1,
+      "norm_label": "public.registrations"
+    },
+    {
+      "label": "public.posts",
+      "file_type": "code",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "supabase_setup_public_posts",
+      "community": 1,
+      "norm_label": "public.posts"
+    },
+    {
+      "label": "public.increment_likes()",
+      "file_type": "code",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "supabase_setup_public_increment_likes",
+      "community": 1,
+      "norm_label": "public.increment_likes()"
+    },
+    {
+      "label": "public.challenge_submissions",
+      "file_type": "code",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "supabase_setup_public_challenge_submissions",
+      "community": 1,
+      "norm_label": "public.challenge_submissions"
+    },
+    {
+      "label": "public.leaderboard",
+      "file_type": "code",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "supabase_setup_public_leaderboard",
+      "community": 1,
+      "norm_label": "public.leaderboard"
+    },
+    {
+      "label": "public.student_stats",
+      "file_type": "code",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "supabase_setup_public_student_stats",
+      "community": 1,
+      "norm_label": "public.student_stats"
+    },
+    {
+      "label": "jsconfig.json",
+      "file_type": "code",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_jsconfig",
+      "community": 9,
+      "norm_label": "jsconfig.json"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "sbi_next_jsconfig_compileroptions",
+      "community": 9,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "paths",
+      "file_type": "code",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "sbi_next_jsconfig_compileroptions_paths",
+      "community": 9,
+      "norm_label": "paths"
+    },
+    {
+      "label": "@/*",
+      "file_type": "code",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "sbi_next_jsconfig_paths",
+      "community": 9,
+      "norm_label": "@/*"
+    },
+    {
+      "label": "./src/*",
+      "file_type": "concept",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "ref_src",
+      "community": 9,
+      "norm_label": "./src/*"
+    },
+    {
+      "label": "next.config.mjs",
+      "file_type": "code",
+      "source_file": "sbi-next/next.config.mjs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_next_config",
+      "community": 25,
+      "norm_label": "next.config.mjs"
+    },
+    {
+      "label": "nextConfig",
+      "file_type": "code",
+      "source_file": "sbi-next/next.config.mjs",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "sbi_next_next_config_nextconfig",
+      "community": 25,
+      "norm_label": "nextconfig"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_package",
+      "community": 7,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "sbi_next_package_name",
+      "community": 7,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "sbi_next_package_version",
+      "community": 7,
+      "norm_label": "version"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "sbi_next_package_private",
+      "community": 7,
+      "norm_label": "private"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "sbi_next_package_scripts",
+      "community": 7,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "sbi_next_package_scripts_dev",
+      "community": 7,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "sbi_next_package_scripts_build",
+      "community": 7,
+      "norm_label": "build"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "sbi_next_package_scripts_start",
+      "community": 7,
+      "norm_label": "start"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "sbi_next_package_dependencies",
+      "community": 4,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "@supabase/supabase-js",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "sbi_next_package_dependencies_supabase_supabase_js",
+      "community": 4,
+      "norm_label": "@supabase/supabase-js"
+    },
+    {
+      "label": "@supabase/supabase-js",
+      "file_type": "concept",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "supabase_supabase_js",
+      "community": 4,
+      "norm_label": "@supabase/supabase-js"
+    },
+    {
+      "label": "gsap",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "sbi_next_package_dependencies_gsap",
+      "community": 4,
+      "norm_label": "gsap"
+    },
+    {
+      "label": "gsap",
+      "file_type": "concept",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "gsap",
+      "community": 4,
+      "norm_label": "gsap"
+    },
+    {
+      "label": "next",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "sbi_next_package_dependencies_next",
+      "community": 4,
+      "norm_label": "next"
+    },
+    {
+      "label": "next",
+      "file_type": "concept",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "next",
+      "community": 4,
+      "norm_label": "next"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "sbi_next_package_dependencies_react",
+      "community": 4,
+      "norm_label": "react"
+    },
+    {
+      "label": "react",
+      "file_type": "concept",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "react",
+      "community": 4,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "sbi_next_package_dependencies_react_dom",
+      "community": 4,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "concept",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "react_dom",
+      "community": 4,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/campus-calendar/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_campus_calendar_page",
+      "community": 26,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "CampusCalendarPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/campus-calendar/page.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_campus_calendar_page_campuscalendarpage",
+      "community": 26,
+      "norm_label": "campuscalendarpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/community/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_community_page",
+      "community": 17,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "formatTimeAgo()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/community/page.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_community_page_formattimeago",
+      "community": 17,
+      "norm_label": "formattimeago()"
+    },
+    {
+      "label": "CommunityPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/community/page.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_community_page_communitypage",
+      "community": 17,
+      "norm_label": "communitypage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/idea-hub/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_idea_hub_page",
+      "community": 27,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "IdeaHubPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/idea-hub/page.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_idea_hub_page_ideahubpage",
+      "community": 27,
+      "norm_label": "ideahubpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/ideationx/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_ideationx_page",
+      "community": 18,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "FAQItem()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/ideationx/page.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_ideationx_page_faqitem",
+      "community": 18,
+      "norm_label": "faqitem()"
+    },
+    {
+      "label": "IdeationXPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/ideationx/page.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_ideationx_page_ideationxpage",
+      "community": 18,
+      "norm_label": "ideationxpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/innovation-score/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_innovation_score_page",
+      "community": 28,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "InnovationScorePage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/innovation-score/page.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_innovation_score_page_innovationscorepage",
+      "community": 28,
+      "norm_label": "innovationscorepage()"
+    },
+    {
+      "label": "layout.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/layout.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_layout",
+      "community": 11,
+      "norm_label": "layout.js"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/layout.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_layout_metadata",
+      "community": 11,
+      "norm_label": "metadata"
+    },
+    {
+      "label": "viewport",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/layout.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_layout_viewport",
+      "community": 11,
+      "norm_label": "viewport"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/layout.js",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_layout_rootlayout",
+      "community": 11,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/leaderboard/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_leaderboard_page",
+      "community": 19,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "getThemeIcon()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/leaderboard/page.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_leaderboard_page_getthemeicon",
+      "community": 19,
+      "norm_label": "getthemeicon()"
+    },
+    {
+      "label": "LeaderboardPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/leaderboard/page.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_leaderboard_page_leaderboardpage",
+      "community": 19,
+      "norm_label": "leaderboardpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/learning-hub/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_learning_hub_page",
+      "community": 29,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "LearningHubPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/learning-hub/page.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_learning_hub_page_learninghubpage",
+      "community": 29,
+      "norm_label": "learninghubpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/mentor-connect/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_mentor_connect_page",
+      "community": 30,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "MentorConnectPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/mentor-connect/page.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_mentor_connect_page_mentorconnectpage",
+      "community": 30,
+      "norm_label": "mentorconnectpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_page",
+      "community": 8,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "HeroCounter()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_page_herocounter",
+      "community": 8,
+      "norm_label": "herocounter()"
+    },
+    {
+      "label": "StatCounter()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_page_statcounter",
+      "community": 8,
+      "norm_label": "statcounter()"
+    },
+    {
+      "label": "marqueeSchools",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_page_marqueeschools",
+      "community": 8,
+      "norm_label": "marqueeschools"
+    },
+    {
+      "label": "themeCards",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_page_themecards",
+      "community": 8,
+      "norm_label": "themecards"
+    },
+    {
+      "label": "HomePage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_page_homepage",
+      "community": 8,
+      "norm_label": "homepage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/register/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_register_page",
+      "community": 31,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "RegisterPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/register/page.js",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_register_page_registerpage",
+      "community": 31,
+      "norm_label": "registerpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/resources/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_resources_page",
+      "community": 32,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "ResourcesPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/resources/page.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_resources_page_resourcespage",
+      "community": 32,
+      "norm_label": "resourcespage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/themes/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_themes_page",
+      "community": 20,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "hexToRgb()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/themes/page.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_themes_page_hextorgb",
+      "community": 20,
+      "norm_label": "hextorgb()"
+    },
+    {
+      "label": "ThemesPage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/themes/page.js",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_themes_page_themespage",
+      "community": 20,
+      "norm_label": "themespage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/weekly-challenge/page.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_weekly_challenge_page",
+      "community": 33,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "WeeklyChallengePage()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/app/weekly-challenge/page.js",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "sbi_next_src_app_weekly_challenge_page_weeklychallengepage",
+      "community": 33,
+      "norm_label": "weeklychallengepage()"
+    },
+    {
+      "label": "Countdown.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/Countdown.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_countdown",
+      "community": 34,
+      "norm_label": "countdown.jsx"
+    },
+    {
+      "label": "Countdown()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/Countdown.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_countdown_countdown",
+      "community": 34,
+      "norm_label": "countdown()"
+    },
+    {
+      "label": "CounterCard.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/CounterCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_countercard",
+      "community": 35,
+      "norm_label": "countercard.jsx"
+    },
+    {
+      "label": "CounterCard()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/CounterCard.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_countercard_countercard",
+      "community": 35,
+      "norm_label": "countercard()"
+    },
+    {
+      "label": "Footer.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/Footer.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_footer",
+      "community": 36,
+      "norm_label": "footer.jsx"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/Footer.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_footer_footer",
+      "community": 36,
+      "norm_label": "footer()"
+    },
+    {
+      "label": "Navbar.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/Navbar.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_navbar",
+      "community": 37,
+      "norm_label": "navbar.jsx"
+    },
+    {
+      "label": "Navbar()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/Navbar.jsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_navbar_navbar",
+      "community": 37,
+      "norm_label": "navbar()"
+    },
+    {
+      "label": "PhaseTracker.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/PhaseTracker.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_phasetracker",
+      "community": 38,
+      "norm_label": "phasetracker.jsx"
+    },
+    {
+      "label": "PhaseTracker()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/PhaseTracker.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_phasetracker_phasetracker",
+      "community": 38,
+      "norm_label": "phasetracker()"
+    },
+    {
+      "label": "RevealOnScroll.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/RevealOnScroll.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_revealonscroll",
+      "community": 39,
+      "norm_label": "revealonscroll.jsx"
+    },
+    {
+      "label": "RevealOnScroll()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/RevealOnScroll.jsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_revealonscroll_revealonscroll",
+      "community": 39,
+      "norm_label": "revealonscroll()"
+    },
+    {
+      "label": "ScrollProgress.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/ScrollProgress.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_scrollprogress",
+      "community": 40,
+      "norm_label": "scrollprogress.jsx"
+    },
+    {
+      "label": "ScrollProgress()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/ScrollProgress.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_scrollprogress_scrollprogress",
+      "community": 40,
+      "norm_label": "scrollprogress()"
+    },
+    {
+      "label": "ThemeCard.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/ThemeCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_themecard",
+      "community": 41,
+      "norm_label": "themecard.jsx"
+    },
+    {
+      "label": "ThemeCard()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/ThemeCard.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_themecard_themecard",
+      "community": 41,
+      "norm_label": "themecard()"
+    },
+    {
+      "label": "WinnerCard.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/WinnerCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_winnercard",
+      "community": 42,
+      "norm_label": "winnercard.jsx"
+    },
+    {
+      "label": "WinnerCard()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/WinnerCard.jsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_winnercard_winnercard",
+      "community": 42,
+      "norm_label": "winnercard()"
+    },
+    {
+      "label": "XpIcon.jsx",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/XpIcon.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_xpicon",
+      "community": 0,
+      "norm_label": "xpicon.jsx"
+    },
+    {
+      "label": "XpIcon()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/components/XpIcon.jsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "sbi_next_src_components_xpicon_xpicon",
+      "community": 0,
+      "norm_label": "xpicon()"
+    },
+    {
+      "label": "useGSAP.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/hooks/useGSAP.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_hooks_usegsap",
+      "community": 21,
+      "norm_label": "usegsap.js"
+    },
+    {
+      "label": "useGSAP()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/hooks/useGSAP.js",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "sbi_next_src_hooks_usegsap_usegsap",
+      "community": 21,
+      "norm_label": "usegsap()"
+    },
+    {
+      "label": "useAnimateCounter()",
+      "file_type": "code",
+      "source_file": "sbi-next/src/hooks/useGSAP.js",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "sbi_next_src_hooks_usegsap_useanimatecounter",
+      "community": 21,
+      "norm_label": "useanimatecounter()"
+    },
+    {
+      "label": "data.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/lib/data.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_lib_data",
+      "community": 43,
+      "norm_label": "data.js"
+    },
+    {
+      "label": "IdeationXData",
+      "file_type": "code",
+      "source_file": "sbi-next/src/lib/data.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "sbi_next_src_lib_data_ideationxdata",
+      "community": 43,
+      "norm_label": "ideationxdata"
+    },
+    {
+      "label": "supabase.js",
+      "file_type": "code",
+      "source_file": "sbi-next/src/lib/supabase.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_src_lib_supabase",
+      "community": 45,
+      "norm_label": "supabase.js"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_rules_graphify",
+      "community": 22,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_rules_graphify_graphify",
+      "community": 22,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/claude_design_skills/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_skills_claude_design_skills_skill",
+      "community": 12,
+      "norm_label": "skill.md"
+    },
+    {
+      "label": "Claude Design Skills (AI UI Generation)",
+      "file_type": "document",
+      "source_file": ".agents/skills/claude_design_skills/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_skills_claude_design_skills_skill_claude_design_skills_ai_ui_generation",
+      "community": 12,
+      "norm_label": "claude design skills (ai ui generation)"
+    },
+    {
+      "label": "Design Principles",
+      "file_type": "document",
+      "source_file": ".agents/skills/claude_design_skills/SKILL.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "agents_skills_claude_design_skills_skill_design_principles",
+      "community": 12,
+      "norm_label": "design principles"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/claude_seedance_skill/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_skills_claude_seedance_skill_skill",
+      "community": 13,
+      "norm_label": "skill.md"
+    },
+    {
+      "label": "Claude Seedance Skill (ByteDance Seedance Video Prompting)",
+      "file_type": "document",
+      "source_file": ".agents/skills/claude_seedance_skill/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_skills_claude_seedance_skill_skill_claude_seedance_skill_bytedance_seedance_video_prompting",
+      "community": 13,
+      "norm_label": "claude seedance skill (bytedance seedance video prompting)"
+    },
+    {
+      "label": "Key Prompt Rules for Seedance",
+      "file_type": "document",
+      "source_file": ".agents/skills/claude_seedance_skill/SKILL.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "agents_skills_claude_seedance_skill_skill_key_prompt_rules_for_seedance",
+      "community": 13,
+      "norm_label": "key prompt rules for seedance"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/gsap_skills/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_skills_gsap_skills_skill",
+      "community": 14,
+      "norm_label": "skill.md"
+    },
+    {
+      "label": "GSAP Skills (GSAP Animations)",
+      "file_type": "document",
+      "source_file": ".agents/skills/gsap_skills/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_skills_gsap_skills_skill_gsap_skills_gsap_animations",
+      "community": 14,
+      "norm_label": "gsap skills (gsap animations)"
+    },
+    {
+      "label": "Best Practices",
+      "file_type": "document",
+      "source_file": ".agents/skills/gsap_skills/SKILL.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "agents_skills_gsap_skills_skill_best_practices",
+      "community": 14,
+      "norm_label": "best practices"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/higgsfield_skill/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_skills_higgsfield_skill_skill",
+      "community": 15,
+      "norm_label": "skill.md"
+    },
+    {
+      "label": "Higgsfield Skill (AI Video Creative Direction)",
+      "file_type": "document",
+      "source_file": ".agents/skills/higgsfield_skill/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_skills_higgsfield_skill_skill_higgsfield_skill_ai_video_creative_direction",
+      "community": 15,
+      "norm_label": "higgsfield skill (ai video creative direction)"
+    },
+    {
+      "label": "Prompts Structure Guidelines",
+      "file_type": "document",
+      "source_file": ".agents/skills/higgsfield_skill/SKILL.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "agents_skills_higgsfield_skill_skill_prompts_structure_guidelines",
+      "community": 15,
+      "norm_label": "prompts structure guidelines"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/motion_dev_skills/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_skills_motion_dev_skills_skill",
+      "community": 16,
+      "norm_label": "skill.md"
+    },
+    {
+      "label": "Motion Dev Animations Skill (Micro-Animations & CSS Transitions)",
+      "file_type": "document",
+      "source_file": ".agents/skills/motion_dev_skills/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_skills_motion_dev_skills_skill_motion_dev_animations_skill_micro_animations_css_transitions",
+      "community": 16,
+      "norm_label": "motion dev animations skill (micro-animations & css transitions)"
+    },
+    {
+      "label": "Motion Design Rules",
+      "file_type": "document",
+      "source_file": ".agents/skills/motion_dev_skills/SKILL.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "agents_skills_motion_dev_skills_skill_motion_design_rules",
+      "community": 16,
+      "norm_label": "motion design rules"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_workflows_graphify",
+      "community": 23,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "Workflow: graphify",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_workflows_graphify_workflow_graphify",
+      "community": 23,
+      "norm_label": "workflow: graphify"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "sbi-next/AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_agents",
+      "community": 24,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "This is NOT the Next.js you know",
+      "file_type": "document",
+      "source_file": "sbi-next/AGENTS.md",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "sbi_next_agents_this_is_not_the_next_js_you_know",
+      "community": 24,
+      "norm_label": "this is not the next.js you know"
+    },
+    {
+      "label": "CLAUDE.md",
+      "file_type": "document",
+      "source_file": "sbi-next/CLAUDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_claude",
+      "community": 44,
+      "norm_label": "claude.md"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "sbi-next/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "sbi_next_readme",
+      "community": 10,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Getting Started",
+      "file_type": "document",
+      "source_file": "sbi-next/README.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "sbi_next_readme_getting_started",
+      "community": 10,
+      "norm_label": "getting started"
+    },
+    {
+      "label": "Learn More",
+      "file_type": "document",
+      "source_file": "sbi-next/README.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "sbi_next_readme_learn_more",
+      "community": 10,
+      "norm_label": "learn more"
+    },
+    {
+      "label": "Deploy on Vercel",
+      "file_type": "document",
+      "source_file": "sbi-next/README.md",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "sbi_next_readme_deploy_on_vercel",
+      "community": 10,
+      "norm_label": "deploy on vercel"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "supabase_setup",
+      "target": "supabase_setup_public_challenge_submissions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "supabase_setup",
+      "target": "supabase_setup_public_increment_likes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "supabase_setup",
+      "target": "supabase_setup_public_leaderboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "supabase_setup",
+      "target": "supabase_setup_public_posts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "supabase_setup",
+      "target": "supabase_setup_public_registrations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SUPABASE_SETUP.sql",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "supabase_setup",
+      "target": "supabase_setup_public_student_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "sbi_next_jsconfig",
+      "target": "sbi_next_jsconfig_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "sbi_next_jsconfig_compileroptions",
+      "target": "sbi_next_jsconfig_compileroptions_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "sbi_next_jsconfig_compileroptions_paths",
+      "target": "sbi_next_jsconfig_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/jsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import",
+      "source": "sbi_next_jsconfig_paths",
+      "target": "ref_src",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/next.config.mjs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "sbi_next_next_config",
+      "target": "sbi_next_next_config_nextconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "sbi_next_package",
+      "target": "sbi_next_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "sbi_next_package",
+      "target": "sbi_next_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "sbi_next_package",
+      "target": "sbi_next_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "sbi_next_package",
+      "target": "sbi_next_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "sbi_next_package",
+      "target": "sbi_next_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "sbi_next_package_scripts",
+      "target": "sbi_next_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "sbi_next_package_scripts",
+      "target": "sbi_next_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "sbi_next_package_scripts",
+      "target": "sbi_next_package_scripts_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "sbi_next_package_dependencies",
+      "target": "sbi_next_package_dependencies_gsap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "sbi_next_package_dependencies",
+      "target": "sbi_next_package_dependencies_next",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "sbi_next_package_dependencies",
+      "target": "sbi_next_package_dependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "sbi_next_package_dependencies",
+      "target": "sbi_next_package_dependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "sbi_next_package_dependencies",
+      "target": "sbi_next_package_dependencies_supabase_supabase_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "import",
+      "source": "sbi_next_package_dependencies_supabase_supabase_js",
+      "target": "supabase_supabase_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "import",
+      "source": "sbi_next_package_dependencies_gsap",
+      "target": "gsap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "import",
+      "source": "sbi_next_package_dependencies_next",
+      "target": "next",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "import",
+      "source": "sbi_next_package_dependencies_react",
+      "target": "react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "import",
+      "source": "sbi_next_package_dependencies_react_dom",
+      "target": "react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/campus-calendar/page.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_campus_calendar_page",
+      "target": "sbi_next_src_app_campus_calendar_page_campuscalendarpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/community/page.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_community_page",
+      "target": "sbi_next_src_app_community_page_communitypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/community/page.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_community_page",
+      "target": "sbi_next_src_app_community_page_formattimeago",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/community/page.js",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_community_page_communitypage",
+      "target": "sbi_next_src_app_community_page_formattimeago",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/idea-hub/page.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_idea_hub_page",
+      "target": "sbi_next_src_app_idea_hub_page_ideahubpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/ideationx/page.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_ideationx_page",
+      "target": "sbi_next_src_app_ideationx_page_faqitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/ideationx/page.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_ideationx_page",
+      "target": "sbi_next_src_app_ideationx_page_ideationxpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/innovation-score/page.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_innovation_score_page",
+      "target": "sbi_next_src_app_innovation_score_page_innovationscorepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/layout.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_layout",
+      "target": "sbi_next_src_app_layout_metadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/layout.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_layout",
+      "target": "sbi_next_src_app_layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/layout.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_layout",
+      "target": "sbi_next_src_app_layout_viewport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/leaderboard/page.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_leaderboard_page",
+      "target": "sbi_next_src_app_leaderboard_page_getthemeicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/leaderboard/page.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_leaderboard_page",
+      "target": "sbi_next_src_app_leaderboard_page_leaderboardpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/leaderboard/page.js",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_leaderboard_page_leaderboardpage",
+      "target": "sbi_next_src_app_leaderboard_page_getthemeicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/learning-hub/page.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_learning_hub_page",
+      "target": "sbi_next_src_app_learning_hub_page_learninghubpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/mentor-connect/page.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_mentor_connect_page",
+      "target": "sbi_next_src_app_mentor_connect_page_mentorconnectpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_page",
+      "target": "sbi_next_src_app_page_herocounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_page",
+      "target": "sbi_next_src_app_page_homepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_page",
+      "target": "sbi_next_src_app_page_marqueeschools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_page",
+      "target": "sbi_next_src_app_page_statcounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/page.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_page",
+      "target": "sbi_next_src_app_page_themecards",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/register/page.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_register_page",
+      "target": "sbi_next_src_app_register_page_registerpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/resources/page.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_resources_page",
+      "target": "sbi_next_src_app_resources_page_resourcespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/themes/page.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_themes_page",
+      "target": "sbi_next_src_app_themes_page_hextorgb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/themes/page.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_themes_page",
+      "target": "sbi_next_src_app_themes_page_themespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/themes/page.js",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_themes_page_themespage",
+      "target": "sbi_next_src_app_themes_page_hextorgb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/app/weekly-challenge/page.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "sbi_next_src_app_weekly_challenge_page",
+      "target": "sbi_next_src_app_weekly_challenge_page_weeklychallengepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/Countdown.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_countdown",
+      "target": "sbi_next_src_components_countdown_countdown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/CounterCard.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_countercard",
+      "target": "sbi_next_src_components_countercard_countercard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/Footer.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_footer",
+      "target": "sbi_next_src_components_footer_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/Navbar.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_navbar",
+      "target": "sbi_next_src_components_navbar_navbar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/PhaseTracker.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_phasetracker",
+      "target": "sbi_next_src_components_phasetracker_phasetracker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/RevealOnScroll.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_revealonscroll",
+      "target": "sbi_next_src_components_revealonscroll_revealonscroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/ScrollProgress.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_scrollprogress",
+      "target": "sbi_next_src_components_scrollprogress_scrollprogress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/ThemeCard.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_themecard",
+      "target": "sbi_next_src_components_themecard_themecard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/WinnerCard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_winnercard",
+      "target": "sbi_next_src_components_winnercard_winnercard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/components/XpIcon.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "sbi_next_src_components_xpicon",
+      "target": "sbi_next_src_components_xpicon_xpicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/hooks/useGSAP.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "sbi_next_src_hooks_usegsap",
+      "target": "sbi_next_src_hooks_usegsap_useanimatecounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/hooks/useGSAP.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "sbi_next_src_hooks_usegsap",
+      "target": "sbi_next_src_hooks_usegsap_usegsap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/src/lib/data.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "sbi_next_src_lib_data",
+      "target": "sbi_next_src_lib_data_ideationxdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_rules_graphify",
+      "target": "agents_rules_graphify_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/claude_design_skills/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_skills_claude_design_skills_skill",
+      "target": "agents_skills_claude_design_skills_skill_claude_design_skills_ai_ui_generation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/claude_design_skills/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "agents_skills_claude_design_skills_skill_claude_design_skills_ai_ui_generation",
+      "target": "agents_skills_claude_design_skills_skill_design_principles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/claude_seedance_skill/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_skills_claude_seedance_skill_skill",
+      "target": "agents_skills_claude_seedance_skill_skill_claude_seedance_skill_bytedance_seedance_video_prompting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/claude_seedance_skill/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "agents_skills_claude_seedance_skill_skill_claude_seedance_skill_bytedance_seedance_video_prompting",
+      "target": "agents_skills_claude_seedance_skill_skill_key_prompt_rules_for_seedance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/gsap_skills/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_skills_gsap_skills_skill",
+      "target": "agents_skills_gsap_skills_skill_gsap_skills_gsap_animations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/gsap_skills/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "agents_skills_gsap_skills_skill_gsap_skills_gsap_animations",
+      "target": "agents_skills_gsap_skills_skill_best_practices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/higgsfield_skill/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_skills_higgsfield_skill_skill",
+      "target": "agents_skills_higgsfield_skill_skill_higgsfield_skill_ai_video_creative_direction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/higgsfield_skill/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "agents_skills_higgsfield_skill_skill_higgsfield_skill_ai_video_creative_direction",
+      "target": "agents_skills_higgsfield_skill_skill_prompts_structure_guidelines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/motion_dev_skills/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_skills_motion_dev_skills_skill",
+      "target": "agents_skills_motion_dev_skills_skill_motion_dev_animations_skill_micro_animations_css_transitions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/motion_dev_skills/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "agents_skills_motion_dev_skills_skill_motion_dev_animations_skill_micro_animations_css_transitions",
+      "target": "agents_skills_motion_dev_skills_skill_motion_design_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_workflows_graphify",
+      "target": "agents_workflows_graphify_workflow_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/AGENTS.md",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "sbi_next_agents",
+      "target": "sbi_next_agents_this_is_not_the_next_js_you_know",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/README.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "sbi_next_readme",
+      "target": "sbi_next_readme_deploy_on_vercel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/README.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "sbi_next_readme",
+      "target": "sbi_next_readme_getting_started",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sbi-next/README.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "sbi_next_readme",
+      "target": "sbi_next_readme_learn_more",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "c665b9eac89c3cda47b75cc949347e9b14f15e69"
+}
