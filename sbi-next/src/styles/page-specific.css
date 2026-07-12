@@ -375,7 +375,7 @@
     .profile-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-xl); margin-bottom: var(--space-lg); text-align: center; }
     .profile-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--grad-saffron); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 900; font-size: 1.8rem; color: #fff; margin: 0 auto var(--space-md); border: 3px solid var(--saffron); box-shadow: 0 0 20px var(--saffron-glow); }
     .badges-panel { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-xl); margin-bottom: var(--space-lg); }
-    .badges-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-sm); margin-top: var(--space-md); }
+    .badges-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-sm); margin-top: var(--space-md); justify-items: center; }
     .dive-banner { background: linear-gradient(135deg, rgba(255,107,26,0.12), rgba(0,212,184,0.06)); border: 1px solid rgba(255,107,26,0.25); border-radius: var(--radius-xl); padding: var(--space-2xl); margin-bottom: var(--space-2xl); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center; }
     .dive-steps { display: flex; flex-direction: column; gap: var(--space-md); }
     .dive-step { display: flex; gap: var(--space-md); align-items: flex-start; }

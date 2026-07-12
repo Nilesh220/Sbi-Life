@@ -253,7 +253,7 @@
 .badge--earned { background: var(--bg-elevated); border-color: rgba(0,212,184,0.3); }
 .badge--locked { opacity: 0.3; filter: grayscale(1); }
 .badge--earned:hover { transform: scale(1.1); box-shadow: 0 4px 16px rgba(0,212,184,0.2); }
-.badges-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-sm); }
+.badges-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-sm); justify-items: center; }
 
 /* ── Community Posts ──────────────────────────────────────── */
 .community-post { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-xl); transition: all 0.2s; }
