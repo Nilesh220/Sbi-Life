@@ -120,12 +120,15 @@ export default function HomePage() {
 
             <div className="hero-home__visual anim-scale-in delay-300">
               <div className="hero-home__ring-outer">
+                <div className="orbit-dot orbit-dot--1"></div>
                 <div className="hero-home__ring-inner">
-                  <div className="hero-home__logo-center">
-                    <Image src="/assets/Ideation x logo.webp" alt="IdeationX" width={130} height={40} style={{ opacity: 0.9 }} />
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--saffron)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>2026</div>
-                  </div>
+                  <div className="orbit-dot orbit-dot--2"></div>
+                  <div className="orbit-dot orbit-dot--3"></div>
                 </div>
+              </div>
+              <div className="hero-home__logo-center">
+                <Image src="/assets/Ideation x logo.webp" alt="IdeationX" width={130} height={40} style={{ opacity: 0.9 }} />
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--saffron)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>2026</div>
               </div>
               <div style={{ position: 'absolute', top: '30px', right: '20px' }} className="anim-float">
                 <div className="glass-card" style={{ padding: '10px 14px', fontSize: '0.78rem', fontWeight: 700 }}>
