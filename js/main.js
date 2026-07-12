@@ -91,20 +91,33 @@
 
 /* ── Animated Number Counter ──────────────────────────────── */
 function animateCounter(el, target, duration = 2000, suffix = '') {
-  const start = performance.now();
-  const startVal = 0;
-
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    // Ease out cubic
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(startVal + (target - startVal) * eased);
-    el.textContent = formatNumber(current) + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = formatNumber(target) + suffix;
+  if (typeof gsap !== 'undefined') {
+    const obj = { value: 0 };
+    gsap.to(obj, {
+      value: target,
+      duration: duration / 1000,
+      ease: "power2.out",
+      onUpdate: () => {
+        el.textContent = formatNumber(Math.round(obj.value)) + suffix;
+      },
+      onComplete: () => {
+        el.textContent = formatNumber(target) + suffix;
+      }
+    });
+  } else {
+    const start = performance.now();
+    const startVal = 0;
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(startVal + (target - startVal) * eased);
+      el.textContent = formatNumber(current) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = formatNumber(target) + suffix;
+    }
+    requestAnimationFrame(update);
   }
-  requestAnimationFrame(update);
 }
 
 function formatNumber(n) {
@@ -359,6 +372,88 @@ function initMarquees() {
 }
 document.addEventListener('DOMContentLoaded', initMarquees);
 
+/* ── Premium GSAP & Motion Dev Animations ─────────────────── */
+function initPremiumAnimations() {
+  if (typeof gsap === 'undefined') return;
+
+  // Register ScrollTrigger
+  if (typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
+  // 1. Hero Content Entrance Stagger
+  const heroEls = document.querySelectorAll('.hero-section h1, .hero-section p, .hero-section .btn, .hero-section .hero-badge, .hero-section .live-badge');
+  if (heroEls.length) {
+    gsap.from(heroEls, {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      stagger: 0.15,
+      ease: "power3.out",
+      clearProps: "all"
+    });
+  }
+
+  // 2. Parallax background orbs
+  document.querySelectorAll('.orb').forEach(orb => {
+    gsap.to(orb, {
+      yPercent: -15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: orb,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  });
+
+  // 3. Smooth Reveals (Motion Dev styling)
+  document.querySelectorAll('.reveal').forEach(el => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 25 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.85,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 88%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+
+  // 4. Interactive Card hover states
+  document.querySelectorAll('.theme-card, .past-winner-card, .resource-card, .hub-card, .cal-event, .faq-item').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        y: -5,
+        scale: 1.012,
+        borderColor: "rgba(255, 107, 26, 0.35)",
+        boxShadow: "0 12px 30px -10px rgba(255, 107, 26, 0.15)",
+        duration: 0.35,
+        ease: "power2.out"
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        y: 0,
+        scale: 1,
+        borderColor: "rgba(255, 255, 255, 0.08)",
+        boxShadow: "none",
+        duration: 0.35,
+        ease: "power2.out",
+        clearProps: "borderColor,boxShadow"
+      });
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', initPremiumAnimations);
+
 /* ── Generic render helpers ───────────────────────────────── */
 function renderThemeTag(themeId) {
   const theme = IdeationXData?.themes?.find(t => t.id === themeId);
@@ -383,5 +478,6 @@ window.IdeationX = {
   initFilterTabs,
   showToast,
   initParticles,
-  renderThemeTag
+  renderThemeTag,
+  initPremiumAnimations
 };
