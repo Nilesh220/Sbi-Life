@@ -173,7 +173,7 @@
             <p class="entry-card__desc">${e.summary}</p>
             <div class="entry-card__footer">
               <span class="entry-card__college">📍 ${e.college}</span>
-              <span class="entry-card__winner" style="color:${e.isWinner ? 'var(--gold)' : 'var(--text-muted)'}">${e.isWinner ? '🥇 National Champion' : 'Finalist'}</span>
+              <span class="entry-card__winner" style="color:${e.isWinner ? 'var(--gold)' : 'var(--text-muted)'}">${e.isWinner ? '🥇 ' : ''}${e.rankText || 'Finalist'}</span>
             </div>
           </div>
         </div>

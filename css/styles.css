@@ -553,6 +553,13 @@ ul, ol { list-style: none; }
   flex-shrink: 0;
 }
 .nav__logo img { height: 36px; width: auto; }
+.nav__logo img[src*="SBI life logo"] {
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
 .nav__logo-divider {
   width: 1px;
   height: 32px;

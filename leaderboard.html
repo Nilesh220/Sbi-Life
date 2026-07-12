@@ -78,7 +78,7 @@
       <div class="anim-fade-up">
         <div class="live-badge" style="margin:0 auto var(--space-lg);width:fit-content"><div class="ping-dot"></div> Live Standings</div>
         <h1>National <span class="text-gradient-gold">Leaderboard</span></h1>
-        <p style="max-width:560px;margin:var(--space-md) auto 0;font-size:1.05rem">Phase 3 — College evaluations in progress. 300 National Qualifiers have been selected. Top 30 Semi-Finalists will be revealed in November.</p>
+        <p style="max-width:560px;margin:var(--space-md) auto 0;font-size:1.05rem">Phase 2 — Campus Registration is active. 600 B School Qualifiers will be selected during the internal evaluation. Top 30 Semi-Finalists will be revealed in November.</p>
       </div>
     </div>
   </section>
@@ -87,12 +87,12 @@
     <!-- Summary cards -->
     <div class="lb-summary reveal">
       <div class="lb-summary-card">
-        <div class="lb-summary-num text-gradient-saffron" data-counter="100" data-suffix="+">100+</div>
-        <div class="lb-summary-label">Colleges Competing</div>
+        <div class="lb-summary-num text-gradient-saffron" data-counter="200" data-suffix="+">200+</div>
+        <div class="lb-summary-label">B Schools Competing</div>
       </div>
       <div class="lb-summary-card">
-        <div class="lb-summary-num text-gradient-teal" data-counter="300">300</div>
-        <div class="lb-summary-label">National Qualifiers</div>
+        <div class="lb-summary-num text-gradient-teal" data-counter="600">600</div>
+        <div class="lb-summary-label">B School Qualifiers</div>
       </div>
       <div class="lb-summary-card">
         <div class="lb-summary-num text-gradient-gold">30</div>
@@ -106,11 +106,11 @@
 
     <!-- Filter bar -->
     <div class="filter-bar reveal">
-      <input class="form-input lb-search" type="text" id="lb-search" placeholder="🔍 Search college or entry name..." oninput="filterLeaderboard()"/>
+      <input class="form-input lb-search" type="text" id="lb-search" placeholder="🔍 Search B School or entry name..." oninput="filterLeaderboard()"/>
       <div class="filter-tabs" id="phase-filter">
-        <button class="filter-tab filter-tab--active" data-filter="all" onclick="setPhaseFilter('all',this)">All (300)</button>
-        <button class="filter-tab" data-filter="Semi-Finalist" onclick="setPhaseFilter('Semi-Finalist',this)">Semi-Finalists (10)</button>
-        <button class="filter-tab" data-filter="Qualifier" onclick="setPhaseFilter('Qualifier',this)">Qualifiers</button>
+        <button class="filter-tab filter-tab--active" data-filter="all" onclick="setPhaseFilter('all',this)">All (600)</button>
+        <button class="filter-tab" data-filter="Semi-Finalist" onclick="setPhaseFilter('Semi-Finalist',this)">Semi-Finalists (30)</button>
+        <button class="filter-tab" data-filter="Qualifier" onclick="setThemeFilter('Qualifier',this)">Qualifiers</button>
       </div>
       <div class="filter-tabs" id="theme-filter">
         <button class="filter-tab filter-tab--active" data-theme="all" onclick="setThemeFilter('all',this)">All Themes</button>
@@ -126,7 +126,7 @@
     <div class="lb-table reveal reveal--delay-1">
       <div class="lb-header">
         <span style="text-align:center">Rank</span>
-        <span>College / Entry</span>
+        <span>B School / Entry</span>
         <span>Theme</span>
         <span>Status</span>
         <span>City</span>

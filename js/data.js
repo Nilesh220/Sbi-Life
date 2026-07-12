@@ -10,23 +10,23 @@ const IdeationXData = {
     edition: 3,
     year: 2026,
     tagline: "Bharat Begins With An Idea",
-    currentPhase: 3, // 1=Induction, 2=Registration, 3=College Eval, 4=National Qualifier, 5=Semi-Finals
+    currentPhase: 2, // 1=Induction, 2=Registration, 3=B School Eval, 4=National Qualifier, 5=Semi-Finals
     phases: [
       { id: 1, name: "Campus Induction",    date: "Aug 2026",  done: true  },
-      { id: 2, name: "Campus Registration", date: "Sep 2026",  done: true  },
-      { id: 3, name: "College Evaluation",  date: "Oct 2026",  active: true },
+      { id: 2, name: "Campus Registration", date: "Sep 2026",  done: false, active: true },
+      { id: 3, name: "B School Evaluation", date: "Oct 2026",  done: false },
       { id: 4, name: "National Qualifiers", date: "Nov 2026",  done: false },
       { id: 5, name: "Semi-Finals",         date: "Dec 2026",  done: false },
       { id: 6, name: "Grand Finale",        date: "Jan 2027",  done: false, locked: true }
     ],
     keyDates: [
       { date: "Aug 1, 2026",  event: "Campus Induction Begins",         status: "done"   },
-      { date: "Sep 1, 2026",  event: "Registration Opens",              status: "done"   },
-      { date: "Sep 30, 2026", event: "Registration Deadline",           status: "done"   },
-      { date: "Oct 15, 2026", event: "College-Level Evaluation Starts", status: "active" },
-      { date: "Nov 1, 2026",  event: "Top-3 Per College Announced",     status: "upcoming"},
+      { date: "Sep 1, 2026",  event: "Registration Opens",              status: "active" },
+      { date: "Sep 30, 2026", event: "Registration Deadline",           status: "upcoming"},
+      { date: "Oct 15, 2026", event: "B School-Level Evaluation Starts", status: "upcoming" },
+      { date: "Nov 1, 2026",  event: "Top-3 Per B School Announced",     status: "upcoming"},
       { date: "Nov 15, 2026", event: "National Qualifier Results",      status: "upcoming"},
-      { date: "Dec 10, 2026", event: "Semi-Finals (In-Person)",         status: "upcoming"},
+      { date: "Dec 10, 2026", event: "Semi-Finals (Virtual)",           status: "upcoming"},
       { date: "Jan 2027",     event: "Grand Finale (Details Coming)",   status: "upcoming"},
     ]
   },
@@ -34,10 +34,10 @@ const IdeationXData = {
   /* ── Live Counters ────────────────────────────────────────── */
   // API_HOOK: GET /api/counters → { colleges, students, entries, shortlisted }
   counters: {
-    colleges:    100,
-    students:    31420,
-    entries:     4872,
-    shortlisted: 300
+    colleges:    200,
+    students:    300000,
+    entries:     50000,
+    shortlisted: 600
   },
 
   /* ── Challenge Themes ─────────────────────────────────────── */
@@ -128,69 +128,51 @@ const IdeationXData = {
   pastWinners: [
     {
       id: "w1",
-      edition: 1,
-      year: 2024,
-      title: "InsurBridge",
-      college: "XIME Bangalore",
-      theme: "Distribution Innovation",
-      summary: "A hyperlocal insurance distribution model using trained 'Bima Sakhi' — women micro-entrepreneurs embedded in tier-3 markets — as last-mile agents, reducing CAC by 68% in pilot markets.",
-      icon: "🌉",
-      isWinner: true
+      edition: 2,
+      year: 2025,
+      title: "Three-Pillar Growth Strategy",
+      college: "SPJIMR Mumbai",
+      theme: "Insurance Penetration",
+      summary: "An innovative expansion framework featuring 'PAN-Plus' account bundling, 'Evolve' flexible policies for Gen Z/gig workers, and AI/WhatsApp digital agent tools.",
+      icon: "📦",
+      isWinner: true,
+      rankText: "National Champion"
     },
     {
       id: "w2",
       edition: 2,
       year: 2025,
-      title: "LifeStack",
-      college: "SPJIMR Mumbai",
-      theme: "Gen Z Insurance",
-      summary: "A modular, stackable micro-insurance product designed for the gig economy — workers build their own cover from ₹10/day units, with auto-adjust based on income verified via UPI transaction history.",
-      icon: "📦",
-      isWinner: true
+      title: "ValueVerse",
+      college: "IIM Shillong",
+      theme: "Customer Value Protection",
+      summary: "An innovative customer value protection solution designed to expand coverage and address the life insurance needs of underpenetrated demographics.",
+      icon: "🌉",
+      isWinner: false,
+      rankText: "National 1st Runner-Up"
     },
     {
-      id: "e1",
+      id: "w3",
       edition: 2,
       year: 2025,
-      title: "KrishiCover",
-      college: "IIM Ahmedabad",
-      theme: "AgriInsurance",
-      summary: "Parametric life insurance for farming households — coverage triggers automatically when government drought indices cross a threshold, eliminating claim delays.",
+      title: "Impromptu Micro-Insurance",
+      college: "IIM Lucknow",
+      theme: "Rural Distribution",
+      summary: "A digital micro-insurance ecosystem integrating local village logistics networks to enable swift, trusted onboarding for rural populations.",
       icon: "🌾",
-      isWinner: false
+      isWinner: false,
+      rankText: "National 2nd Runner-Up"
     },
     {
-      id: "e2",
-      edition: 2,
-      year: 2025,
-      title: "ZeroDoc Life",
-      college: "FMS Delhi",
-      theme: "Digital Distribution",
-      summary: "A WhatsApp-native insurance onboarding bot that takes a person from zero to covered in 4 minutes flat, using Aadhaar e-KYC and UPI autopay.",
-      icon: "💬",
-      isWinner: false
-    },
-    {
-      id: "e3",
+      id: "w4",
       edition: 1,
       year: 2024,
-      title: "PehlaKadam",
-      college: "XLRI Jamshedpur",
-      theme: "Youth Insurance",
-      summary: "A life insurance product for first-time earners, auto-offered at the moment of first salary credit, priced at 0.5% of monthly salary with zero paperwork.",
-      icon: "👣",
-      isWinner: false
-    },
-    {
-      id: "e4",
-      edition: 1,
-      year: 2024,
-      title: "SakhiShield",
-      college: "MDI Gurgaon",
-      theme: "Women Empowerment",
-      summary: "Self-Help Group-based group life insurance model where SHG collectives purchase and administer micro-life policies for their members, with the SHG leader as the licensed micro-agent.",
+      title: "InsurBridge",
+      college: "XIME Bangalore",
+      theme: "Hyperlocal Distribution",
+      summary: "A hyperlocal insurance distribution model using trained 'Bima Sakhi' (women micro-entrepreneurs) as last-mile agents, reducing CAC by 68% in tier-3 markets.",
       icon: "🤝",
-      isWinner: false
+      isWinner: true,
+      rankText: "National Champion"
     }
   ],
 

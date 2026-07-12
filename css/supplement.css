@@ -15,6 +15,14 @@
 }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); }
 .nav__logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.nav__logo img { height: 36px; width: auto; }
+.nav__logo img[src*="SBI life logo"] {
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
 .nav__logo-divider { width: 1px; height: 28px; background: var(--glass-border); }
 .nav__links { display: flex; align-items: center; gap: 6px; }
 .nav__link { padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); text-decoration: none; transition: all var(--t-fast); letter-spacing: 0.02em; }
