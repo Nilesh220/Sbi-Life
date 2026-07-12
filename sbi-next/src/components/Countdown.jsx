@@ -26,24 +26,24 @@ export default function Countdown({ targetDate, id }) {
 
   return (
     <div className="countdown" id={id}>
-      <div className="countdown__item">
-        <span className="countdown__number">{String(time.days).padStart(2, '0')}</span>
-        <span className="countdown__label">Days</span>
+      <div className="countdown-unit">
+        <span className="countdown-number">{String(time.days).padStart(2, '0')}</span>
+        <span className="countdown-label">Days</span>
       </div>
-      <div className="countdown__sep">:</div>
-      <div className="countdown__item">
-        <span className="countdown__number">{String(time.hours).padStart(2, '0')}</span>
-        <span className="countdown__label">Hours</span>
+      <div className="countdown-sep">:</div>
+      <div className="countdown-unit">
+        <span className="countdown-number">{String(time.hours).padStart(2, '0')}</span>
+        <span className="countdown-label">Hours</span>
       </div>
-      <div className="countdown__sep">:</div>
-      <div className="countdown__item">
-        <span className="countdown__number">{String(time.mins).padStart(2, '0')}</span>
-        <span className="countdown__label">Mins</span>
+      <div className="countdown-sep">:</div>
+      <div className="countdown-unit">
+        <span className="countdown-number">{String(time.mins).padStart(2, '0')}</span>
+        <span className="countdown-label">Mins</span>
       </div>
-      <div className="countdown__sep">:</div>
-      <div className="countdown__item">
-        <span className="countdown__number">{String(time.secs).padStart(2, '0')}</span>
-        <span className="countdown__label">Secs</span>
+      <div className="countdown-sep">:</div>
+      <div className="countdown-unit">
+        <span className="countdown-number">{String(time.secs).padStart(2, '0')}</span>
+        <span className="countdown-label">Secs</span>
       </div>
     </div>
   );

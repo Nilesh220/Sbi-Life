@@ -205,9 +205,19 @@ export default function HomePage() {
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.2}>
-            <div style={{ textAlign: 'center', marginTop: 'var(--space-xl)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 'var(--space-2xl)' }}>
               <Countdown targetDate="2026-09-30T23:59:59" id="home-countdown" />
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: 'var(--space-sm)' }}>Registration Deadline</p>
+              <p style={{
+                fontSize: '0.78rem',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: 'var(--text-secondary)',
+                marginTop: '12px'
+              }}>
+                Registration Deadline
+              </p>
             </div>
           </RevealOnScroll>
         </div>
