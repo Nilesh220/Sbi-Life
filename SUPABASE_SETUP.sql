@@ -28,8 +28,18 @@ CREATE TABLE IF NOT EXISTS public.registrations (
 
 -- Enable Row Level Security (RLS) on registrations
 ALTER TABLE public.registrations ENABLE ROW LEVEL SECURITY;
+
+-- Drop existing policies if any
+DROP POLICY IF EXISTS "Allow public inserts on registrations" ON public.registrations;
+DROP POLICY IF EXISTS "Allow public select on registrations" ON public.registrations;
+DROP POLICY IF EXISTS "Allow public updates on registrations" ON public.registrations;
+DROP POLICY IF EXISTS "Allow public deletes on registrations" ON public.registrations;
+
+-- CRUD policies for demo sandbox admin dashboard
 CREATE POLICY "Allow public inserts on registrations" ON public.registrations FOR INSERT WITH CHECK (true);
 CREATE POLICY "Allow public select on registrations" ON public.registrations FOR SELECT USING (true);
+CREATE POLICY "Allow public updates on registrations" ON public.registrations FOR UPDATE USING (true);
+CREATE POLICY "Allow public deletes on registrations" ON public.registrations FOR DELETE USING (true);
 
 
 -- 2. posts Table (Community Discussion Board)
@@ -47,9 +57,16 @@ CREATE TABLE IF NOT EXISTS public.posts (
 
 -- Enable RLS on posts
 ALTER TABLE public.posts ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public insert on posts" ON public.posts;
+DROP POLICY IF EXISTS "Allow public select on posts" ON public.posts;
+DROP POLICY IF EXISTS "Allow public update on posts" ON public.posts;
+DROP POLICY IF EXISTS "Allow public delete on posts" ON public.posts;
+
 CREATE POLICY "Allow public insert on posts" ON public.posts FOR INSERT WITH CHECK (true);
 CREATE POLICY "Allow public select on posts" ON public.posts FOR SELECT USING (true);
 CREATE POLICY "Allow public update on posts" ON public.posts FOR UPDATE USING (true);
+CREATE POLICY "Allow public delete on posts" ON public.posts FOR DELETE USING (true);
 
 -- Store procedure function to increment likes atomically
 CREATE OR REPLACE FUNCTION public.increment_likes(post_id UUID)
@@ -69,13 +86,23 @@ CREATE TABLE IF NOT EXISTS public.challenge_submissions (
     file_name TEXT,
     url TEXT,
     team_id TEXT NOT NULL,
+    status TEXT DEFAULT 'Pending' NOT NULL, -- Status: Pending, Approved, Rejected
+    score INT DEFAULT 0,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
 -- Enable RLS on challenge_submissions
 ALTER TABLE public.challenge_submissions ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public insert on submissions" ON public.challenge_submissions;
+DROP POLICY IF EXISTS "Allow public select on submissions" ON public.challenge_submissions;
+DROP POLICY IF EXISTS "Allow public update on submissions" ON public.challenge_submissions;
+DROP POLICY IF EXISTS "Allow public delete on submissions" ON public.challenge_submissions;
+
 CREATE POLICY "Allow public insert on submissions" ON public.challenge_submissions FOR INSERT WITH CHECK (true);
 CREATE POLICY "Allow public select on submissions" ON public.challenge_submissions FOR SELECT USING (true);
+CREATE POLICY "Allow public update on submissions" ON public.challenge_submissions FOR UPDATE USING (true);
+CREATE POLICY "Allow public delete on submissions" ON public.challenge_submissions FOR DELETE USING (true);
 
 
 -- 4. leaderboard Table (National Standings)
@@ -93,7 +120,16 @@ CREATE TABLE IF NOT EXISTS public.leaderboard (
 
 -- Enable RLS on leaderboard
 ALTER TABLE public.leaderboard ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public select on leaderboard" ON public.leaderboard;
+DROP POLICY IF EXISTS "Allow public insert on leaderboard" ON public.leaderboard;
+DROP POLICY IF EXISTS "Allow public update on leaderboard" ON public.leaderboard;
+DROP POLICY IF EXISTS "Allow public delete on leaderboard" ON public.leaderboard;
+
 CREATE POLICY "Allow public select on leaderboard" ON public.leaderboard FOR SELECT USING (true);
+CREATE POLICY "Allow public insert on leaderboard" ON public.leaderboard FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public update on leaderboard" ON public.leaderboard FOR UPDATE USING (true);
+CREATE POLICY "Allow public delete on leaderboard" ON public.leaderboard FOR DELETE USING (true);
 
 -- Insert original mock standings into the database leaderboard table
 INSERT INTO public.leaderboard (rank, college, entry, theme, phase, city, score) VALUES
@@ -122,8 +158,16 @@ CREATE TABLE IF NOT EXISTS public.student_stats (
 
 -- Enable RLS on student_stats
 ALTER TABLE public.student_stats ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public select on student_stats" ON public.student_stats;
+DROP POLICY IF EXISTS "Allow public update on student_stats" ON public.student_stats;
+DROP POLICY IF EXISTS "Allow public insert on student_stats" ON public.student_stats;
+DROP POLICY IF EXISTS "Allow public delete on student_stats" ON public.student_stats;
+
 CREATE POLICY "Allow public select on student_stats" ON public.student_stats FOR SELECT USING (true);
 CREATE POLICY "Allow public update on student_stats" ON public.student_stats FOR UPDATE USING (true);
+CREATE POLICY "Allow public insert on student_stats" ON public.student_stats FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public delete on student_stats" ON public.student_stats FOR DELETE USING (true);
 
 -- Insert a default mock student account
 INSERT INTO public.student_stats (email, xp, level, streak)
