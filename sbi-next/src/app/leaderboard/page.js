@@ -5,14 +5,15 @@ import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import { supabase } from '@/lib/supabase';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import XpIcon from '@/components/XpIcon';
 
 function getThemeIcon(themeStr) {
-  if (themeStr.includes('Kirana')) return '🏪';
-  if (themeStr.includes('Women')) return '👩‍💼';
-  if (themeStr.includes('GenZ')) return '📱';
-  if (themeStr.includes('Climate')) return '🌾';
-  if (themeStr.includes('Invisible')) return '🚗';
-  return '💡';
+  if (themeStr.includes('Kirana')) return 'store';
+  if (themeStr.includes('Women')) return 'profile';
+  if (themeStr.includes('GenZ')) return 'bolt';
+  if (themeStr.includes('Climate')) return 'leaf';
+  if (themeStr.includes('Invisible')) return 'document';
+  return 'lamp';
 }
 
 export default function LeaderboardPage() {
@@ -122,11 +123,21 @@ export default function LeaderboardPage() {
           </div>
           <div className="filter-tabs">
             <button className={`filter-tab ${activeTheme === 'all' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('all')}>All Themes</button>
-            <button className={`filter-tab ${activeTheme === 'Kirana' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('Kirana')}>🏪</button>
-            <button className={`filter-tab ${activeTheme === 'Women' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('Women')}>👩‍💼</button>
-            <button className={`filter-tab ${activeTheme === 'GenZ' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('GenZ')}>📱</button>
-            <button className={`filter-tab ${activeTheme === 'Climate' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('Climate')}>🌾</button>
-            <button className={`filter-tab ${activeTheme === 'Invisible' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('Invisible')}>🚗</button>
+            <button className={`filter-tab ${activeTheme === 'Kirana' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('Kirana')} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <XpIcon name="store" size={13} /> Kirana Stores
+            </button>
+            <button className={`filter-tab ${activeTheme === 'Women' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('Women')} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <XpIcon name="profile" size={13} /> Women Architects
+            </button>
+            <button className={`filter-tab ${activeTheme === 'GenZ' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('GenZ')} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <XpIcon name="bolt" size={13} /> GenZ Smart
+            </button>
+            <button className={`filter-tab ${activeTheme === 'Climate' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('Climate')} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <XpIcon name="leaf" size={13} /> Climate & Farmer
+            </button>
+            <button className={`filter-tab ${activeTheme === 'Invisible' ? 'filter-tab--active' : ''}`} onClick={() => setActiveTheme('Invisible')} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <XpIcon name="document" size={13} /> Invisible Workforce
+            </button>
           </div>
         </div>
 
@@ -160,14 +171,25 @@ export default function LeaderboardPage() {
                     <div className={`lb-rank-num ${rankCls}`}>{medal || '#' + e.rank}</div>
                     <div>
                       <div className="lb-college-name">{e.college}</div>
-                      <div className="lb-college-entry">💡 {e.entry}</div>
+                      <div className="lb-college-entry" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <XpIcon name="lamp" size={13} color="var(--gold)" />
+                        {e.entry}
+                      </div>
                     </div>
-                    <div><span className="tag lb-theme-tag">{getThemeIcon(e.theme)} {e.theme}</span></div>
+                    <div>
+                      <span className="tag lb-theme-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                        <XpIcon name={getThemeIcon(e.theme)} size={12} color="var(--teal)" />
+                        {e.theme}
+                      </span>
+                    </div>
                     <div className={`lb-status-badge ${statusCls}`}>
                       <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: statusDot, display: 'inline-block', shrink: 0 }}></span>
                       {e.phase}
                     </div>
-                    <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>📍 {e.city}</div>
+                    <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {e.city}
+                    </div>
                   </div>
                 );
               })

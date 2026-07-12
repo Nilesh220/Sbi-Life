@@ -288,16 +288,16 @@ export const IdeationXData = {
 
   /* ── Innovation Score Badges ──────────────────────────────── */
   badges: [
-    { id: 1, icon: "🔥", name: "First Step",      desc: "Completed profile",           earned: true  },
-    { id: 2, icon: "📚", name: "Learner",          desc: "First module complete",       earned: true  },
-    { id: 3, icon: "🧠", name: "DIVE Master",      desc: "DIVE Framework certified",    earned: true  },
-    { id: 4, icon: "💬", name: "Community Voice",  desc: "First community post",        earned: true  },
-    { id: 5, icon: "🎯", name: "Bharat Challenger",desc: "Weekly challenge submitted",  earned: true  },
-    { id: 6, icon: "🤝", name: "Mentor Hour",      desc: "First live session attended", earned: false },
-    { id: 7, icon: "📝", name: "Submitter",        desc: "Entry submitted",             earned: false },
-    { id: 8, icon: "⭐", name: "Qualifier",        desc: "Advanced to National Round",  earned: false },
-    { id: 9, icon: "🏆", name: "Semi-Finalist",    desc: "Top 30 nationwide",           earned: false },
-    { id: 10, icon: "🥇", name: "Champion",        desc: "IdeationX 2026 Winner",       earned: false },
+    { id: 1, icon: "fire", name: "First Step",      desc: "Completed profile",           earned: true  },
+    { id: 2, icon: "book", name: "Learner",          desc: "First module complete",       earned: true  },
+    { id: 3, icon: "brain", name: "DIVE Master",      desc: "DIVE Framework certified",    earned: true  },
+    { id: 4, icon: "chat", name: "Community Voice",  desc: "First community post",        earned: true  },
+    { id: 5, icon: "target", name: "Bharat Challenger",desc: "Weekly challenge submitted",  earned: true  },
+    { id: 6, icon: "handshake", name: "Mentor Hour",      desc: "First live session attended", earned: false },
+    { id: 7, icon: "document", name: "Submitter",        desc: "Entry submitted",             earned: false },
+    { id: 8, icon: "star", name: "Qualifier",        desc: "Advanced to National Round",  earned: false },
+    { id: 9, icon: "trophy", name: "Semi-Finalist",    desc: "Top 30 nationwide",           earned: false },
+    { id: 10, icon: "medal", name: "Champion",        desc: "IdeationX 2026 Winner",       earned: false },
   ],
 
   /* ── Resources ────────────────────────────────────────────── */

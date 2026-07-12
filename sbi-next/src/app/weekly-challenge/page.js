@@ -131,7 +131,13 @@ export default function WeeklyChallengePage() {
                 </div>
 
                 <div style={{ marginBottom: 'var(--space-xl)' }}>
-                  <h5 style={{ marginBottom: 'var(--space-md)' }}>📖 Challenge Guide</h5>
+                  <h5 style={{ marginBottom: 'var(--space-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg>
+                    Challenge Guide
+                  </h5>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-sm)' }}>
                     <div style={{ display: 'flex', gap: 'var(--space-md)', fontSize: '0.88rem' }}><span style={{ color: 'var(--saffron)', fontWeight: 700, shrink: 0 }}>01.</span><span>Start with the problem, not your solution. Hook them in the first 10 seconds.</span></div>
                     <div style={{ display: 'flex', gap: 'var(--space-md)', fontSize: '0.88rem' }}><span style={{ color: 'var(--saffron)', fontWeight: 700, shrink: 0 }}>02.</span><span>Be specific. Name the Bharat segment you&apos;re solving for.</span></div>
@@ -140,7 +146,10 @@ export default function WeeklyChallengePage() {
 
                 {/* Upload Area */}
                 <div className="submit-area" onClick={() => document.getElementById('upload-input').click()}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: 'var(--space-md)' }}>📹</div>
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto var(--space-md)' }}>
+                    <path d="M23 7l-7 5 7 5V7z" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                  </svg>
                   <div style={{ fontWeight: 700, marginBottom: '8px' }}>
                     {uploadedFile ? `Selected: ${uploadedFile.name}` : 'Upload Your Video Pitch'}
                   </div>
@@ -194,7 +203,12 @@ export default function WeeklyChallengePage() {
           <div className="challenge-sidebar">
             <RevealOnScroll>
               <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)', marginBottom: 'var(--space-lg)' }}>
-                <h5 style={{ marginBottom: 'var(--space-md)' }}>🔥 Your Streak</h5>
+                <h5 style={{ marginBottom: 'var(--space-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z" />
+                  </svg>
+                  Your Streak
+                </h5>
                 <div style={{ display: 'flex', gap: 'var(--space-sm)', marginBottom: 'var(--space-md)' }}>
                   <div style={{ flex: 1, textAlign: 'center', background: 'var(--teal-dim)', border: '1px solid var(--teal)', borderRadius: 'var(--radius-md)', padding: 'var(--space-md)' }}>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 900, color: 'var(--teal)' }}>7</div>
@@ -210,7 +224,12 @@ export default function WeeklyChallengePage() {
 
             <RevealOnScroll delay={0.1}>
               <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)', marginBottom: 'var(--space-lg)' }}>
-                <h5 style={{ marginBottom: 'var(--space-md)' }}>📚 Challenge Archive</h5>
+                <h5 style={{ marginBottom: 'var(--space-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                  </svg>
+                  Challenge Archive
+                </h5>
                 <div className="archive-table">
                   {archiveWeeks.map(w => (
                     <div key={w.wk} className="archive-row" style={{ borderColor: w.active ? 'var(--saffron)' : 'var(--glass-border)' }}>

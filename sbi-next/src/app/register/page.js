@@ -151,20 +151,26 @@ export default function RegisterPage() {
         <div className="register-layout">
           <div>
             {/* Step Indicators */}
-            <div className="step-indicator anim-fade-up">
-              <div className={`step-dot ${step === 1 ? 'step-dot--active' : step > 1 ? 'step-dot--done' : ''}`}>1</div>
+            <div className="step-indicator anim-fade-up" style={{ marginBottom: '60px' }}>
+              <div className={`step-dot ${step === 1 ? 'step-dot--active' : step > 1 ? 'step-dot--done' : ''}`}>
+                1
+                <span className="step-label" style={{ color: step === 1 ? 'var(--saffron)' : step > 1 ? 'var(--teal)' : 'var(--text-muted)' }}>Your Details</span>
+              </div>
               <div className={`step-line ${step > 1 ? 'step-line--done' : ''}`}></div>
-              <div className={`step-dot ${step === 2 ? 'step-dot--active' : step > 2 ? 'step-dot--done' : ''}`}>2</div>
+              <div className={`step-dot ${step === 2 ? 'step-dot--active' : step > 2 ? 'step-dot--done' : ''}`}>
+                2
+                <span className="step-label" style={{ color: step === 2 ? 'var(--saffron)' : step > 2 ? 'var(--teal)' : 'var(--text-muted)' }}>Your Team</span>
+              </div>
               <div className={`step-line ${step > 2 ? 'step-line--done' : ''}`}></div>
-              <div className={`step-dot ${step === 3 ? 'step-dot--active' : step > 3 ? 'step-dot--done' : ''}`}>3</div>
+              <div className={`step-dot ${step === 3 ? 'step-dot--active' : step > 3 ? 'step-dot--done' : ''}`}>
+                3
+                <span className="step-label" style={{ color: step === 3 ? 'var(--saffron)' : step > 3 ? 'var(--teal)' : 'var(--text-muted)' }}>Your Theme</span>
+              </div>
               <div className={`step-line ${step > 3 ? 'step-line--done' : ''}`}></div>
-              <div className={`step-dot ${step === 4 ? 'step-dot--active' : ''}`}>✓</div>
-            </div>
-            <div style={{ display: 'flex', gap: 0, marginBottom: 'var(--space-2xl)' }} className="anim-fade-up">
-              <span style={{ flex: 1, fontSize: '0.72rem', color: 'var(--text-muted)', textAlign: 'center' }}>Your Details</span>
-              <span style={{ flex: 1, fontSize: '0.72rem', color: 'var(--text-muted)', textAlign: 'center' }}>Your Team</span>
-              <span style={{ flex: 1, fontSize: '0.72rem', color: 'var(--text-muted)', textAlign: 'center' }}>Your Theme</span>
-              <span style={{ flex: 1, fontSize: '0.72rem', color: 'var(--text-muted)', textAlign: 'center' }}>Confirm</span>
+              <div className={`step-dot ${step === 4 ? 'step-dot--active' : ''}`}>
+                ✓
+                <span className="step-label" style={{ color: step === 4 ? 'var(--teal)' : 'var(--text-muted)' }}>Confirm</span>
+              </div>
             </div>
 
             <div className="register-form-card anim-fade-up">

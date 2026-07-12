@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import XpIcon from '@/components/XpIcon';
 
 export default function InnovationScorePage() {
   const { badges } = IdeationXData;
@@ -11,27 +12,27 @@ export default function InnovationScorePage() {
   const targetXp = 500;
 
   const activities = [
-    { type: 'done', icon: '✅', title: 'Completed: DIVE Framework Module', date: 'Today · 9:42 AM', xp: '+200 XP' },
-    { type: 'comment', icon: '💬', title: 'Posted in Community', date: 'Yesterday · 3:15 PM', xp: '+10 XP' },
-    { type: 'challenge', icon: '⚡', title: 'Weekly Challenge Submission — Week 7', date: 'Oct 12 · 11:00 PM', xp: '+50 XP' },
-    { type: 'done', icon: '✅', title: 'Completed: Problem Identification Module', date: 'Oct 10 · 2:30 PM', xp: '+100 XP' },
-    { type: 'profile', icon: '👤', title: 'Profile Setup Complete', date: 'Sep 5 · Registration', xp: '+50 XP' },
+    { type: 'done', icon: 'check', title: 'Completed: DIVE Framework Module', date: 'Today · 9:42 AM', xp: '+200 XP' },
+    { type: 'comment', icon: 'chat', title: 'Posted in Community', date: 'Yesterday · 3:15 PM', xp: '+10 XP' },
+    { type: 'challenge', icon: 'bolt', title: 'Weekly Challenge Submission — Week 7', date: 'Oct 12 · 11:00 PM', xp: '+50 XP' },
+    { type: 'done', icon: 'check', title: 'Completed: Problem Identification Module', date: 'Oct 10 · 2:30 PM', xp: '+100 XP' },
+    { type: 'profile', icon: 'profile', title: 'Profile Setup Complete', date: 'Sep 5 · Registration', xp: '+50 XP' },
   ];
 
   const waysToEarn = [
-    { icon: '📚', range: '100–200 XP', title: 'Complete Learning Modules', desc: 'Each module awards XP on completion. Bonus XP for quiz scores.' },
-    { icon: '⚡', range: '50 XP / week', title: 'Weekly Bharat Challenge', desc: 'Submit every week to earn XP and maintain your streak.' },
-    { icon: '💬', range: '10–25 XP', title: 'Community Engagement', desc: 'Post, reply, and get upvotes in the community discussion board.' },
-    { icon: '🎙️', range: '75 XP', title: 'Attend Mentor Sessions', desc: 'RSVP and attend live sessions. Bonus for submitting questions.' },
-    { icon: '📝', range: '200 XP', title: 'Submit Your Competition Entry', desc: 'Upload your video pitch and deck before the deadline.' },
-    { icon: '🏆', range: '500+ XP', title: 'Competition Milestones', desc: 'Bonus XP for advancing to National Qualifiers, Semi-Finals, and Finale.' },
+    { icon: 'book', range: '100–200 XP', title: 'Complete Learning Modules', desc: 'Each module awards XP on completion. Bonus XP for quiz scores.' },
+    { icon: 'bolt', range: '50 XP / week', title: 'Weekly Bharat Challenge', desc: 'Submit every week to earn XP and maintain your streak.' },
+    { icon: 'chat', range: '10–25 XP', title: 'Community Engagement', desc: 'Post, reply, and get upvotes in the community discussion board.' },
+    { icon: 'mic', range: '75 XP', title: 'Attend Mentor Sessions', desc: 'RSVP and attend live sessions. Bonus for submitting questions.' },
+    { icon: 'document', range: '200 XP', title: 'Submit Your Competition Entry', desc: 'Upload your video pitch and deck before the deadline.' },
+    { icon: 'trophy', range: '500+ XP', title: 'Competition Milestones', desc: 'Bonus XP for advancing to National Qualifiers, Semi-Finals, and Finale.' },
   ];
 
   const unlocks = [
-    { status: 'done', lock: '✅', icon: '🎓', threshold: '100 XP', name: 'Learner Certificate', desc: 'Digital certificate of participation — shareable on LinkedIn', style: { borderColor: 'rgba(0,212,184,0.3)' } },
-    { status: 'upcoming', lock: '⏳', icon: '🎙️', threshold: '500 XP', name: 'Mentor Office Hours', desc: 'Book 1:1 slots with IdeationX mentors', style: {} },
-    { status: 'locked', lock: '🔒', icon: '⚡', threshold: '750 XP', name: 'Early Submission Slot', desc: 'Priority review queue for your B School evaluation', style: { opacity: 0.5 } },
-    { status: 'locked', lock: '🔒', icon: '🏅', threshold: '1000 XP', name: 'Top Innovator Badge', desc: 'Exclusive badge + SBI Life innovation alumni network access', style: { opacity: 0.5 } },
+    { status: 'done', lock: 'check', icon: 'graduation', threshold: '100 XP', name: 'Learner Certificate', desc: 'Digital certificate of participation — shareable on LinkedIn', style: { borderColor: 'rgba(0,212,184,0.3)' } },
+    { status: 'upcoming', lock: 'clock', icon: 'mic', threshold: '500 XP', name: 'Mentor Office Hours', desc: 'Book 1:1 slots with IdeationX mentors', style: {} },
+    { status: 'locked', lock: 'lock', icon: 'bolt', threshold: '750 XP', name: 'Early Submission Slot', desc: 'Priority review queue for your B School evaluation', style: { opacity: 0.5 } },
+    { status: 'locked', lock: 'lock', icon: 'medal', threshold: '1000 XP', name: 'Top Innovator Badge', desc: 'Exclusive badge + SBI Life innovation alumni network access', style: { opacity: 0.5 } },
   ];
 
   return (
@@ -57,7 +58,7 @@ export default function InnovationScorePage() {
           <div className="score-profile">
             <RevealOnScroll>
               <div className="score-main-card">
-                <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: 'var(--grad-saffron)', display: 'flex', alignItems: 'center', justifycontent: 'center', fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.8rem', color: '#fff', margin: '0 auto var(--space-md)', border: '3px solid var(--saffron)', boxShadow: '0 0 20px var(--saffron-glow)' }}>
+                <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: 'var(--grad-saffron)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.8rem', color: '#fff', margin: '0 auto var(--space-md)', border: '3px solid var(--saffron)', boxShadow: '0 0 20px var(--saffron-glow)' }}>
                   AK
                 </div>
                 <div style={{ fontWeight: 800, fontSize: '1.15rem', marginBottom: '2px' }}>Aisha Khan</div>
@@ -99,9 +100,9 @@ export default function InnovationScorePage() {
                       key={b.id} 
                       className={`badge ${b.earned ? 'badge--earned' : 'badge--locked'}`} 
                       title={`${b.name}: ${b.desc}`}
-                      style={{ background: 'var(--bg-elevated)', opacity: b.earned ? 1 : 0.25 }}
+                      style={{ background: 'var(--bg-elevated)', opacity: b.earned ? 1 : 0.25, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     >
-                      {b.icon}
+                      <XpIcon name={b.icon} size={20} color={b.earned ? 'var(--saffron)' : 'var(--text-muted)'} />
                     </div>
                   ))}
                 </div>
@@ -122,7 +123,9 @@ export default function InnovationScorePage() {
               {activities.map((a, idx) => (
                 <RevealOnScroll key={a.title} delay={idx * 0.05}>
                   <div className="activity-item">
-                    <div className="activity-icon" style={{ background: 'var(--bg-elevated)' }}>{a.icon}</div>
+                    <div className="activity-icon" style={{ background: 'var(--bg-elevated)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <XpIcon name={a.icon} size={18} color="var(--teal)" />
+                    </div>
                     <div>
                       <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{a.title}</div>
                       <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{a.date}</div>
@@ -145,7 +148,9 @@ export default function InnovationScorePage() {
               {waysToEarn.map((w, idx) => (
                 <RevealOnScroll key={w.title} delay={idx * 0.05}>
                   <div className="earn-card">
-                    <div className="earn-card__icon">{w.icon}</div>
+                    <div className="earn-card__icon" style={{ marginBottom: 'var(--space-sm)' }}>
+                      <XpIcon name={w.icon} size={28} color="var(--saffron)" />
+                    </div>
                     <div className="earn-card__xp">{w.range}</div>
                     <h5 style={{ marginTop: '4px' }}>{w.title}</h5>
                     <p style={{ fontSize: '0.82rem', marginTop: '4px' }}>{w.desc}</p>
@@ -166,8 +171,12 @@ export default function InnovationScorePage() {
               {unlocks.map((u, idx) => (
                 <RevealOnScroll key={u.name} delay={idx * 0.05}>
                   <div className="unlock-card" style={u.style}>
-                    <div className="unlock-card__lock">{u.lock}</div>
-                    <div style={{ fontSize: '2rem', marginBottom: 'var(--space-sm)' }}>{u.icon}</div>
+                    <div className="unlock-card__lock" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <XpIcon name={u.lock} size={16} color={u.status === 'done' ? 'var(--teal)' : u.status === 'upcoming' ? 'var(--gold)' : 'var(--text-muted)'} />
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--space-sm)' }}>
+                      <XpIcon name={u.icon} size={36} color="var(--gold)" />
+                    </div>
                     <div className="unlock-card__threshold">{u.threshold}</div>
                     <div className="unlock-card__name">{u.name}</div>
                     <div className="unlock-card__desc">{u.desc}</div>

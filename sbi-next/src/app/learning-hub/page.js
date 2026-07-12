@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import XpIcon from '@/components/XpIcon';
 
 export default function LearningHubPage() {
   const { modules, badges } = IdeationXData;
@@ -137,7 +138,13 @@ export default function LearningHubPage() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 'var(--space-md)', paddingTop: 'var(--space-md)', borderTop: '1px solid var(--glass-border)' }}>
                   <div style={{ textAlign: 'center' }}><div style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 900, color: 'var(--teal)' }}>5</div><div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Badges</div></div>
                   <div style={{ textAlign: 'center' }}><div style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 900, color: 'var(--gold)' }}>2</div><div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Modules Done</div></div>
-                  <div style={{ textAlign: 'center' }}><div style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 900, color: 'var(--saffron)' }}>7</div><div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Streak 🔥</div></div>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 900, color: 'var(--saffron)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                      7
+                      <XpIcon name="fire" size={16} color="var(--saffron)" />
+                    </div>
+                    <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Streak</div>
+                  </div>
                 </div>
               </div>
             </RevealOnScroll>
@@ -176,9 +183,9 @@ export default function LearningHubPage() {
                       key={b.id} 
                       className={`badge ${b.earned ? 'badge--earned' : 'badge--locked'}`} 
                       title={b.name} 
-                      style={{ background: 'var(--bg-elevated)', opacity: b.earned ? 1 : 0.25 }}
+                      style={{ background: 'var(--bg-elevated)', opacity: b.earned ? 1 : 0.25, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     >
-                      {b.icon}
+                      <XpIcon name={b.icon} size={20} color={b.earned ? 'var(--saffron)' : 'var(--text-muted)'} />
                     </div>
                   ))}
                 </div>
@@ -187,7 +194,10 @@ export default function LearningHubPage() {
 
             <RevealOnScroll delay={0.3}>
               <div className="badges-panel" style={{ background: 'linear-gradient(135deg,rgba(0,212,184,0.08),rgba(0,181,239,0.04))', borderColor: 'rgba(0,212,184,0.2)' }}>
-                <h5 style={{ marginBottom: 'var(--space-sm)' }}>🎯 Next Unlock</h5>
+                <h5 style={{ marginBottom: 'var(--space-sm)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <XpIcon name="target" size={18} color="var(--teal)" />
+                  Next Unlock
+                </h5>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Complete <strong>Design Thinking</strong> module to unlock <strong>Mentor Office Hours</strong> access and the Research Fundamentals module.</p>
                 <button className="btn btn-teal" style={{ width: '100%', justifyContent: 'center', marginTop: 'var(--space-md)' }} onClick={() => alert('Opening Design Thinking module!')}>
                   Continue Learning →

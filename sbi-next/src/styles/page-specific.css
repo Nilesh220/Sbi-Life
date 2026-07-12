@@ -484,17 +484,19 @@
     .activity-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
     .activity-xp { font-family: var(--font-mono); font-weight: 700; font-size: 0.85rem; color: var(--saffron); margin-left: auto; white-space: nowrap; }
     .how-to-earn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-xl); }
-    .earn-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-lg); }
+    .how-to-earn-grid > div { display: flex; }
+    .earn-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-lg); width: 100%; display: flex; flex-direction: column; height: 100%; }
     .earn-card__icon { font-size: 1.8rem; margin-bottom: var(--space-sm); }
     .earn-card__xp { font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: var(--saffron); }
     .unlocks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-top: var(--space-xl); }
-    .unlock-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-xl); text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
+    .unlocks-grid > div { display: flex; }
+    .unlock-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-xl); text-align: center; transition: all 0.3s; position: relative; overflow: hidden; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
     .unlock-card:hover { transform: translateY(-4px); border-color: var(--saffron); }
     .unlock-card__threshold { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--saffron); margin-bottom: 4px; }
     .unlock-card__name { font-weight: 700; font-size: 0.9rem; margin-bottom: var(--space-sm); }
     .unlock-card__desc { font-size: 0.8rem; color: var(--text-muted); }
     .unlock-card__lock { position: absolute; top: var(--space-md); right: var(--space-md); font-size: 0.85rem; }
-    @media (max-width: 1024px) { .score-layout { grid-template-columns: 1fr; } .score-profile { position: static; } .unlocks-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1024px) { .score-layout { grid-template-columns: 1fr; } .score-profile { position: static; } .unlocks-grid { grid-template-columns: 1fr 1fr; } .unlocks-grid > div { display: flex; } }
     @media (max-width: 768px) { .how-to-earn-grid { grid-template-columns: 1fr; } .unlocks-grid { grid-template-columns: 1fr; } }
 
 /* ────────────────────────────────────────────────────────────
