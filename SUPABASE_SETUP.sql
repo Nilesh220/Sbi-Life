@@ -173,3 +173,97 @@ CREATE POLICY "Allow public delete on student_stats" ON public.student_stats FOR
 INSERT INTO public.student_stats (email, xp, level, streak)
 VALUES ('student@college.edu', 450, 4, 7)
 ON CONFLICT (email) DO NOTHING;
+
+
+-- 6. idea_hub Table (Inspiration library / Netflix of Student Ideas)
+CREATE TABLE IF NOT EXISTS public.idea_hub (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    title TEXT NOT NULL,
+    category TEXT NOT NULL,
+    author TEXT NOT NULL,
+    college TEXT NOT NULL,
+    summary TEXT NOT NULL,
+    likes INT DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Enable RLS on idea_hub
+ALTER TABLE public.idea_hub ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public select on idea_hub" ON public.idea_hub;
+DROP POLICY IF EXISTS "Allow public insert on idea_hub" ON public.idea_hub;
+DROP POLICY IF EXISTS "Allow public update on idea_hub" ON public.idea_hub;
+DROP POLICY IF EXISTS "Allow public delete on idea_hub" ON public.idea_hub;
+
+CREATE POLICY "Allow public select on idea_hub" ON public.idea_hub FOR SELECT USING (true);
+CREATE POLICY "Allow public insert on idea_hub" ON public.idea_hub FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public update on idea_hub" ON public.idea_hub FOR UPDATE USING (true);
+CREATE POLICY "Allow public delete on idea_hub" ON public.idea_hub FOR DELETE USING (true);
+
+-- Insert initial mock student ideas
+INSERT INTO public.idea_hub (title, category, author, college, summary, likes) VALUES
+('Kirana Insurance Mitra 🏪', 'Rural Protection', 'Aryan & Shruti', 'IIM Lucknow', 'Converting local mom-and-pop Kirana shops into micro-insurance access points for rural families.', 42),
+('Sanjeevani Index Tree 🌾', 'Climate Change', 'Vikram Singh', 'XLRI Jamshedpur', 'Parametric crop-tree security model compensating tribal farmers based on local index data weather events.', 31),
+('PocketSuraksha AI 📱', 'Gen Z Inclusive', 'Preeti Sen', 'NMIMS Mumbai', 'Dynamic, micro-premium bite-sized protection linked to mobile transit ticketing apps.', 28)
+ON CONFLICT DO NOTHING;
+
+
+-- 7. webinars Table (Mentor Connect Sessions)
+CREATE TABLE IF NOT EXISTS public.webinars (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    title TEXT NOT NULL,
+    mentor TEXT NOT NULL,
+    mentor_role TEXT NOT NULL,
+    date_str TEXT NOT NULL,
+    time_str TEXT NOT NULL,
+    link TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Enable RLS on webinars
+ALTER TABLE public.webinars ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public select on webinars" ON public.webinars;
+DROP POLICY IF EXISTS "Allow public insert on webinars" ON public.webinars;
+DROP POLICY IF EXISTS "Allow public update on webinars" ON public.webinars;
+DROP POLICY IF EXISTS "Allow public delete on webinars" ON public.webinars;
+
+CREATE POLICY "Allow public select on webinars" ON public.webinars FOR SELECT USING (true);
+CREATE POLICY "Allow public insert on webinars" ON public.webinars FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public update on webinars" ON public.webinars FOR UPDATE USING (true);
+CREATE POLICY "Allow public delete on webinars" ON public.webinars FOR DELETE USING (true);
+
+-- Insert mock Mentor webinar session
+INSERT INTO public.webinars (title, mentor, mentor_role, date_str, time_str, link) VALUES
+('Ask Me Anything: Designing Scalable Social Business Cases', 'Dr. Radhakrishnan', 'Professor of Social Entrepreneurship', '2026-10-18', '05:00 PM', 'https://zoom.us/j/mocksession')
+ON CONFLICT DO NOTHING;
+
+
+-- 8. weekly_challenges Table (Weekly Bharat Challenge questions config)
+CREATE TABLE IF NOT EXISTS public.weekly_challenges (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    week INT UNIQUE NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    xp_reward INT DEFAULT 50,
+    deadline_str TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Enable RLS on weekly_challenges
+ALTER TABLE public.weekly_challenges ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public select on weekly_challenges" ON public.weekly_challenges;
+DROP POLICY IF EXISTS "Allow public insert on weekly_challenges" ON public.weekly_challenges;
+DROP POLICY IF EXISTS "Allow public update on weekly_challenges" ON public.weekly_challenges;
+DROP POLICY IF EXISTS "Allow public delete on weekly_challenges" ON public.weekly_challenges;
+
+CREATE POLICY "Allow public select on weekly_challenges" ON public.weekly_challenges FOR SELECT USING (true);
+CREATE POLICY "Allow public insert on weekly_challenges" ON public.weekly_challenges FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public update on weekly_challenges" ON public.weekly_challenges FOR UPDATE USING (true);
+CREATE POLICY "Allow public delete on weekly_challenges" ON public.weekly_challenges FOR DELETE USING (true);
+
+-- Seed Week 8 active question details
+INSERT INTO public.weekly_challenges (week, title, description, xp_reward, deadline_str) VALUES
+(8, 'The 60-Second Pitch', 'Record a 60-second video pitch of your IdeationX idea to a sceptical jury member. No slides. No props. Just you, your conviction, and your idea. What is the single most important thing you would say?', 50, '2026-10-20T23:59:59')
+ON CONFLICT (week) DO UPDATE SET title = EXCLUDED.title, description = EXCLUDED.description;
