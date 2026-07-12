@@ -1,61 +1,46 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { useRef, useEffect, useState } from 'react';
 
 export default function RevealOnScroll({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (!ref.current) return;
 
-    const el = ref.current;
-
-    gsap.set(el, { opacity: 0, y: 12 });
-
-
-    const trigger = ScrollTrigger.create({
-      trigger: el,
-      start: 'top 95%',
-      once: true,
-      onEnter: () => {
-        gsap.to(el, {
-          opacity: 1,
-          y: 0,
-          duration: 0.45,
-          delay,
-          ease: 'power2.out',
-        });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.05,
+        rootMargin: '0px 0px -5% 0px',
       }
-    });
+    );
 
-    // Refresh layout calculations once mounted to prevent offset issues from dynamic renders
-    ScrollTrigger.refresh();
-    const refreshAll = () => ScrollTrigger.refresh();
-    
-    window.addEventListener('load', refreshAll);
-    window.addEventListener('resize', refreshAll);
-
-    const timeoutId = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 300);
+    observer.observe(ref.current);
 
     return () => {
-      trigger.kill();
-      clearTimeout(timeoutId);
-      window.removeEventListener('load', refreshAll);
-      window.removeEventListener('resize', refreshAll);
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
     };
-  }, [delay]);
+  }, []);
 
   return (
-    <div ref={ref} className={className}>
+    <div
+      ref={ref}
+      className={`${className} reveal-item ${isVisible ? 'reveal-item--visible' : ''}`}
+      style={{
+        transitionDelay: `${delay}s`,
+      }}
+    >
       {children}
     </div>
   );
 }
+

@@ -52,13 +52,28 @@ export function useAnimateCounter(ref, target, duration = 2, suffix = '', runImm
       return;
     }
 
-    const trigger = ScrollTrigger.create({
-      trigger: triggerEl ? triggerEl.current || triggerEl : el,
-      start: 'top 95%',
-      once: true,
-      onEnter: startAnimation
-    });
+    const targetTrigger = triggerEl ? triggerEl.current || triggerEl : el;
+    if (!targetTrigger) {
+      startAnimation();
+      return;
+    }
 
-    return () => trigger.kill();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startAnimation();
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(targetTrigger);
+
+    return () => {
+      if (targetTrigger) {
+        observer.unobserve(targetTrigger);
+      }
+    };
   }, [ref, target, duration, suffix, runImmediately, triggerEl]);
 }
