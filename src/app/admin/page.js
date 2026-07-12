@@ -530,6 +530,11 @@ export default function AdminDashboard() {
     } catch (err) { alert(err.message); }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('idx_admin_session');
+    setIsAuthenticated(false);
+  };
+
   // Filtered lists
   const filteredRegs = registrations.filter(r => {
     const matchesSearch = r.team_name?.toLowerCase().includes(regSearch.toLowerCase()) || r.lead_first_name?.toLowerCase().includes(regSearch.toLowerCase()) || r.college?.toLowerCase().includes(regSearch.toLowerCase());
