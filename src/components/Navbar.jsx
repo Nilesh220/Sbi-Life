@@ -36,12 +36,14 @@ export default function Navbar() {
               <Link href="/register" className={`nav__link ${isActive('/register') ? 'nav__link--active' : ''}`}>Register</Link>
 
               <div className="nav__dropdown">
-                <div className={`nav__dropdown-toggle nav__link ${isActive('/learning-hub') || isActive('/resources') ? 'nav__link--active' : ''}`}>
+                <div className={`nav__dropdown-toggle nav__link ${isActive('/learning-hub') || isActive('/resources') || isActive('/faq') || isActive('/submission-guidelines') ? 'nav__link--active' : ''}`}>
                   Prepare <span style={{ fontSize: '0.7rem', marginLeft: '2px' }}>▼</span>
                 </div>
                 <div className="nav__dropdown-menu">
                   <Link href="/learning-hub" className="nav__dropdown-item">Learning Hub</Link>
+                  <Link href="/submission-guidelines" className="nav__dropdown-item">Submission Guide</Link>
                   <Link href="/resources" className="nav__dropdown-item">Resources & Guides</Link>
+                  <Link href="/faq" className="nav__dropdown-item">FAQ</Link>
                   <div style={{ borderTop: '1px solid var(--glass-border)', margin: '4px 0' }}></div>
                   <div className="nav__dropdown-item" style={{ opacity: 0.5, cursor: 'not-allowed', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span>Mentor Connect</span>
@@ -71,7 +73,9 @@ export default function Navbar() {
           <Link href="/campus-calendar" className="mobile-menu__link" onClick={() => setMobileOpen(false)}>Campus Schedule</Link>
           <Link href="/leaderboard" className="mobile-menu__link" onClick={() => setMobileOpen(false)}>Leaderboard</Link>
           <Link href="/learning-hub" className="mobile-menu__link" onClick={() => setMobileOpen(false)}>Learning Hub</Link>
+          <Link href="/submission-guidelines" className="mobile-menu__link" onClick={() => setMobileOpen(false)}>Submission Guide</Link>
           <Link href="/resources" className="mobile-menu__link" onClick={() => setMobileOpen(false)}>Resources</Link>
+          <Link href="/faq" className="mobile-menu__link" onClick={() => setMobileOpen(false)}>FAQ</Link>
         </div>
         <div style={{ marginTop: 'auto' }}>
           <Link href="/register" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setMobileOpen(false)}>
@@ -82,3 +86,4 @@ export default function Navbar() {
     </>
   );
 }
+

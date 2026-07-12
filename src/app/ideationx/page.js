@@ -56,7 +56,7 @@ export default function IdeationXPage() {
             <div className="tag tag--saffron" style={{ marginBottom: 'var(--space-lg)' }}>
               <span style={{ display: 'inline-block', width: '6px', height: '6px', background: 'var(--saffron)', borderRadius: '50%' }}></span> Edition 3 — 2026
             </div>
-            <h1>The <span class="text-gradient-saffron">Competition</span></h1>
+            <h1>The <span className="text-gradient-saffron">Competition</span></h1>
             <p style={{ maxWidth: '600px', fontSize: '1.1rem', marginTop: 'var(--space-md)' }}>
               Everything you need to know — timeline, phases, eligibility, prizes, jury, and FAQs. Your complete guide to IdeationX 2026.
             </p>
@@ -184,38 +184,71 @@ export default function IdeationXPage() {
         </div>
       </section>
 
-      {/* Prizes */}
+      {/* Prizes - Detailed Breakdown */}
       <section style={{ padding: 'var(--space-3xl) 0' }}>
         <div className="container">
           <RevealOnScroll>
             <div className="section-header text-center">
               <div className="eyebrow" style={{ justifyContent: 'center' }}>Rewards</div>
               <h2>Win More Than Just <br /><span className="text-gradient-gold">a Trophy</span></h2>
+              <p style={{ maxWidth: '560px', margin: '0 auto' }}>Every stage of IdeationX has rewards. The further you go, the bigger the prize.</p>
             </div>
           </RevealOnScroll>
-          <div className="prize-grid">
-            <RevealOnScroll delay={0.05}>
-              <div className="prize-card">
-                <div style={{ fontSize: '2.5rem', marginBottom: 'var(--space-md)' }}>🏆</div>
-                <div className="prize-card__amount text-gradient-gold">₹10L</div>
-                <div className="prize-card__label">Cash Prize Pool<br />National Winner</div>
-              </div>
-            </RevealOnScroll>
-            <RevealOnScroll delay={0.1}>
-              <div className="prize-card">
-                <div style={{ fontSize: '2.5rem', marginBottom: 'var(--space-md)' }}>💼</div>
-                <div className="prize-card__amount text-gradient-teal">PPI</div>
-                <div className="prize-card__label">Pre-Placement Interview<br />Offers for Finalists</div>
-              </div>
-            </RevealOnScroll>
-            <RevealOnScroll delay={0.15}>
-              <div className="prize-card">
-                <div style={{ fontSize: '2.5rem', marginBottom: 'var(--space-md)' }}>📺</div>
-                <div className="prize-card__amount text-gradient-saffron">CNBC</div>
-                <div className="prize-card__label">Dedicated Episode<br />Finale Coverage</div>
-              </div>
-            </RevealOnScroll>
-          </div>
+
+          {/* Prize Tiers */}
+          <RevealOnScroll delay={0.1}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-xl)', marginTop: 'var(--space-2xl)' }} className="responsive-grid-3">
+              {[
+                { rank: '🥇', label: 'Grand Finale Winner', amount: '₹5,00,000', color: 'var(--gold)', bg: 'rgba(245,200,66,0.08)', border: 'rgba(245,200,66,0.25)', perks: ['National winner trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'Mentorship from C-Suite'] },
+                { rank: '🥈', label: 'Runner Up', amount: '₹2,50,000', color: 'rgba(180,190,210,1)', bg: 'rgba(180,190,210,0.05)', border: 'rgba(180,190,210,0.2)', perks: ['Runner-up trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'LinkedIn recognition'] },
+                { rank: '🥉', label: 'Second Runner Up', amount: '₹1,00,000', color: 'rgba(205,127,50,0.9)', bg: 'rgba(205,127,50,0.06)', border: 'rgba(205,127,50,0.2)', perks: ['Bronze trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'Certificate of excellence'] },
+              ].map((prize) => (
+                <div key={prize.label} style={{ background: prize.bg, border: `1px solid ${prize.border}`, borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+                  <div style={{ fontSize: '2.5rem' }}>{prize.rank}</div>
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: prize.color }}>{prize.amount}</div>
+                    <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>{prize.label}</div>
+                  </div>
+                  <div style={{ borderTop: `1px solid ${prize.border}`, paddingTop: 'var(--space-md)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {prize.perks.map(perk => (
+                      <div key={perk} style={{ display: 'flex', gap: '8px', alignItems: 'center', fontSize: '0.82rem', color: 'var(--text-secondary)', textAlign: 'left' }}>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={prize.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><polyline points="20 6 9 17 4 12"/></svg>
+                        {perk}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </RevealOnScroll>
+
+          {/* Other Rewards */}
+          <RevealOnScroll delay={0.15}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-lg)', marginTop: 'var(--space-xl)' }} className="responsive-grid-3">
+              {[
+                { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>, color: 'var(--teal)', title: 'PPI Offers', desc: 'All Top 30 Semi-Finalists receive Pre-Placement Interview offers from SBI Life — regardless of the finale outcome.' },
+                { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>, color: 'var(--saffron)', title: 'CNBC TV18 Coverage', desc: 'All Top 10 Grand Finale participants appear in a dedicated CNBC TV18 episode broadcast to millions.' },
+                { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, color: '#A78BFA', title: 'Participation Certificate', desc: 'Every team that submits a valid entry receives a verified digital certificate of participation from SBI Life.' },
+              ].map((r) => (
+                <div key={r.title} style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)', display: 'flex', gap: 'var(--space-md)', alignItems: 'flex-start' }}>
+                  <div style={{ width: '44px', height: '44px', background: `color-mix(in srgb, ${r.color} 12%, transparent)`, borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{r.icon}</div>
+                  <div>
+                    <div style={{ fontWeight: 700, marginBottom: '6px' }}>{r.title}</div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{r.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </RevealOnScroll>
+
+          {/* Total prize pool callout */}
+          <RevealOnScroll delay={0.2}>
+            <div style={{ textAlign: 'center', marginTop: 'var(--space-2xl)', padding: 'var(--space-xl)', background: 'linear-gradient(135deg, rgba(245,200,66,0.06), rgba(255,107,26,0.04))', border: '1px solid rgba(245,200,66,0.15)', borderRadius: 'var(--radius-xl)' }}>
+              <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '8px' }}>Total Prize Pool</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 900, background: 'linear-gradient(135deg, var(--gold), var(--saffron))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>₹10 Lakh+</div>
+              <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginTop: '8px' }}>Plus PPI offers, CNBC coverage, mentorship & national recognition</div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 

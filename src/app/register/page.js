@@ -1,15 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import { supabase } from '@/lib/supabase';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import Countdown from '@/components/Countdown';
 
 export default function RegisterPage() {
-  const router = useRouter();
   const [step, setStep] = useState(1);
+  const [registrationRef, setRegistrationRef] = useState('');
   
   // Form State
   const [leadInfo, setLeadInfo] = useState({
@@ -125,12 +125,89 @@ export default function RegisterPage() {
     }
 
     if (success) {
-      alert('🎉 Registration submitted successfully! Check your B School email.');
-      router.push('/');
+      const ref = 'IDX26-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      setRegistrationRef(ref);
+      setStep(5);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const selectedThemeObj = IdeationXData.themes.find(t => t.id === selectedThemeId);
+
+  // Step 5 — Success Screen
+  if (step === 5) {
+    return (
+      <>
+        <section style={{ padding: '140px 0 80px', position: 'relative', overflow: 'hidden' }}>
+          <div className="orb orb--teal" style={{ width: '500px', height: '500px', top: '-100px', left: '50%', transform: 'translateX(-50%)', opacity: 0.15 }}></div>
+          <div className="container" style={{ maxWidth: '640px', textAlign: 'center' }}>
+
+            {/* Success Icon */}
+            <div style={{ width: '80px', height: '80px', background: 'linear-gradient(135deg, rgba(0,212,184,0.2), rgba(0,168,232,0.1))', border: '2px solid rgba(0,212,184,0.4)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-xl)' }}>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+
+            <div className="tag tag--teal" style={{ margin: '0 auto var(--space-lg)', width: 'fit-content' }}>Registration Confirmed</div>
+            <h1 style={{ marginBottom: 'var(--space-md)' }}>You're <span className="text-gradient-teal">In!</span></h1>
+            <p style={{ fontSize: '1.1rem', lineHeight: 1.7, marginBottom: 'var(--space-2xl)', color: 'var(--text-secondary)' }}>
+              Team <strong style={{ color: 'var(--text-primary)' }}>{teamName || 'Your Team'}</strong> is now registered for IdeationX 2026.
+              Your campus induction date will be communicated through your B School.
+            </p>
+
+            {/* Reference + Details Card */}
+            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)', marginBottom: 'var(--space-xl)', textAlign: 'left' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-md)' }}>
+                <div>
+                  <div style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '4px' }}>Reference ID</div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', fontWeight: 700, color: 'var(--teal)' }}>{registrationRef}</div>
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '4px' }}>Team</div>
+                  <div style={{ fontWeight: 600 }}>{teamName || 'Your Team'}</div>
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '4px' }}>B School</div>
+                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{leadInfo.collegeName}</div>
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '4px' }}>Theme</div>
+                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{selectedThemeObj?.title || 'Selected'}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* What happens next */}
+            <div style={{ background: 'rgba(255,107,26,0.05)', border: '1px solid rgba(255,107,26,0.15)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)', marginBottom: 'var(--space-xl)', textAlign: 'left' }}>
+              <h5 style={{ marginBottom: 'var(--space-md)', color: 'var(--saffron)' }}>What Happens Next</h5>
+              {[
+                { step: '1', text: 'Your B School receives the IdeationX induction kit from SBI Life officials.' },
+                { step: '2', text: 'Attend your campus induction session — learn the DIVE Framework & submission process.' },
+                { step: '3', text: 'Submit your video pitch + solution deck before Sep 30, 2026.' },
+                { step: '4', text: 'Faculty panel evaluates internally — Top 3 per college advance to National Qualifier.' },
+              ].map(item => (
+                <div key={item.step} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '12px' }}>
+                  <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(255,107,26,0.15)', border: '1px solid rgba(255,107,26,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.72rem', fontWeight: 700, color: 'var(--saffron)', flexShrink: 0 }}>{item.step}</div>
+                  <p style={{ margin: 0, fontSize: '0.88rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>{item.text}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/learning-hub" className="btn btn-primary btn-lg">Start Learning →</Link>
+              <Link href="/themes" className="btn btn-secondary btn-lg">Explore Your Theme</Link>
+            </div>
+
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: 'var(--space-xl)' }}>
+              Save your Reference ID: <strong style={{ color: 'var(--teal)' }}>{registrationRef}</strong> · Questions? Email ideationx@sbilife.co.in
+            </p>
+          </div>
+        </section>
+      </>
+    );
+  }
 
   return (
     <>

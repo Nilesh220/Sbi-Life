@@ -34,11 +34,23 @@ export default function CampusCalendarPage() {
         <div className="orb orb--teal" style={{ width: '400px', height: '400px', top: '-100px', right: '-100px', opacity: 0.2 }}></div>
         <div className="container">
           <RevealOnScroll>
-            <div className="tag tag--teal" style={{ marginBottom: 'var(--space-lg)' }}>200 B Schools · India-Wide</div>
+            <div className="tag tag--teal" style={{ marginBottom: 'var(--space-lg)' }}>200 B Schools · India-Wide · Dates Being Scheduled</div>
             <h1>Campus Drive <span className="text-gradient-teal">Calendar</span></h1>
             <p style={{ maxWidth: '600px', marginTop: 'var(--space-md)', fontSize: '1.05rem' }}>
-              SBI Life visited 200 B Schools across India for the IdeationX 2026 campus induction. Find your B School, your induction date, and RSVP for upcoming sessions.
+              SBI Life officials will visit 200 B Schools across India for IdeationX 2026 campus inductions.
+              Induction dates are being finalized and will be updated here as they are confirmed.
             </p>
+          </RevealOnScroll>
+
+          {/* Pre-launch notice */}
+          <RevealOnScroll delay={0.1}>
+            <div style={{ background: 'rgba(255,107,26,0.06)', border: '1px solid rgba(255,107,26,0.2)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-lg) var(--space-xl)', display: 'flex', gap: 'var(--space-lg)', alignItems: 'center', flexWrap: 'wrap', marginTop: 'var(--space-xl)' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+              <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', flex: 1 }}>
+                <strong style={{ color: 'var(--saffron)' }}>Schedule in Progress:</strong> Campus induction dates are being coordinated with 200 partner B Schools across India. Check back soon or contact your B School&apos;s student affairs office for updates.
+              </p>
+              <Link href="/register" className="btn btn-primary btn-sm" style={{ flexShrink: 0 }}>Register Now →</Link>
+            </div>
           </RevealOnScroll>
         </div>
       </section>
@@ -47,16 +59,16 @@ export default function CampusCalendarPage() {
         {/* Stats strip */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'var(--space-lg)', marginBottom: 'var(--space-2xl)' }} className="reveal">
           <div style={{ textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)' }}>
-            <div className="home-stat-num text-gradient-teal">24</div>
-            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '6px' }}>Completed Sessions</div>
+            <div className="home-stat-num text-gradient-teal">200</div>
+            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '6px' }}>Partner B Schools</div>
           </div>
           <div style={{ textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)' }}>
-            <div className="home-stat-num text-gradient-saffron">6</div>
-            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '6px' }}>Upcoming Sessions</div>
+            <div className="home-stat-num text-gradient-saffron">TBA</div>
+            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '6px' }}>Induction Dates Live</div>
           </div>
           <div style={{ textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)' }}>
-            <div className="home-stat-num text-gradient-gold">15</div>
-            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '6px' }}>States Covered</div>
+            <div className="home-stat-num text-gradient-gold">15+</div>
+            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '6px' }}>States Planned</div>
           </div>
           <div style={{ textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)' }}>
             <div className="home-stat-num" style={{ background: 'linear-gradient(135deg,#C855FF,#00B5EF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>300K+</div>

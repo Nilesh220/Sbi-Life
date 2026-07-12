@@ -2,6 +2,8 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
+import MobileRegisterCTA from '@/components/MobileRegisterCTA';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: {
@@ -12,6 +14,7 @@ export const metadata = {
   openGraph: {
     title: 'IdeationX 2026 — Bharat Begins With An Idea',
     description: "India's largest student innovation platform. Join 300,000+ student reach across 200 B Schools solving real Bharat challenges in life insurance.",
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
 };
 
@@ -28,6 +31,8 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <MobileRegisterCTA />
+        <Analytics />
       </body>
     </html>
   );

@@ -167,7 +167,7 @@ export default function LeaderboardPage() {
                 const medal = e.rank === 1 ? '🥇' : e.rank === 2 ? '🥈' : e.rank === 3 ? '🥉' : '';
                 
                 return (
-                  <div className={rowCls} key={e.rank}>
+                  <div className={rowCls} key={`${e.rank}-${e.college}`}>
                     <div className={`lb-rank-num ${rankCls}`}>{medal || '#' + e.rank}</div>
                     <div>
                       <div className="lb-college-name">{e.college}</div>
