@@ -322,6 +322,22 @@
 }
 
 /* Mobile CTA Bar */
-.mobile-cta-bar { display: none; }
-@media (max-width: 1024px) { .mobile-cta-bar { display: flex; } main { padding-bottom: 68px; } }
+.mobile-cta-bar { display: none !important; }
+@media (max-width: 1024px) { .mobile-cta-bar { display: flex !important; } main { padding-bottom: 68px; } }
+
+/* Custom 404 page link styles */
+.not-found-quick-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+.not-found-quick-link:hover {
+  border-color: var(--saffron);
+  color: var(--saffron);
+  background: rgba(255,107,26,0.05);
+}
 

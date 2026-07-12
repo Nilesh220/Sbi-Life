@@ -16,17 +16,17 @@ export default function RevealOnScroll({ children, className = '', delay = 0 }) 
 
     const el = ref.current;
 
-    gsap.set(el, { opacity: 0, y: 25 });
+    gsap.set(el, { opacity: 0, y: 12 });
 
     const trigger = ScrollTrigger.create({
       trigger: el,
-      start: 'top 88%',
+      start: 'top 95%',
       once: true,
       onEnter: () => {
         gsap.to(el, {
           opacity: 1,
           y: 0,
-          duration: 0.85,
+          duration: 0.45,
           delay,
           ease: 'power2.out',
         });
