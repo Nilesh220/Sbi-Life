@@ -36,6 +36,11 @@ export default function RevealOnScroll({ children, className = '', delay = 0 }) 
 
     // Refresh layout calculations once mounted to prevent offset issues from dynamic renders
     ScrollTrigger.refresh();
+    const refreshAll = () => ScrollTrigger.refresh();
+    
+    window.addEventListener('load', refreshAll);
+    window.addEventListener('resize', refreshAll);
+
     const timeoutId = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 300);
@@ -43,6 +48,8 @@ export default function RevealOnScroll({ children, className = '', delay = 0 }) 
     return () => {
       trigger.kill();
       clearTimeout(timeoutId);
+      window.removeEventListener('load', refreshAll);
+      window.removeEventListener('resize', refreshAll);
     };
   }, [delay]);
 

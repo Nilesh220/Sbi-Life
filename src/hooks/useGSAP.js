@@ -17,7 +17,7 @@ export function useGSAP() {
   return gsap;
 }
 
-export function useAnimateCounter(ref, target, duration = 2, suffix = '', runImmediately = false) {
+export function useAnimateCounter(ref, target, duration = 2, suffix = '', runImmediately = false, triggerEl = null) {
   useEffect(() => {
     if (!ref.current) return;
 
@@ -47,18 +47,18 @@ export function useAnimateCounter(ref, target, duration = 2, suffix = '', runImm
       });
     };
 
-    if (runImmediately) {
+    if (runImmediately && !triggerEl) {
       startAnimation();
       return;
     }
 
     const trigger = ScrollTrigger.create({
-      trigger: el,
+      trigger: triggerEl ? triggerEl.current || triggerEl : el,
       start: 'top 95%',
       once: true,
       onEnter: startAnimation
     });
 
     return () => trigger.kill();
-  }, [ref, target, duration, suffix, runImmediately]);
+  }, [ref, target, duration, suffix, runImmediately, triggerEl]);
 }

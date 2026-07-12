@@ -26,9 +26,9 @@ function HeroCounter({ target, suffix = '+', label, gradient }) {
   );
 }
 
-function StatCounter({ target, suffix = '', label, gradient, showLive = false }) {
+function StatCounter({ target, suffix = '', label, gradient, showLive = false, triggerEl = null }) {
   const ref = useRef(null);
-  useAnimateCounter(ref, target, 2.2, suffix, true);
+  useAnimateCounter(ref, target, 2.2, suffix, !triggerEl, triggerEl);
   return (
     <div className="home-stat-item">
       {showLive ? (
@@ -62,6 +62,7 @@ const themeCards = [
 
 export default function HomePage() {
   const marqueeRef = useRef(null);
+  const statsRef = useRef(null);
 
   useEffect(() => {
     if (marqueeRef.current) {
@@ -163,16 +164,18 @@ export default function HomePage() {
       </div>
 
       {/* ════ LIVE STATS ════ */}
-      <div className="home-stats">
-        <div className="container">
-          <div className="home-stats__inner">
-            <StatCounter target={200} suffix="+" label="B Schools Onboarded" gradient="text-gradient-saffron" showLive />
-            <StatCounter target={300000} suffix="+" label="Student Reach" gradient="text-gradient-teal" />
-            <StatCounter target={50000} suffix="+" label="Student Entries" gradient="text-gradient-gold" />
-            <StatCounter target={600} label="B School Qualifiers" gradient="" />
+      <RevealOnScroll>
+        <div className="home-stats" ref={statsRef}>
+          <div className="container">
+            <div className="home-stats__inner">
+              <StatCounter target={200} suffix="+" label="B Schools Onboarded" gradient="text-gradient-saffron" showLive triggerEl={statsRef} />
+              <StatCounter target={300000} suffix="+" label="Student Reach" gradient="text-gradient-teal" triggerEl={statsRef} />
+              <StatCounter target={50000} suffix="+" label="Student Entries" gradient="text-gradient-gold" triggerEl={statsRef} />
+              <StatCounter target={600} label="B School Qualifiers" gradient="" triggerEl={statsRef} />
+            </div>
           </div>
         </div>
-      </div>
+      </RevealOnScroll>
 
       {/* ════ PHASE TRACKER ════ */}
       <section className="phase-section">
@@ -185,36 +188,40 @@ export default function HomePage() {
             </div>
           </RevealOnScroll>
 
-          <div className="phase-tracker-home">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-              <div>
-                <h4 style={{ marginBottom: '4px' }}>Phase 2 — Campus Registration</h4>
-                <p style={{ fontSize: '0.88rem', margin: 0 }}>Registrations and submissions are managed through the microsite. Choose from one of the five challenge themes.</p>
+          <RevealOnScroll delay={0.1}>
+            <div className="phase-tracker-home">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+                <div>
+                  <h4 style={{ marginBottom: '4px' }}>Phase 2 — Campus Registration</h4>
+                  <p style={{ fontSize: '0.88rem', margin: 0 }}>Registrations and submissions are managed through the microsite. Choose from one of the five challenge themes.</p>
+                </div>
+                <span className="tag tag--saffron" style={{ flexShrink: 0 }}>
+                  <span className="ping-dot" style={{ display: 'inline-block', width: '6px', height: '6px', background: 'var(--saffron)', borderRadius: '50%' }}></span>
+                  Active Now
+                </span>
               </div>
-              <span className="tag tag--saffron" style={{ flexShrink: 0 }}>
-                <span className="ping-dot" style={{ display: 'inline-block', width: '6px', height: '6px', background: 'var(--saffron)', borderRadius: '50%' }}></span>
-                Active Now
-              </span>
+              <div className="phase-steps">
+                <PhaseTracker />
+              </div>
             </div>
-            <div className="phase-steps">
-              <PhaseTracker />
-            </div>
-          </div>
+          </RevealOnScroll>
 
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 'var(--space-2xl)' }}>
-            <Countdown targetDate="2026-09-30T23:59:59" id="home-countdown" />
-            <p style={{
-              fontSize: '0.78rem',
-              fontFamily: 'var(--font-mono)',
-              fontWeight: '700',
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              color: 'var(--text-secondary)',
-              marginTop: '12px'
-            }}>
-              Registration Deadline
-            </p>
-          </div>
+          <RevealOnScroll delay={0.2}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 'var(--space-2xl)' }}>
+              <Countdown targetDate="2026-09-30T23:59:59" id="home-countdown" />
+              <p style={{
+                fontSize: '0.78rem',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: 'var(--text-secondary)',
+                marginTop: '12px'
+              }}>
+                Registration Deadline
+              </p>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
