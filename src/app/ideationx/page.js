@@ -197,7 +197,7 @@ export default function IdeationXPage() {
 
           {/* Prize Tiers */}
           <RevealOnScroll delay={0.1}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-xl)', marginTop: 'var(--space-2xl)' }} className="responsive-grid-3">
+            <div className="responsive-grid-3" style={{ marginTop: 'var(--space-2xl)' }}>
               {[
                 { rank: '🥇', label: 'Grand Finale Winner', amount: '₹5,00,000', color: 'var(--gold)', bg: 'rgba(245,200,66,0.08)', border: 'rgba(245,200,66,0.25)', perks: ['National winner trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'Mentorship from C-Suite'] },
                 { rank: '🥈', label: 'Runner Up', amount: '₹2,50,000', color: 'rgba(180,190,210,1)', bg: 'rgba(180,190,210,0.05)', border: 'rgba(180,190,210,0.2)', perks: ['Runner-up trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'LinkedIn recognition'] },
@@ -224,7 +224,7 @@ export default function IdeationXPage() {
 
           {/* Other Rewards */}
           <RevealOnScroll delay={0.15}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-lg)', marginTop: 'var(--space-xl)' }} className="responsive-grid-3">
+            <div className="responsive-grid-3" style={{ marginTop: 'var(--space-xl)' }}>
               {[
                 { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>, color: 'var(--teal)', title: 'PPI Offers', desc: 'All Top 30 Semi-Finalists receive Pre-Placement Interview offers from SBI Life — regardless of the finale outcome.' },
                 { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>, color: 'var(--saffron)', title: 'CNBC TV18 Coverage', desc: 'All Top 10 Grand Finale participants appear in a dedicated CNBC TV18 episode broadcast to millions.' },

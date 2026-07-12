@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="footer" style={{ borderTop: '1px solid var(--glass-border)', background: 'var(--bg-deep)', padding: 'var(--space-3xl) 0 var(--space-xl)' }}>
       <div className="container">
-        <div className="footer__grid" style={{ display: 'grid', gridTemplateColumns: '2fr repeat(3, 1fr)', gap: 'var(--space-2xl)', marginBottom: 'var(--space-3xl)' }}>
+        <div className="footer__grid" style={{ marginBottom: 'var(--space-3xl)' }}>
           <div className="footer__brand" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <Image src="/assets/SBI life logo.webp" alt="SBI Life" width={110} height={30} />

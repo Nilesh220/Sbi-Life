@@ -62,7 +62,7 @@ export default function SubmissionGuidelinesPage() {
           <div style={{ marginBottom: 'var(--space-3xl)' }}>
             <div className="eyebrow">What to Submit</div>
             <h2 style={{ marginBottom: 'var(--space-xl)' }}>Two Deliverables Required</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-xl)' }}>
+            <div className="responsive-grid-2">
 
               <div className="card" style={{ background: 'var(--bg-elevated)', border: '1px solid rgba(0,212,184,0.2)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: 'var(--space-lg)' }}>

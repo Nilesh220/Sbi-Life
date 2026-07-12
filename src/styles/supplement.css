@@ -425,3 +425,65 @@ html, body {
   }
 }
 
+/* Responsive Grid Utilities (removing inline overrides) */
+.responsive-grid-2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: var(--space-xl);
+}
+@media (max-width: 768px) {
+  .responsive-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md);
+  }
+}
+
+.responsive-grid-3 {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: var(--space-xl);
+}
+@media (max-width: 1024px) {
+  .responsive-grid-3 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-lg);
+  }
+}
+@media (max-width: 768px) {
+  .responsive-grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md);
+  }
+}
+
+.responsive-grid-4 {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: var(--space-lg);
+}
+@media (max-width: 1024px) {
+  .responsive-grid-4 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 580px) {
+  .responsive-grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md);
+  }
+}
+
+/* Step Indicator Labels Mobile Hide & Card Padding overrides */
+@media (max-width: 768px) {
+  .step-label {
+    display: none !important;
+  }
+  .step-indicator {
+    margin-bottom: var(--space-xl) !important;
+  }
+  .register-form-card {
+    padding: var(--space-lg) var(--space-md) !important;
+  }
+}
+
+

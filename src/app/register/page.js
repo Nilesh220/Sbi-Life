@@ -158,7 +158,7 @@ export default function RegisterPage() {
 
             {/* Reference + Details Card */}
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)', marginBottom: 'var(--space-xl)', textAlign: 'left' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-md)' }}>
+              <div className="responsive-grid-2" style={{ gap: 'var(--space-md)' }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '4px' }}>Reference ID</div>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', fontWeight: 700, color: 'var(--teal)' }}>{registrationRef}</div>
@@ -487,7 +487,7 @@ export default function RegisterPage() {
                   <h3 style={{ marginBottom: 'var(--space-md)' }}>Almost There!</h3>
                   <p style={{ marginBottom: 'var(--space-xl)' }}>Review your registration details, then submit. You&apos;ll get a confirmation email immediately with your team ID.</p>
                   <div style={{ background: 'var(--bg-elevated)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)', textAlign: 'left', marginBottom: 'var(--space-xl)' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-md)' }}>
+                    <div className="responsive-grid-2" style={{ gap: 'var(--space-md)' }}>
                       <div><div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>Team Lead</div><div style={{ fontWeight: 600 }}>{leadInfo.firstName} {leadInfo.lastName}</div></div>
                       <div><div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>B School</div><div style={{ fontWeight: 600 }}>{leadInfo.collegeName}</div></div>
                       <div><div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>Team Size</div><div style={{ fontWeight: 600 }}>3 Members</div></div>

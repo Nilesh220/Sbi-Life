@@ -57,7 +57,7 @@ export default function CampusCalendarPage() {
 
       <div className="container">
         {/* Stats strip */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'var(--space-lg)', marginBottom: 'var(--space-2xl)' }} className="reveal">
+        <div className="responsive-grid-4" style={{ marginBottom: 'var(--space-2xl)' }}>
           <div style={{ textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)' }}>
             <div className="home-stat-num text-gradient-teal">200</div>
             <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '6px' }}>Partner B Schools</div>
