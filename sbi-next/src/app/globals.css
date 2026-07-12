@@ -1,0 +1,70 @@
+/* ============================================================
+   SBI Life IdeationX 2026 — Global Styles (Next.js)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Import the original design system */
+@import '../styles/styles.css';
+@import '../styles/animations.css';
+@import '../styles/components.css';
+@import '../styles/supplement.css';
+@import '../styles/page-specific.css';
+
+
+/* ── Next.js specific overrides ─────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove default Next.js body margin */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* SBI Life logo white background capsule */
+.nav__logo-capsule {
+  background: #ffffff !important;
+  padding: 4px 10px !important;
+  border-radius: var(--radius-sm) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15) !important;
+  height: 36px !important;
+}
+.nav__logo-capsule img {
+  height: 28px !important;
+  width: auto !important;
+}
+
+/* Default Hero Stat Divider */
+.hero-stat-divider {
+  width: 1px;
+  height: 44px;
+  background: var(--glass-border);
+  align-self: center;
+}
+
+/* Mobile Hero Stats Responsive Grid */
+@media (max-width: 768px) {
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-lg) !important;
+    justify-items: center;
+    margin-top: var(--space-xl) !important;
+  }
+  .hero-stat-divider {
+    display: none !important;
+  }
+  .hero-stats .hero-stat {
+    align-items: center;
+  }
+  .hero-stats .hero-stat:nth-child(5) {
+    grid-column: span 2 !important;
+  }
+}
+
+
