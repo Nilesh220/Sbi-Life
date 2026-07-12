@@ -100,7 +100,7 @@ export default function HomePage() {
               </h1>
 
               <p className="hero__subtitle anim-fade-up delay-200">
-                Every great nation is built on great ideas. Bharat&apos;s next great idea could come from a student. Life Insurance becomes one of the ways to strengthen Bharat&apos;s future — bringing together 300,000+ student reach from 200 Elite B Schools.
+                Every great nation is built on great ideas. Bharat&apos;s next great idea could come from a student. Life Insurance becomes one of the ways to strengthen Bharat&apos;s future — bringing together 300,000+ student reach from 200 B Schools.
               </p>
 
               <div className="hero__ctas anim-fade-up delay-300">
@@ -112,7 +112,7 @@ export default function HomePage() {
               </div>
 
               <div className="hero-stats anim-fade-up delay-400">
-                <HeroCounter target={200} suffix="+" label="Elite B Schools" gradient="text-gradient-saffron" />
+                <HeroCounter target={200} suffix="+" label="B Schools" gradient="text-gradient-saffron" />
                 <div className="hero-stat-divider"></div>
                 <HeroCounter target={300000} suffix="+" label="Student Reach" gradient="text-gradient-teal" />
                 <div className="hero-stat-divider"></div>
