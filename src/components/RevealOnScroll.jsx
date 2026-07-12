@@ -18,6 +18,7 @@ export default function RevealOnScroll({ children, className = '', delay = 0 }) 
 
     gsap.set(el, { opacity: 0, y: 12 });
 
+
     const trigger = ScrollTrigger.create({
       trigger: el,
       start: 'top 95%',
@@ -33,7 +34,16 @@ export default function RevealOnScroll({ children, className = '', delay = 0 }) 
       }
     });
 
-    return () => trigger.kill();
+    // Refresh layout calculations once mounted to prevent offset issues from dynamic renders
+    ScrollTrigger.refresh();
+    const timeoutId = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 300);
+
+    return () => {
+      trigger.kill();
+      clearTimeout(timeoutId);
+    };
   }, [delay]);
 
   return (

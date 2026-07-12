@@ -322,8 +322,32 @@
 }
 
 /* Mobile CTA Bar */
-.mobile-cta-bar { display: none !important; }
-@media (max-width: 1024px) { .mobile-cta-bar { display: flex !important; } main { padding-bottom: 68px; } }
+.mobile-cta-bar {
+  display: none !important;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 14px 20px;
+  background: rgba(2, 4, 8, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 107, 26, 0.25);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .mobile-cta-bar {
+    display: flex !important;
+  }
+  main {
+    padding-bottom: 76px;
+  }
+}
 
 /* Custom 404 page link styles */
 .not-found-quick-link {
