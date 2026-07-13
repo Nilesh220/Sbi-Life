@@ -6,6 +6,7 @@ import { IdeationXData } from '@/lib/data';
 import { supabase } from '@/lib/supabase';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import XpIcon from '@/components/XpIcon';
+import Icon from '@/components/Icon';
 
 function getThemeIcon(themeStr) {
   if (themeStr.includes('Kirana')) return 'store';
@@ -82,7 +83,7 @@ export default function LeaderboardPage() {
         <RevealOnScroll>
           <div className="card" style={{ background: 'var(--bg-elevated)', borderColor: 'var(--saffron)', boxShadow: '0 0 35px rgba(255,107,26,0.08)', marginBottom: 'var(--space-2xl)', padding: 'var(--space-xl)' }}>
             <div style={{ display: 'flex', gap: 'var(--space-lg)', alignItems: 'center', flexWrap: 'wrap' }}>
-              <div style={{ fontSize: '3rem', shrink: 0 }}>🔒</div>
+              <div style={{ shrink: 0, color: 'var(--saffron)' }}><Icon name="clock" size={36} color="var(--saffron)" /></div>
               <div style={{ flex: 1 }}>
                 <h4 style={{ marginBottom: '4px', color: 'var(--saffron)' }}>IdeationX 2026 Standings Not Yet Active</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
@@ -101,8 +102,8 @@ export default function LeaderboardPage() {
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '2px' }}>Browse winning ideas and profiles from previous editions to examine winning criteria.</p>
           </div>
           <div className="filter-tabs">
-            <button className="filter-tab filter-tab--active" style={{ cursor: 'default' }}>🏆 Edition 2.0 & 1.0 (Archive)</button>
-            <button className="filter-tab" style={{ opacity: 0.5, cursor: 'not-allowed' }} onClick={() => alert('2026 Standings will unlock on Oct 15!')}>📅 Edition 3.0 (Locked)</button>
+            <button className="filter-tab filter-tab--active" style={{ cursor: 'default' }}>Edition 2.0 & 1.0 (Archive)</button>
+            <button className="filter-tab" style={{ opacity: 0.5, cursor: 'not-allowed' }} onClick={() => alert('2026 Standings will unlock on Oct 15!')}>Edition 3.0 (Locked)</button>
           </div>
         </div>
 
@@ -111,7 +112,7 @@ export default function LeaderboardPage() {
           <input 
             className="form-input lb-search" 
             type="text" 
-            placeholder="🔍 Search B School or entry name..." 
+            placeholder="Search B School or entry name..." 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -164,7 +165,7 @@ export default function LeaderboardPage() {
                 const isFinalist = e.phase.toLowerCase().includes('finalist');
                 const statusCls = isWinner ? 'lb-status-badge--sf' : isFinalist ? 'lb-status-badge--sf' : 'lb-status-badge--q';
                 const statusDot = isWinner ? 'var(--gold)' : isFinalist ? 'var(--saffron)' : 'var(--teal)';
-                const medal = e.rank === 1 ? '🥇' : e.rank === 2 ? '🥈' : e.rank === 3 ? '🥉' : '';
+                const medal = '';
                 
                 return (
                   <div className={rowCls} key={`${e.rank}-${e.college}`}>

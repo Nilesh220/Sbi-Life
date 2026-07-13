@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import LockedBanner from '@/components/LockedBanner';
+import Icon from '@/components/Icon';
 
 export default function IdeaHubPage() {
   const { pastWinners } = IdeationXData;
@@ -26,12 +27,12 @@ export default function IdeaHubPage() {
   ];
 
   const problemLibrary = [
-    { theme: '🏪 Kirana to Coverage', title: 'The Trust Gap in Rural Insurance Distribution', desc: 'Only 3.5% of rural Indians have life insurance. An agent-to-population ratio of 1:1,200 means most families have never had a meaningful insurance conversation. Who do they trust more than any bank or company?', tag: 'Research Problem', tagCls: 'tag tag--saffron' },
-    { theme: '📱 GenZ Protection', title: 'The First Salary Moment', desc: 'India\'s 22-year-olds are receiving their first salary credits via UPI. 94% spend on consumption in the first 30 days. 0.4% purchase any form of insurance.', tag: 'Product Problem', tagCls: 'tag tag--teal' },
-    { theme: '🌾 Climate & Farmer', title: 'The Debt-Death Spiral', desc: 'Average Indian farmer debt: ₹74,121. 42% of farmer suicides are linked to debt. Life insurance penetration in farming communities: under 2%.', tag: 'Social Problem', tagCls: 'tag tag--gold' },
-    { theme: '🚗 Invisible Workforce', title: 'Platform as Insurer', desc: 'Zomato has 400,000 delivery partners. None are employees. All are contractors. Platforms know their income patterns. Could platforms become the distribution backbone?', tag: 'Tech Problem', tagCls: 'tag', tagStyle: { background: 'rgba(0,181,239,0.12)', color: '#4DCDFF', border: '1px solid rgba(0,181,239,0.3)' } },
-    { theme: '👩‍💼 Women Architects', title: 'Invisible Contribution, Invisible Protection', desc: 'India\'s 200 million homemakers contribute an estimated ₹23 lakh crore in unpaid economic value annually. Only 8% have any form of life insurance.', tag: 'Social Problem', tagCls: 'tag', tagStyle: { background: 'rgba(200,85,255,0.12)', color: '#D480FF', border: '1px solid rgba(200,85,255,0.3)' } },
-    { theme: '📊 Cross-Theme', title: 'The Claim Experience Crisis', desc: '43% of life insurance claims in India are delayed by more than 30 days. The experience of claiming during grief determines whether the next generation buys life insurance.', tag: 'Process Problem', tagCls: 'tag tag--muted' },
+    { theme: 'Kirana to Coverage', title: 'The Trust Gap in Rural Insurance Distribution', desc: 'Only 3.5% of rural Indians have life insurance. An agent-to-population ratio of 1:1,200 means most families have never had a meaningful insurance conversation. Who do they trust more than any bank or company?', tag: 'Research Problem', tagCls: 'tag tag--saffron' },
+    { theme: 'GenZ Protection', title: 'The First Salary Moment', desc: 'India\'s 22-year-olds are receiving their first salary credits via UPI. 94% spend on consumption in the first 30 days. 0.4% purchase any form of insurance.', tag: 'Product Problem', tagCls: 'tag tag--teal' },
+    { theme: 'Climate & Farmer', title: 'The Debt-Death Spiral', desc: 'Average Indian farmer debt: ₹74,121. 42% of farmer suicides are linked to debt. Life insurance penetration in farming communities: under 2%.', tag: 'Social Problem', tagCls: 'tag tag--gold' },
+    { theme: 'Invisible Workforce', title: 'Platform as Insurer', desc: 'Zomato has 400,000 delivery partners. None are employees. All are contractors. Platforms know their income patterns. Could platforms become the distribution backbone?', tag: 'Tech Problem', tagCls: 'tag', tagStyle: { background: 'rgba(0,181,239,0.12)', color: '#4DCDFF', border: '1px solid rgba(0,181,239,0.3)' } },
+    { theme: 'Women Architects', title: 'Invisible Contribution, Invisible Protection', desc: 'Invisible contribution of India\'s homemakers in unpaid economic value. Only 8% have any form of life insurance.', tag: 'Social Problem', tagCls: 'tag', tagStyle: { background: 'rgba(200,85,255,0.12)', color: '#D480FF', border: '1px solid rgba(200,85,255,0.3)' } },
+    { theme: 'Cross-Theme', title: 'The Claim Experience Crisis', desc: '43% of life insurance claims in India are delayed by more than 30 days. The experience of claiming during grief determines whether the next generation buys life insurance.', tag: 'Process Problem', tagCls: 'tag tag--muted' },
   ];
 
   return (
@@ -68,7 +69,7 @@ export default function IdeaHubPage() {
             </div>
             <div className="filter-tabs">
               <button className={`filter-tab ${winnerFilter === 'all' ? 'filter-tab--active' : ''}`} onClick={() => setWinnerFilter('all')}>All Entries</button>
-              <button className={`filter-tab ${winnerFilter === 'true' ? 'filter-tab--active' : ''}`} onClick={() => setWinnerFilter('true')}>🏆 Winners Only</button>
+              <button className={`filter-tab ${winnerFilter === 'true' ? 'filter-tab--active' : ''}`} onClick={() => setWinnerFilter('true')}>Winners Only</button>
             </div>
           </div>
 
@@ -80,16 +81,16 @@ export default function IdeaHubPage() {
                 <RevealOnScroll key={e.id} delay={idx * 0.05}>
                   <div className="entry-card">
                     <div className="entry-card__thumb" style={{ background: `linear-gradient(135deg, ${colors[idx % colors.length]}, rgba(0,0,0,0))` }}>
-                      {e.icon}
+                      <Icon name={e.icon} size={32} color="var(--text-primary)" />
                     </div>
                     <div className="entry-card__body">
-                      <div className="entry-card__edition">{e.isWinner ? '🏆 ' : ''}Edition {e.edition} · {e.year}</div>
+                      <div className="entry-card__edition">{e.isWinner ? 'Winner · ' : ''}Edition {e.edition} · {e.year}</div>
                       <h4 className="entry-card__title">{e.title}</h4>
                       <p className="entry-card__desc">{e.summary}</p>
                       <div className="entry-card__footer">
-                        <span className="entry-card__college">📍 {e.college}</span>
+                        <span className="entry-card__college"><span style={{ display: 'inline-flex', marginRight: '4px' }}><Icon name="map-pin" size={12} color="var(--text-muted)" /></span>{e.college}</span>
                         <span className="entry-card__winner" style={{ color: e.isWinner ? 'var(--gold)' : 'var(--text-muted)' }}>
-                          {e.isWinner ? '🥇 ' : ''}{e.rankText || 'Finalist'}
+                          {e.rankText || 'Finalist'}
                         </span>
                       </div>
                     </div>

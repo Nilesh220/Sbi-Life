@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import Icon from '@/components/Icon';
 
 export default function ResourcesPage() {
   const { resources } = IdeationXData;
@@ -54,7 +55,9 @@ export default function ResourcesPage() {
             {resources.map((r, idx) => (
               <RevealOnScroll key={r.name} delay={idx * 0.05}>
                 <div className="resource-card">
-                  <div className="resource-card__icon">{r.icon}</div>
+                  <div className="resource-card__icon">
+                    <Icon name={r.icon} size={28} color="var(--saffron)" />
+                  </div>
                   <div className="resource-card__name">{r.name}</div>
                   <div className="resource-card__meta">
                     <span className={`file-type-badge ${getBadgeClass(r.type)}`}>{r.type}</span>
@@ -138,7 +141,7 @@ export default function ResourcesPage() {
           <div className="guideline-cards">
             <RevealOnScroll delay={0.05}>
               <div className="guideline-card">
-                <div style={{ fontSize: '2rem', marginBottom: 'var(--space-md)' }}>📹</div>
+                <div style={{ marginBottom: 'var(--space-md)' }}><Icon name="film" size={36} color="var(--saffron)" /></div>
                 <h4 style={{ marginBottom: 'var(--space-md)' }}>Video Pitch</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-sm)' }}>
                   <div style={{ display: 'flex', gap: 'var(--space-sm)', fontSize: '0.88rem' }}><span style={{ color: 'var(--teal)', fontWeight: 700 }}>✓</span> Max 3 minutes (180 seconds)</div>
@@ -150,7 +153,7 @@ export default function ResourcesPage() {
             </RevealOnScroll>
             <RevealOnScroll delay={0.1}>
               <div className="guideline-card">
-                <div style={{ fontSize: '2rem', marginBottom: 'var(--space-md)' }}>📊</div>
+                <div style={{ marginBottom: 'var(--space-md)' }}><Icon name="bar-chart" size={36} color="var(--saffron)" /></div>
                 <h4 style={{ marginBottom: 'var(--space-md)' }}>Pitch Deck</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-sm)' }}>
                   <div style={{ display: 'flex', gap: 'var(--space-sm)', fontSize: '0.88rem' }}><span style={{ color: 'var(--teal)', fontWeight: 700 }}>✓</span> 8–10 slides maximum</div>

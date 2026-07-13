@@ -6,6 +6,7 @@ import { IdeationXData } from '@/lib/data';
 import { supabase } from '@/lib/supabase';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import LockedBanner from '@/components/LockedBanner';
+import Icon from '@/components/Icon';
 
 function formatTimeAgo(date) {
   const seconds = Math.floor((new Date() - new Date(date)) / 1000);
@@ -137,7 +138,7 @@ export default function CommunityPage() {
     }
 
     if (success) {
-      alert('🎉 Post shared! +10 XP earned');
+      alert('Post shared! +10 XP earned');
       setPostText('');
       fetchPosts();
     }
@@ -172,7 +173,7 @@ export default function CommunityPage() {
           <RevealOnScroll>
             <div className="tag tag--teal" style={{ marginBottom: 'var(--space-lg)' }}>300K Student Reach · 200 B Schools</div>
             <h1>The <span className="text-gradient-teal">Community</span></h1>
-            <p style={{ maxWidth: '600px', marginTop: 'var(--space-md)', fontSize: '1.05rem' }}>
+            <p style={{ maxWidth: '640px', marginTop: 'var(--space-md)', fontSize: '1.05rem' }}>
               Connect with fellow innovators, find team members, share insights, and get peer feedback on your ideas. IdeationX is better together.
             </p>
           </RevealOnScroll>
@@ -185,9 +186,9 @@ export default function CommunityPage() {
             {/* Filter Tabs */}
             <div className="filter-tabs reveal" style={{ marginBottom: 'var(--space-xl)' }}>
               <button className={`filter-tab ${activeFilter === 'all' ? 'filter-tab--active' : ''}`} onClick={() => setActiveFilter('all')}>All Posts</button>
-              <button className={`filter-tab ${activeFilter === 'team' ? 'filter-tab--active' : ''}`} onClick={() => setActiveFilter('team')}>🤝 Team Finder</button>
-              <button className={`filter-tab ${activeFilter === 'insight' ? 'filter-tab--active' : ''}`} onClick={() => setActiveFilter('insight')}>💡 Insights</button>
-              <button className={`filter-tab ${activeFilter === 'question' ? 'filter-tab--active' : ''}`} onClick={() => setActiveFilter('question')}>❓ Questions</button>
+              <button className={`filter-tab ${activeFilter === 'team' ? 'filter-tab--active' : ''}`} onClick={() => setActiveFilter('team')}>Team Finder</button>
+              <button className={`filter-tab ${activeFilter === 'insight' ? 'filter-tab--active' : ''}`} onClick={() => setActiveFilter('insight')}>Insights</button>
+              <button className={`filter-tab ${activeFilter === 'question' ? 'filter-tab--active' : ''}`} onClick={() => setActiveFilter('question')}>Questions</button>
             </div>
 
             {/* Compose Box */}
@@ -236,10 +237,17 @@ export default function CommunityPage() {
                       <div className="community-post__body">{p.text}</div>
                       <div className="community-post__footer">
                         <button className="community-post__action" onClick={() => handleLike(p.id, p.likes, idx)}>
-                          ❤️ {p.likes}
+                          <svg style={{ width: 14, height: 14, fill: 'var(--saffron)', marginRight: 4, display: 'inline-block', verticalAlign: 'middle' }} viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                          {p.likes}
                         </button>
-                        <button className="community-post__action">💬 {p.replies} replies</button>
-                        <button className="community-post__action" onClick={() => alert('Post link copied!')}>🔗 Share</button>
+                        <button className="community-post__action">
+                          <svg style={{ width: 14, height: 14, fill: 'currentColor', marginRight: 4, display: 'inline-block', verticalAlign: 'middle' }} viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                          {p.replies} replies
+                        </button>
+                        <button className="community-post__action" onClick={() => alert('Post link copied!')}>
+                          <svg style={{ width: 14, height: 14, fill: 'currentColor', marginRight: 4, display: 'inline-block', verticalAlign: 'middle' }} viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                          Share
+                        </button>
                       </div>
                     </div>
                   </RevealOnScroll>
@@ -252,7 +260,7 @@ export default function CommunityPage() {
           <div className="community-sidebar">
             <RevealOnScroll>
               <div className="sidebar-card">
-                <h5 style={{ marginBottom: 'var(--space-md)' }}>🔥 Top Contributors</h5>
+                <h5 style={{ marginBottom: 'var(--space-md)' }}>Top Contributors</h5>
                 {topContributors.map(m => (
                   <div className="top-member" key={m.name}>
                     <div className="top-member__avatar" style={{ background: m.color }}>{m.avatar}</div>
@@ -281,10 +289,10 @@ export default function CommunityPage() {
 
             <RevealOnScroll delay={0.2}>
               <div className="sidebar-card">
-                <h5 style={{ marginBottom: 'var(--space-md)' }}>🤝 Team Finder Spotlight</h5>
+                <h5 style={{ marginBottom: 'var(--space-md)' }}>Team Finder Spotlight</h5>
                 <div style={{ background: 'var(--bg-elevated)', border: '1px solid rgba(0,212,184,0.2)', borderRadius: 'var(--radius-md)', padding: 'var(--space-md)' }}>
                   <div style={{ fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>Rohan M. · MICA Ahmedabad</div>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 'var(--space-sm)' }}>Theme: Kirana to Coverage 🏪</div>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 'var(--space-sm)' }}>Theme: Kirana to Coverage</div>
                   <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>Looking for a product designer or UX person. Have strong distribution model. DM!</p>
                   <button className="btn btn-teal btn-sm" style={{ marginTop: 'var(--space-sm)', width: '100%', justifyContent: 'center' }} onClick={() => alert('Connection request sent!')}>
                     Connect →
@@ -298,3 +306,4 @@ export default function CommunityPage() {
     </>
   );
 }
+

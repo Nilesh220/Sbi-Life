@@ -1,9 +1,11 @@
 'use client';
 
+import Icon from '@/components/Icon';
+
 export default function WinnerCard({ winner }) {
   return (
     <div className="past-winner-card">
-      <div className="past-winner-card__icon">{winner.icon}</div>
+      <div className="past-winner-card__icon"><Icon name={winner.icon} size={32} color="var(--text-primary)" /></div>
       <div className="past-winner-card__badge" style={{ background: winner.isWinner ? 'var(--grad-gold)' : 'var(--grad-teal)', color: winner.isWinner ? '#000' : '#fff' }}>
         {winner.rankText}
       </div>
@@ -14,3 +16,4 @@ export default function WinnerCard({ winner }) {
     </div>
   );
 }
+

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import Icon from '@/components/Icon';
 
 export default function ThemeCard({ theme }) {
   const ref = useRef(null);
@@ -44,7 +45,7 @@ export default function ThemeCard({ theme }) {
 
   return (
     <div ref={ref} className="theme-card" style={{ background: theme.gradient, borderColor: `${theme.color}22` }}>
-      <div className="theme-card__icon" style={{ background: `${theme.color}18` }}>{theme.icon}</div>
+      <div className="theme-card__icon" style={{ background: `${theme.color}18` }}><Icon name={theme.icon} size={28} color={theme.color} /></div>
       <h4 className="theme-card__title" style={{ color: theme.color }}>{theme.name}</h4>
       <p className="theme-card__hook">{theme.hook}</p>
       <div className="theme-card__entries" style={{ color: theme.color }}>
@@ -53,3 +54,4 @@ export default function ThemeCard({ theme }) {
     </div>
   );
 }
+

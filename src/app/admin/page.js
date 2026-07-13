@@ -33,7 +33,7 @@ export default function AdminDashboard() {
     rank: '',
     college: '',
     entry: '',
-    theme: 'Kirana to Coverage 🏪',
+    theme: 'Kirana to Coverage',
     phase: 'National Qualifier',
     city: '',
     score: ''
@@ -174,9 +174,9 @@ export default function AdminDashboard() {
         setSubmissions(localSubs);
 
         setLeaderboard([
-          { id: '1', rank: 1, college: 'IIM Lucknow', entry: 'DigiShield Parampara', theme: 'Kirana to Coverage 🏪', phase: 'Semi-Finalist', city: 'Lucknow', score: 1240 },
-          { id: '2', rank: 2, college: 'XLRI Jamshedpur', entry: 'Sanjeevani Vriksh', theme: 'Climate & Farmer 🌾', phase: 'Semi-Finalist', city: 'Jamshedpur', score: 1180 },
-          { id: '3', rank: 3, college: 'FMS Delhi', entry: 'Nari Raksha Kavach', theme: 'Women Co-operatives 👩‍💼', phase: 'National Qualifier', city: 'Delhi', score: 1040 }
+          { id: '1', rank: 1, college: 'IIM Lucknow', entry: 'DigiShield Parampara', theme: 'Kirana to Coverage', phase: 'Semi-Finalist', city: 'Lucknow', score: 1240 },
+          { id: '2', rank: 2, college: 'XLRI Jamshedpur', entry: 'Sanjeevani Vriksh', theme: 'Climate & Farmer', phase: 'Semi-Finalist', city: 'Jamshedpur', score: 1180 },
+          { id: '3', rank: 3, college: 'FMS Delhi', entry: 'Nari Raksha Kavach', theme: 'Women Co-operatives', phase: 'National Qualifier', city: 'Delhi', score: 1040 }
         ]);
 
         setPosts([
@@ -195,7 +195,7 @@ export default function AdminDashboard() {
         const localIdeas = JSON.parse(localStorage.getItem('idea_hub') || '[]');
         if (localIdeas.length === 0) {
           const defaults = [
-            { id: '1', title: 'Kirana Insurance Mitra 🏪', category: 'Rural Protection', author: 'Aryan & Shruti', college: 'IIM Lucknow', summary: 'Converting local mom-and-pop Kirana shops into micro-insurance access points for rural families.', likes: 42, created_at: new Date().toISOString() }
+            { id: '1', title: 'Kirana Insurance Mitra', category: 'Rural Protection', author: 'Aryan & Shruti', college: 'IIM Lucknow', summary: 'Converting local mom-and-pop Kirana shops into micro-insurance access points for rural families.', likes: 42, created_at: new Date().toISOString() }
           ];
           localStorage.setItem('idea_hub', JSON.stringify(defaults));
           setIdeas(defaults);
@@ -580,15 +580,15 @@ export default function AdminDashboard() {
           {/* Navigation tabs */}
           <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '12px', borderBottom: '1px solid var(--glass-border)', marginBottom: 'var(--space-xl)' }}>
             {[
-              { id: 'overview', label: '📊 Dashboard Overview' },
-              { id: 'registrations', label: `📝 Registrations (${registrations.length})` },
-              { id: 'leaderboard', label: `🏆 Leaderboard (${leaderboard.length})` },
-              { id: 'students', label: `🎓 Student XP (${studentStats.length})` },
-              { id: 'submissions', label: `📂 Weekly Responses (${submissions.length})` },
-              { id: 'ideahub', label: `💡 Idea Hub (${ideas.length})` },
-              { id: 'webinars', label: `🎙️ Mentor Sessions (${webinars.length})` },
-              { id: 'challenges', label: `⚡ Challenge Setup (${weeklyChallenges.length})` },
-              { id: 'community', label: `💬 Discussions (${posts.length})` }
+              { id: 'overview', label: 'Dashboard Overview' },
+              { id: 'registrations', label: `Registrations (${registrations.length})` },
+              { id: 'leaderboard', label: `Leaderboard (${leaderboard.length})` },
+              { id: 'students', label: `Student XP (${studentStats.length})` },
+              { id: 'submissions', label: `Weekly Responses (${submissions.length})` },
+              { id: 'ideahub', label: `Idea Hub (${ideas.length})` },
+              { id: 'webinars', label: `Mentor Sessions (${webinars.length})` },
+              { id: 'challenges', label: `Challenge Setup (${weeklyChallenges.length})` },
+              { id: 'community', label: `Discussions (${posts.length})` }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -686,7 +686,7 @@ export default function AdminDashboard() {
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', padding: 'var(--space-xl)', borderRadius: 'var(--radius-xl)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                 <h4 style={{ margin: 0 }}>Leaderboard standings</h4>
-                <button className="btn btn-primary btn-sm" onClick={() => { setLeadEditItem(null); setLeadForm({ rank: '', college: '', entry: '', theme: 'Kirana to Coverage 🏪', phase: 'National Qualifier', city: '', score: '' }); setShowLeadModal(true); }}>Add Entry</button>
+                <button className="btn btn-primary btn-sm" onClick={() => { setLeadEditItem(null); setLeadForm({ rank: '', college: '', entry: '', theme: 'Kirana to Coverage', phase: 'National Qualifier', city: '', score: '' }); setShowLeadModal(true); }}>Add Entry</button>
               </div>
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
@@ -789,7 +789,7 @@ export default function AdminDashboard() {
           {activeTab === 'ideahub' && (
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--glass-border)', padding: 'var(--space-xl)', borderRadius: 'var(--radius-xl)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                <h4 style={{ margin: 0 }}>💡 Idea Hub (Inspiration Library)</h4>
+                <h4 style={{ margin: 0 }}>Idea Hub (Inspiration Library)</h4>
                 <button className="btn btn-primary btn-sm" onClick={() => { setIdeaEditItem(null); setIdeaForm({ title: '', category: 'Rural Protection', author: '', college: '', summary: '', likes: '0' }); setShowIdeaModal(true); }}>Add Idea</button>
               </div>
               <div style={{ overflowX: 'auto' }}>

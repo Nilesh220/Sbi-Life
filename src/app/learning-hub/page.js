@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import XpIcon from '@/components/XpIcon';
+import Icon from '@/components/Icon';
 
 export default function LearningHubPage() {
   const { modules, badges } = IdeationXData;
@@ -83,7 +84,7 @@ export default function LearningHubPage() {
 
             <div className="modules-grid">
               {modules.map((m, idx) => {
-                const statusLabel = m.status === 'complete' ? '✅ Complete' : m.status === 'active' ? '▶ In Progress' : '🔒 Locked';
+                const statusLabel = m.status === 'complete' ? 'Complete' : m.status === 'active' ? 'In Progress' : 'Locked';
                 const statusColor = m.status === 'complete' ? 'var(--teal)' : m.status === 'active' ? 'var(--saffron)' : 'var(--text-muted)';
                 const isLocked = m.status === 'locked';
 
@@ -101,13 +102,13 @@ export default function LearningHubPage() {
                       style={{ opacity: isLocked ? 0.55 : 1, cursor: isLocked ? 'not-allowed' : 'pointer' }}
                     >
                       <div className="module-card__header">
-                        <div className="module-card__icon" style={{ background: m.bg }}>{m.icon}</div>
+                        <div className="module-card__icon" style={{ background: m.bg }}><Icon name={m.icon} size={22} color={m.color} /></div>
                         <div className="module-card__status" style={{ color: statusColor }}>{statusLabel}</div>
                       </div>
                       <div className="module-card__title">{m.title}</div>
                       <div className="module-card__desc">{m.desc}</div>
                       <div className="module-card__footer">
-                        <div className="module-card__duration">⏱ {m.duration}</div>
+                        <div className="module-card__duration"><span style={{ display: 'inline-flex', marginRight: '4px' }}><Icon name="clock" size={14} color="var(--text-muted)" /></span>{m.duration}</div>
                         <span className="tag" style={{ background: m.bg, color: m.color, borderColor: `${m.color}33` }}>+{m.xp} XP</span>
                       </div>
                       {m.status === 'active' && (

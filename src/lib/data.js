@@ -44,7 +44,7 @@ export const IdeationXData = {
     {
       id: 1,
       name: "Kirana to Coverage",
-      icon: "🏪",
+      icon: "storefront",
       color: "#FF6B1A",
       glow: "rgba(255,107,26,0.3)",
       gradient: "linear-gradient(135deg, rgba(255,107,26,0.2), rgba(255,62,0,0.08))",
@@ -60,7 +60,7 @@ export const IdeationXData = {
     {
       id: 2,
       name: "Women as Wealth Architects",
-      icon: "👩‍💼",
+      icon: "shield-people",
       color: "#C855FF",
       glow: "rgba(200,85,255,0.3)",
       gradient: "linear-gradient(135deg, rgba(200,85,255,0.18), rgba(120,0,200,0.06))",
@@ -76,7 +76,7 @@ export const IdeationXData = {
     {
       id: 3,
       name: "GenZ & the Protection Gap",
-      icon: "📱",
+      icon: "smartphone",
       color: "#00D4B8",
       glow: "rgba(0,212,184,0.3)",
       gradient: "linear-gradient(135deg, rgba(0,212,184,0.18), rgba(0,168,232,0.06))",
@@ -92,7 +92,7 @@ export const IdeationXData = {
     {
       id: 4,
       name: "Climate & the Uninsured Farmer",
-      icon: "🌾",
+      icon: "wheat",
       color: "#F5C842",
       glow: "rgba(245,200,66,0.3)",
       gradient: "linear-gradient(135deg, rgba(245,200,66,0.18), rgba(255,138,0,0.06))",
@@ -108,7 +108,7 @@ export const IdeationXData = {
     {
       id: 5,
       name: "The Invisible Workforce",
-      icon: "🚗",
+      icon: "briefcase",
       color: "#00B5EF",
       glow: "rgba(0,181,239,0.3)",
       gradient: "linear-gradient(135deg, rgba(0,181,239,0.18), rgba(41,32,117,0.08))",
@@ -133,7 +133,7 @@ export const IdeationXData = {
       college: "SPJIMR Mumbai",
       theme: "Insurance Penetration",
       summary: "An innovative expansion framework featuring 'PAN-Plus' account bundling, 'Evolve' flexible policies for Gen Z/gig workers, and AI/WhatsApp digital agent tools.",
-      icon: "📦",
+      icon: "package",
       isWinner: true,
       rankText: "National Champion"
     },
@@ -145,7 +145,7 @@ export const IdeationXData = {
       college: "IIM Shillong",
       theme: "Customer Value Protection",
       summary: "An innovative customer value protection solution designed to expand coverage and address the life insurance needs of underpenetrated demographics.",
-      icon: "🌉",
+      icon: "bridge",
       isWinner: false,
       rankText: "National 1st Runner-Up"
     },
@@ -157,7 +157,7 @@ export const IdeationXData = {
       college: "IIM Lucknow",
       theme: "Rural Distribution",
       summary: "A digital micro-insurance ecosystem integrating local village logistics networks to enable swift, trusted onboarding for rural populations.",
-      icon: "🌾",
+      icon: "wheat",
       isWinner: false,
       rankText: "National 2nd Runner-Up"
     },
@@ -169,7 +169,7 @@ export const IdeationXData = {
       college: "MICA Ahmedabad",
       theme: "Women Architects",
       summary: "A community-focused micro-insurance model empowering local ASHA workers and self-help groups as trusted brand advocates to scale women's insurance coverage.",
-      icon: "👩‍💼",
+      icon: "shield-people",
       isWinner: false,
       rankText: "National 2nd Runner-Up"
     },
@@ -181,7 +181,7 @@ export const IdeationXData = {
       college: "XIME Bangalore",
       theme: "Hyperlocal Distribution",
       summary: "A hyperlocal insurance distribution model using trained 'Bima Sakhi' (women micro-entrepreneurs) as last-mile agents, reducing CAC by 68% in tier-3 markets.",
-      icon: "🤝",
+      icon: "handshake",
       isWinner: true,
       rankText: "National Champion"
     }
@@ -209,14 +209,14 @@ export const IdeationXData = {
 
   /* ── Learning Modules ────────────────────────────────────── */
   modules: [
-    { id: 1, icon: "🔍", title: "Problem Identification",       duration: "25 min", xp: 100, color: "#FF6B1A", bg: "rgba(255,107,26,0.12)", status: "complete", desc: "Learn to identify real-world problems worth solving." },
-    { id: 2, icon: "💡", title: "DIVE Framework",               duration: "40 min", xp: 200, color: "#C855FF", bg: "rgba(200,85,255,0.12)", status: "complete", desc: "Discover, Ideate, Validate, Elevate — the IdeationX thinking model." },
-    { id: 3, icon: "🧠", title: "Design Thinking",              duration: "35 min", xp: 150, color: "#00D4B8", bg: "rgba(0,212,184,0.12)", status: "active",   desc: "Human-centred design methods for insurance innovation." },
-    { id: 4, icon: "📊", title: "Research Fundamentals",        duration: "30 min", xp: 120, color: "#F5C842", bg: "rgba(245,200,66,0.12)", status: "locked",   desc: "Primary and secondary research techniques for Bharat markets." },
-    { id: 5, icon: "📖", title: "Storytelling & Pitching",      duration: "45 min", xp: 180, color: "#FF6B1A", bg: "rgba(255,107,26,0.12)", status: "locked",   desc: "Craft narratives that move juries, investors, and partners." },
-    { id: 6, icon: "🎤", title: "Public Speaking",              duration: "30 min", xp: 120, color: "#00B5EF", bg: "rgba(0,181,239,0.12)", status: "locked",   desc: "Presentation skills and stage presence masterclass." },
-    { id: 7, icon: "📐", title: "Presentation Design",          duration: "25 min", xp: 100, color: "#C855FF", bg: "rgba(200,85,255,0.12)", status: "locked",   desc: "Visual communication and slide design that stands out." },
-    { id: 8, icon: "💰", title: "Financial Literacy",           duration: "40 min", xp: 160, color: "#F5C842", bg: "rgba(245,200,66,0.12)", status: "locked",   desc: "Unit economics, business models, and insurance-specific finance." },
+    { id: 1, icon: "search", title: "Problem Identification",       duration: "25 min", xp: 100, color: "#FF6B1A", bg: "rgba(255,107,26,0.12)", status: "complete", desc: "Learn to identify real-world problems worth solving." },
+    { id: 2, icon: "lightbulb", title: "DIVE Framework",               duration: "40 min", xp: 200, color: "#C855FF", bg: "rgba(200,85,255,0.12)", status: "complete", desc: "Discover, Ideate, Validate, Elevate — the IdeationX thinking model." },
+    { id: 3, icon: "brain", title: "Design Thinking",              duration: "35 min", xp: 150, color: "#00D4B8", bg: "rgba(0,212,184,0.12)", status: "active",   desc: "Human-centred design methods for insurance innovation." },
+    { id: 4, icon: "bar-chart", title: "Research Fundamentals",        duration: "30 min", xp: 120, color: "#F5C842", bg: "rgba(245,200,66,0.12)", status: "locked",   desc: "Primary and secondary research techniques for Bharat markets." },
+    { id: 5, icon: "book-open", title: "Storytelling & Pitching",      duration: "45 min", xp: 180, color: "#FF6B1A", bg: "rgba(255,107,26,0.12)", status: "locked",   desc: "Craft narratives that move juries, investors, and partners." },
+    { id: 6, icon: "mic", title: "Public Speaking",              duration: "30 min", xp: 120, color: "#00B5EF", bg: "rgba(0,181,239,0.12)", status: "locked",   desc: "Presentation skills and stage presence masterclass." },
+    { id: 7, icon: "layout", title: "Presentation Design",          duration: "25 min", xp: 100, color: "#C855FF", bg: "rgba(200,85,255,0.12)", status: "locked",   desc: "Visual communication and slide design that stands out." },
+    { id: 8, icon: "wallet", title: "Financial Literacy",           duration: "40 min", xp: 160, color: "#F5C842", bg: "rgba(245,200,66,0.12)", status: "locked",   desc: "Unit economics, business models, and insurance-specific finance." },
   ],
 
   /* ── Mentors ──────────────────────────────────────────────── */
@@ -264,11 +264,11 @@ export const IdeationXData = {
 
   /* ── Community Posts ─────────────────────────────────────── */
   communityPosts: [
-    { id: 1, name: "Aisha Khan",    college: "FMS Delhi",          avatar: "AK", color: "#FF6B1A", time: "2h ago",  text: "🔥 Just finished the DIVE Framework module — the 'Validate' step completely changed how I think about our idea. Anyone else working on the GenZ theme? Would love to connect and exchange notes!", likes: 34, replies: 12, theme: "GenZ Protection" },
-    { id: 2, name: "Rohan Mehta",   college: "MICA Ahmedabad",     avatar: "RM", color: "#C855FF", time: "4h ago",  text: "Team of 2 looking for a third member with product/design background. We're building on the Kirana to Coverage theme — we have the distribution model, need someone to help design the user journey 🙏", likes: 21, replies: 8,  theme: "Kirana to Coverage" },
-    { id: 3, name: "Priya Nair",    college: "XLRI Jamshedpur",    avatar: "PN", color: "#00D4B8", time: "6h ago",  text: "💡 Bharat Challenge of the week: Spent 3 hours at a local mandi interviewing farmers. The insight that hit me — most farmers think life insurance is 'for city people'. The branding problem is as big as the product problem.", likes: 67, replies: 23, theme: "Climate & Farmer" },
-    { id: 4, name: "Vikram Singh",  college: "IIM Lucknow",        avatar: "VS", color: "#F5C842", time: "8h ago",  text: "Just uploaded our submission! 10 weeks of research, 3 failed prototypes, and one eureka moment at 2am. Whatever happens in the evaluation, this process has been incredible. #IdeationX2026 #BharatBeginsWithAnIdea", likes: 89, replies: 31, theme: "Invisible Workforce" },
-    { id: 5, name: "Sneha Reddy",   college: "NMIMS Mumbai",       avatar: "SR", color: "#00B5EF", time: "12h ago", text: "Resource Library gold: The Customer Persona worksheet completely transformed our research approach. We went from generic assumptions to actual interviews. 5/5 would recommend to every team 📋", likes: 45, replies: 14, theme: "Women Architects" },
+    { id: 1, name: "Aisha Khan",    college: "FMS Delhi",          avatar: "AK", color: "#FF6B1A", time: "2h ago",  text: "Just finished the DIVE Framework module — the 'Validate' step completely changed how I think about our idea. Anyone else working on the GenZ theme? Would love to connect and exchange notes.", likes: 34, replies: 12, theme: "GenZ Protection" },
+    { id: 2, name: "Rohan Mehta",   college: "MICA Ahmedabad",     avatar: "RM", color: "#C855FF", time: "4h ago",  text: "Team of 2 looking for a third member with product/design background. We're building on the Kirana to Coverage theme — we have the distribution model, need someone to help design the user journey.", likes: 21, replies: 8,  theme: "Kirana to Coverage" },
+    { id: 3, name: "Priya Nair",    college: "XLRI Jamshedpur",    avatar: "PN", color: "#00D4B8", time: "6h ago",  text: "Bharat Challenge of the week: Spent 3 hours at a local mandi interviewing farmers. The insight that hit me — most farmers think life insurance is 'for city people'. The branding problem is as big as the product problem.", likes: 67, replies: 23, theme: "Climate & Farmer" },
+    { id: 4, name: "Vikram Singh",  college: "IIM Lucknow",        avatar: "VS", color: "#F5C842", time: "8h ago",  text: "Just uploaded our submission. 10 weeks of research, 3 failed prototypes, and one eureka moment at 2am. Whatever happens in the evaluation, this process has been incredible. #IdeationX2026", likes: 89, replies: 31, theme: "Invisible Workforce" },
+    { id: 5, name: "Sneha Reddy",   college: "NMIMS Mumbai",       avatar: "SR", color: "#00B5EF", time: "12h ago", text: "Resource Library highlight: The Customer Persona worksheet completely transformed our research approach. We went from generic assumptions to actual interviews. Highly recommend it to every team.", likes: 45, replies: 14, theme: "Women Architects" },
   ],
 
   /* ── Bharat Weekly Challenges ─────────────────────────────── */
@@ -302,13 +302,13 @@ export const IdeationXData = {
 
   /* ── Resources ────────────────────────────────────────────── */
   resources: [
-    { icon: "🔍", name: "Research Template",           type: "XLSX", size: "142 KB", downloads: 2341 },
-    { icon: "📊", name: "Presentation Template",       type: "PPTX", size: "4.2 MB", downloads: 3892 },
-    { icon: "📋", name: "Business Model Canvas",       type: "PDF",  size: "280 KB", downloads: 2876 },
-    { icon: "📈", name: "SWOT Template",               type: "DOCX", size: "98 KB",  downloads: 1654 },
-    { icon: "👤", name: "Customer Persona Worksheet",  type: "PDF",  size: "312 KB", downloads: 2190 },
-    { icon: "🎯", name: "Pitch Deck Template",         type: "PPTX", size: "6.8 MB", downloads: 4210 },
-    { icon: "🗺️", name: "Problem Statement Canvas",   type: "PDF",  size: "198 KB", downloads: 1987 },
+    { icon: "file-search", name: "Research Template",           type: "XLSX", size: "142 KB", downloads: 2341 },
+    { icon: "file-chart", name: "Presentation Template",       type: "PPTX", size: "4.2 MB", downloads: 3892 },
+    { icon: "file-text", name: "Business Model Canvas",       type: "PDF",  size: "280 KB", downloads: 2876 },
+    { icon: "trending-up", name: "SWOT Template",               type: "DOCX", size: "98 KB",  downloads: 1654 },
+    { icon: "user", name: "Customer Persona Worksheet",  type: "PDF",  size: "312 KB", downloads: 2190 },
+    { icon: "target", name: "Pitch Deck Template",         type: "PPTX", size: "6.8 MB", downloads: 4210 },
+    { icon: "map", name: "Problem Statement Canvas",   type: "PDF",  size: "198 KB", downloads: 1987 },
   ]
 };
 

@@ -6,6 +6,7 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { IdeationXData } from '@/lib/data';
+import Icon from '@/components/Icon';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import PhaseTracker from '@/components/PhaseTracker';
 import Countdown from '@/components/Countdown';
@@ -52,11 +53,11 @@ const marqueeSchools = [
 ];
 
 const themeCards = [
-  { id: 1, num: '01', icon: '🏪', tag: 'Distribution', tagCls: 'tag tag--saffron', title: 'Kirana to Coverage', hook: '"What if your neighbourhood Kirana became India\'s most trusted Insurance Mitra?"', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(255,107,26,0.2),rgba(255,62,0,0.08))', '--theme-color': '#FF6B1A', '--theme-glow': 'rgba(255,107,26,0.3)' } },
-  { id: 2, num: '02', icon: '👩‍💼', tag: 'Women', tagStyle: { background: 'rgba(200,85,255,0.12)', color: '#D480FF', border: '1px solid rgba(200,85,255,0.3)' }, title: 'Women as Wealth Architects', hook: '"Every ASHA worker deserves a financial future as strong as the communities she builds."', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(200,85,255,0.18),rgba(120,0,200,0.06))', '--theme-color': '#C855FF', '--theme-glow': 'rgba(200,85,255,0.3)' } },
-  { id: 3, num: '03', icon: '📱', tag: 'GenZ', tagCls: 'tag tag--teal', title: 'GenZ & the Protection Gap', hook: '"Gen Z buys sneakers with EMI. Why not life insurance with a swipe?"', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(0,212,184,0.18),rgba(0,168,232,0.06))', '--theme-color': '#00D4B8', '--theme-glow': 'rgba(0,212,184,0.3)' } },
-  { id: 4, num: '04', icon: '🌾', tag: 'Agriculture', tagCls: 'tag tag--gold', title: 'Climate & the Uninsured Farmer', hook: '"When climate destroys a harvest, it also destroys a family\'s future."', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(245,200,66,0.18),rgba(255,138,0,0.06))', '--theme-color': '#F5C842', '--theme-glow': 'rgba(245,200,66,0.3)' } },
-  { id: 5, num: '05', icon: '🚗', tag: 'Gig Economy', tagStyle: { background: 'rgba(0,181,239,0.12)', color: '#4DCDFF', border: '1px solid rgba(0,181,239,0.3)' }, title: 'The Invisible Workforce', hook: '"Zomato delivers your dinner. Ola drops you home. Who insures their tomorrow?"', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(0,181,239,0.18),rgba(41,32,117,0.08))', '--theme-color': '#00B5EF', '--theme-glow': 'rgba(0,181,239,0.3)' } },
+  { id: 1, num: '01', icon: 'storefront', tag: 'Distribution', tagCls: 'tag tag--saffron', title: 'Kirana to Coverage', hook: '"What if your neighbourhood Kirana became India\'s most trusted Insurance Mitra?"', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(255,107,26,0.2),rgba(255,62,0,0.08))', '--theme-color': '#FF6B1A', '--theme-glow': 'rgba(255,107,26,0.3)' } },
+  { id: 2, num: '02', icon: 'shield-people', tag: 'Women', tagStyle: { background: 'rgba(200,85,255,0.12)', color: '#D480FF', border: '1px solid rgba(200,85,255,0.3)' }, title: 'Women as Wealth Architects', hook: '"Every ASHA worker deserves a financial future as strong as the communities she builds."', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(200,85,255,0.18),rgba(120,0,200,0.06))', '--theme-color': '#C855FF', '--theme-glow': 'rgba(200,85,255,0.3)' } },
+  { id: 3, num: '03', icon: 'smartphone', tag: 'GenZ', tagCls: 'tag tag--teal', title: 'GenZ & the Protection Gap', hook: '"Gen Z buys sneakers with EMI. Why not life insurance with a swipe?"', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(0,212,184,0.18),rgba(0,168,232,0.06))', '--theme-color': '#00D4B8', '--theme-glow': 'rgba(0,212,184,0.3)' } },
+  { id: 4, num: '04', icon: 'wheat', tag: 'Agriculture', tagCls: 'tag tag--gold', title: 'Climate & the Uninsured Farmer', hook: '"When climate destroys a harvest, it also destroys a family\'s future."', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(245,200,66,0.18),rgba(255,138,0,0.06))', '--theme-color': '#F5C842', '--theme-glow': 'rgba(245,200,66,0.3)' } },
+  { id: 5, num: '05', icon: 'briefcase', tag: 'Gig Economy', tagStyle: { background: 'rgba(0,181,239,0.12)', color: '#4DCDFF', border: '1px solid rgba(0,181,239,0.3)' }, title: 'The Invisible Workforce', hook: '"Zomato delivers your dinner. Ola drops you home. Who insures their tomorrow?"', style: { '--theme-gradient': 'linear-gradient(135deg,rgba(0,181,239,0.18),rgba(41,32,117,0.08))', '--theme-color': '#00B5EF', '--theme-glow': 'rgba(0,181,239,0.3)' } },
 ];
 
 
@@ -134,17 +135,17 @@ export default function HomePage() {
               </div>
               <div style={{ position: 'absolute', top: '30px', right: '20px' }} className="anim-float">
                 <div className="glass-card" style={{ padding: '10px 14px', fontSize: '0.78rem', fontWeight: 700 }}>
-                  <span style={{ color: 'var(--gold)' }}>🏆</span> ₹10 Lakh Prize Pool
+                  <span style={{ color: 'var(--gold)' }}><Icon name="trophy" size={16} color="var(--gold)" /></span> ₹10 Lakh Prize Pool
                 </div>
               </div>
               <div style={{ position: 'absolute', bottom: '60px', left: '10px' }} className="anim-float delay-300">
                 <div className="glass-card" style={{ padding: '10px 14px', fontSize: '0.78rem', fontWeight: 700 }}>
-                  <span style={{ color: 'var(--teal)' }}>🎓</span> PPI Offers
+                  <span style={{ color: 'var(--teal)' }}><Icon name="graduation-cap" size={16} color="var(--teal)" /></span> PPI Offers
                 </div>
               </div>
               <div style={{ position: 'absolute', top: '45%', right: '-10px' }} className="anim-float delay-500">
                 <div className="glass-card" style={{ padding: '10px 14px', fontSize: '0.78rem', fontWeight: 700 }}>
-                  <span style={{ color: 'var(--saffron)' }}>📺</span> CNBC Feature
+                  <span style={{ color: 'var(--saffron)' }}><Icon name="tv" size={16} color="var(--saffron)" /></span> CNBC Feature
                 </div>
               </div>
             </div>
@@ -238,7 +239,7 @@ export default function HomePage() {
             </RevealOnScroll>
             <RevealOnScroll delay={0.1}>
               <div className="card" style={{ background: 'var(--bg-elevated)', borderColor: 'rgba(255,107,26,0.2)', boxShadow: '0 0 40px rgba(255,107,26,0.05)' }}>
-                <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--saffron)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>🎬 Campaign Film Screenplay Preview</div>
+                <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--saffron)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}><Icon name="film" size={14} color="var(--saffron)" /> Campaign Film Screenplay Preview</div>
                 <h4 style={{ marginBottom: '12px', fontFamily: 'var(--font-display)' }}>&quot;The Faces of Bharat&quot;</h4>
                 <p style={{ fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: '16px', fontStyle: 'italic' }}>
                   &quot;A quiet village mandi. A bustling metro station platform. An elderly couple sharing tea. A student reading under a hostel lamp.&quot;
@@ -271,7 +272,7 @@ export default function HomePage() {
               {themeCards.map(t => (
                 <Link key={t.id} href={`/themes#theme-${t.id}`} className="theme-card tilt-card" style={t.style}>
                   <div className="theme-card__number">{t.num}</div>
-                  <div className="theme-card__icon">{t.icon}</div>
+                  <div className="theme-card__icon"><Icon name={t.icon} size={28} color={t.style['--theme-color']} /></div>
                   <div className="theme-card__tag">
                     <span className={t.tagCls || 'tag'} style={t.tagStyle}>{t.tag}</span>
                   </div>
@@ -376,7 +377,7 @@ export default function HomePage() {
                     <span className="quote-card__name">Aryan Kumar</span>
                     <span className="quote-card__college">XIME Bangalore — Team Lead</span>
                   </div>
-                  <div className="quote-card__edition">Ed. 1 Winner 🏆</div>
+                  <div className="quote-card__edition">Edition 1 Champion</div>
                 </div>
               </div>
             </RevealOnScroll>
@@ -389,7 +390,7 @@ export default function HomePage() {
                     <span className="quote-card__name">Shreya Pillai</span>
                     <span className="quote-card__college">SPJIMR Mumbai — Team Lead</span>
                   </div>
-                  <div className="quote-card__edition">Ed. 2 Winner 🏆</div>
+                  <div className="quote-card__edition">Edition 2 Champion</div>
                 </div>
               </div>
             </RevealOnScroll>

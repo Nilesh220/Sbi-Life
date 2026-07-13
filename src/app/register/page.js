@@ -6,6 +6,7 @@ import { IdeationXData } from '@/lib/data';
 import { supabase } from '@/lib/supabase';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import Countdown from '@/components/Countdown';
+import Icon from '@/components/Icon';
 
 export default function RegisterPage() {
   const [step, setStep] = useState(1);
@@ -461,7 +462,7 @@ export default function RegisterPage() {
                         onClick={() => handleSelectTheme(t.id)} 
                         style={{ '--tc': t.color }}
                       >
-                        <span style={{ fontSize: '1.5rem' }}>{t.icon}</span>
+                        <span style={{ display: 'inline-flex' }}><Icon name={t.icon} size={24} color={t.color} /></span>
                         <div style={{ flex: 1 }}>
                           <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>{t.name}</div>
                           <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t.entries.toLocaleString()} entries across editions</div>
@@ -483,7 +484,7 @@ export default function RegisterPage() {
               {/* Step 4 */}
               {step === 4 && (
                 <div style={{ textAlign: 'center', padding: 'var(--space-xl) 0' }}>
-                  <div style={{ fontSize: '4rem', marginBottom: 'var(--space-lg)' }}>🎉</div>
+                  <div style={{ marginBottom: 'var(--space-lg)' }}><Icon name="confetti" size={64} color="var(--teal)" /></div>
                   <h3 style={{ marginBottom: 'var(--space-md)' }}>Almost There!</h3>
                   <p style={{ marginBottom: 'var(--space-xl)' }}>Review your registration details, then submit. You&apos;ll get a confirmation email immediately with your team ID.</p>
                   <div style={{ background: 'var(--bg-elevated)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-xl)', textAlign: 'left', marginBottom: 'var(--space-xl)' }}>
@@ -491,7 +492,7 @@ export default function RegisterPage() {
                       <div><div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>Team Lead</div><div style={{ fontWeight: 600 }}>{leadInfo.firstName} {leadInfo.lastName}</div></div>
                       <div><div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>B School</div><div style={{ fontWeight: 600 }}>{leadInfo.collegeName}</div></div>
                       <div><div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>Team Size</div><div style={{ fontWeight: 600 }}>3 Members</div></div>
-                      <div><div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>Theme</div><div style={{ fontWeight: 600, color: selectedThemeObj?.color }}>{selectedThemeObj?.name} {selectedThemeObj?.icon}</div></div>
+                      <div><div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>Theme</div><div style={{ fontWeight: 600, color: selectedThemeObj?.color, display: 'flex', alignItems: 'center', gap: '6px' }}>{selectedThemeObj?.name} <Icon name={selectedThemeObj?.icon} size={16} color={selectedThemeObj?.color} /></div></div>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center' }}>

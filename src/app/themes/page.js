@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import { IdeationXData } from '@/lib/data';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import Icon from '@/components/Icon';
 
 function hexToRgb(hex) {
   const r = parseInt(hex.slice(1, 3), 16);
@@ -62,7 +63,9 @@ export default function ThemesPage() {
                     <div className="full-theme-card__accent" style={{ background: cardGradient }}></div>
                     <div className="full-theme-card__number">0{t.id}</div>
                     <div>
-                      <div className="full-theme-card__icon">{t.icon}</div>
+                      <div className="full-theme-card__icon">
+                        <Icon name={t.icon} size={48} color={t.color} />
+                      </div>
                       <div style={{ marginBottom: 'var(--space-md)' }}>
                         <span className="tag" style={{ background: `rgba(${rgb},0.12)`, color: t.color, border: `1px solid rgba(${rgb},0.3)` }}>
                           Theme {t.id} of 5
@@ -72,7 +75,7 @@ export default function ThemesPage() {
                       <div className="full-theme-card__hook" style={{ borderLeftColor: t.color }}>&quot;{t.hook}&quot;</div>
                       <p className="full-theme-card__brief">{t.brief}</p>
                       <div className="entries-badge">
-                        <span style={{ fontSize: '1.2rem' }}>💡</span>
+                        <span style={{ display: 'inline-flex', marginRight: '6px' }}><Icon name="lightbulb" size={18} color={t.color} /></span>
                         <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: t.color }}>
                           {t.entries.toLocaleString()}
                         </span>
@@ -84,7 +87,7 @@ export default function ThemesPage() {
                     </div>
                     <div>
                       <div className="full-theme-card__prompts">
-                        <h5>💡 Bharat Blueprint Prompts</h5>
+                        <h5><span style={{ display: 'inline-flex', marginRight: '6px' }}><Icon name="lightbulb" size={18} color={t.color} /></span> Bharat Blueprint Prompts</h5>
                         {t.prompts.map((p, pi) => (
                           <div className="prompt-item" key={pi}>
                             <span className="prompt-num" style={{ color: t.color }}>0{pi + 1}</span>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import Icon from '@/components/Icon';
 
 function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
@@ -39,10 +40,10 @@ export default function IdeationXPage() {
   ];
 
   const eligibility = [
-    { icon: '🏫', title: 'Partner B Schools Only', desc: 'Open to students enrolled in any postgraduate course at the 200 official IdeationX 2026 partner B Schools across India.' },
-    { icon: '👥', title: 'Teams of 3 Members', desc: 'All entries must be submitted as teams of exactly 3 students. Cross-specialisation and cross-year teams are permitted. Cross-B School teams are not eligible.' },
-    { icon: '🎯', title: '250 Entries Per B School', desc: 'Each partner B School can submit a maximum of 250 team entries. Once the B School cap is reached, the submission portal locks for that B School.' },
-    { icon: '📋', title: 'One Theme Per Entry', desc: 'Each team must select exactly one of the 5 challenge themes. A student cannot be part of more than one team. Original ideas only.' },
+    { icon: 'school', title: 'Partner B Schools Only', desc: 'Open to students enrolled in any postgraduate course at the 200 official IdeationX 2026 partner B Schools across India.' },
+    { icon: 'users', title: 'Teams of 3 Members', desc: 'All entries must be submitted as teams of exactly 3 students. Cross-specialisation and cross-year teams are permitted. Cross-B School teams are not eligible.' },
+    { icon: 'target', title: '250 Entries Per B School', desc: 'Each partner B School can submit a maximum of 250 team entries. Once the B School cap is reached, the submission portal locks for that B School.' },
+    { icon: 'clipboard', title: 'One Theme Per Entry', desc: 'Each team must select exactly one of the 5 challenge themes. A student cannot be part of more than one team. Original ideas only.' },
   ];
 
   return (
@@ -174,7 +175,7 @@ export default function IdeationXPage() {
             {eligibility.map((elig, idx) => (
               <RevealOnScroll key={elig.title} delay={idx * 0.05}>
                 <div className="elig-card">
-                  <div className="elig-card__icon">{elig.icon}</div>
+                  <div className="elig-card__icon"><Icon name={elig.icon} size={28} color="var(--saffron)" /></div>
                   <h4>{elig.title}</h4>
                   <p style={{ fontSize: '0.88rem', marginTop: 'var(--space-sm)' }}>{elig.desc}</p>
                 </div>
@@ -199,12 +200,12 @@ export default function IdeationXPage() {
           <RevealOnScroll delay={0.1}>
             <div className="responsive-grid-3" style={{ marginTop: 'var(--space-2xl)' }}>
               {[
-                { rank: '🥇', label: 'Grand Finale Winner', amount: '₹5,00,000', color: 'var(--gold)', bg: 'rgba(245,200,66,0.08)', border: 'rgba(245,200,66,0.25)', perks: ['National winner trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'Mentorship from C-Suite'] },
-                { rank: '🥈', label: 'Runner Up', amount: '₹2,50,000', color: 'rgba(180,190,210,1)', bg: 'rgba(180,190,210,0.05)', border: 'rgba(180,190,210,0.2)', perks: ['Runner-up trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'LinkedIn recognition'] },
-                { rank: '🥉', label: 'Second Runner Up', amount: '₹1,00,000', color: 'rgba(205,127,50,0.9)', bg: 'rgba(205,127,50,0.06)', border: 'rgba(205,127,50,0.2)', perks: ['Bronze trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'Certificate of excellence'] },
+                { rank: 'award-gold', label: 'Grand Finale Winner', amount: '₹5,00,000', color: 'var(--gold)', bg: 'rgba(245,200,66,0.08)', border: 'rgba(245,200,66,0.25)', perks: ['National winner trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'Mentorship from C-Suite'] },
+                { rank: 'award-silver', label: 'Runner Up', amount: '₹2,50,000', color: 'rgba(180,190,210,1)', bg: 'rgba(180,190,210,0.05)', border: 'rgba(180,190,210,0.2)', perks: ['Runner-up trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'LinkedIn recognition'] },
+                { rank: 'award-bronze', label: 'Second Runner Up', amount: '₹1,00,000', color: 'rgba(205,127,50,0.9)', bg: 'rgba(205,127,50,0.06)', border: 'rgba(205,127,50,0.2)', perks: ['Bronze trophy', 'CNBC TV18 feature', 'PPI offer from SBI Life', 'Certificate of excellence'] },
               ].map((prize) => (
-                <div key={prize.label} style={{ background: prize.bg, border: `1px solid ${prize.border}`, borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
-                  <div style={{ fontSize: '2.5rem' }}>{prize.rank}</div>
+                <div key={prize.label} style={{ background: prize.bg, border: `1px solid ${prize.border}`, borderRadius: 'var(--radius-xl)', padding: 'var(--space-xl)', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 'var(--space-md)', alignItems: 'center' }}>
+                  <div style={{ marginBottom: '8px' }}><Icon name={prize.rank} size={48} color={prize.color} /></div>
                   <div>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: prize.color }}>{prize.amount}</div>
                     <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>{prize.label}</div>
