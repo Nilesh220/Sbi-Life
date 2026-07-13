@@ -122,7 +122,10 @@ export default function IdeationXPage() {
             <div className="sticky-sidebar">
               <RevealOnScroll>
                 <div className="key-date-card">
-                  <h5 style={{ marginBottom: 'var(--space-md)' }}>⏱ Key Dates</h5>
+                  <h5 style={{ marginBottom: 'var(--space-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Icon name="clock" size={18} color="var(--saffron)" />
+                    Key Dates
+                  </h5>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {keyDates.map(kd => (
                       <div key={kd.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '12px', borderBottom: '1px solid var(--glass-border)' }}>
@@ -136,7 +139,10 @@ export default function IdeationXPage() {
 
               <RevealOnScroll delay={0.1}>
                 <div className="key-date-card">
-                  <h5 style={{ marginBottom: 'var(--space-md)' }}>📏 Quick Stats</h5>
+                  <h5 style={{ marginBottom: 'var(--space-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Icon name="trending-up" size={18} color="var(--teal)" />
+                    Quick Stats
+                  </h5>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-md)' }}>
                     {quickStats.map(qs => (
                       <div key={qs.label} style={{ textAlign: 'center', padding: 'var(--space-md)', background: 'var(--bg-elevated)', borderRadius: 'var(--radius-md)' }}>
@@ -150,7 +156,10 @@ export default function IdeationXPage() {
 
               <RevealOnScroll delay={0.2}>
                 <div className="key-date-card" style={{ background: 'linear-gradient(135deg,rgba(255,107,26,0.1),rgba(0,212,184,0.05))', borderColor: 'rgba(255,107,26,0.2)' }}>
-                  <h5 style={{ marginBottom: 'var(--space-sm)' }}>📥 Download</h5>
+                  <h5 style={{ marginBottom: 'var(--space-sm)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Icon name="download" size={18} color="var(--saffron)" />
+                    Download
+                  </h5>
                   <p style={{ fontSize: '0.85rem', marginBottom: 'var(--space-md)' }}>Get the complete competition structure as a one-pager PDF.</p>
                   <button className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => alert('PDF download will be available soon!')}>
                     Download One-Pager PDF

@@ -344,6 +344,18 @@
 }
 
 /* ── Timeline ─────────────────────────────────────────────── */
+@keyframes timelinePulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 107, 26, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 107, 26, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0px rgba(255, 107, 26, 0);
+  }
+}
+
 .timeline {
   position: relative;
   padding-left: 40px;
@@ -355,7 +367,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--saffron), var(--teal), rgba(0,212,184,0.1));
+  background: linear-gradient(to bottom, var(--saffron), var(--teal), rgba(255,255,255,0.05));
 }
 .timeline-item {
   position: relative;
@@ -363,8 +375,9 @@
   padding: var(--space-lg);
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
+  border-left: 3px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
-  transition: all var(--t-med);
+  transition: all var(--t-med) var(--ease-smooth);
 }
 .timeline-item::before {
   content: '';
@@ -374,22 +387,36 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--bg-card);
+  background: var(--bg-deep);
   border: 2px solid var(--glass-border);
   z-index: 1;
+  transition: all var(--t-med) var(--ease-smooth);
+}
+.timeline-item--active {
+  border-left: 3px solid var(--saffron);
+  background: linear-gradient(135deg, rgba(255,107,26,0.04), rgba(255,255,255,0.01));
 }
 .timeline-item--active::before {
   background: var(--saffron);
   border-color: var(--saffron);
-  box-shadow: 0 0 0 4px var(--saffron-dim);
+  animation: timelinePulse 2s infinite;
+}
+.timeline-item--done {
+  border-left: 3px solid var(--teal);
 }
 .timeline-item--done::before {
   background: var(--teal);
   border-color: var(--teal);
+  box-shadow: 0 0 8px var(--teal);
 }
 .timeline-item:hover {
-  border-color: rgba(255,107,26,0.3);
-  transform: translateX(4px);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  transform: translateX(6px);
+}
+.timeline-item--active:hover {
+  border-color: var(--saffron);
+  box-shadow: 0 8px 30px -10px rgba(255, 107, 26, 0.15);
 }
 .timeline-item__date {
   font-family: var(--font-mono);
@@ -400,8 +427,9 @@
   margin-bottom: var(--space-sm);
   text-transform: uppercase;
 }
-.timeline-item__title { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-.timeline-item__desc  { font-size: 0.88rem; color: var(--text-secondary); }
+.timeline-item__title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+.timeline-item__desc  { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
+
 
 /* ── Module Card (Learning Hub) ───────────────────────────── */
 .module-card {
